@@ -17,6 +17,7 @@ from ._pandas import (
     prefix_slice,
     sorted_unique_times,
     stable_checkpoint_repr,
+    validate_temporal_order,
 )
 from .compare import ComparisonStats, compare_labeled_outputs
 from .types import (
@@ -65,6 +66,7 @@ def plan_checkpoints(
     a full sample with itself provides no look-ahead evidence.
     """
 
+    validate_temporal_order(data, time_level)
     times = sorted_unique_times(data.index, time_level)
     if min_history < 1:
         raise ValueError("min_history must be at least 1.")
@@ -281,7 +283,9 @@ def audit_prefix_invariance(
     name = transform_name or getattr(transform, "__name__", transform.__class__.__name__)
 
     try:
-        full_input = data.copy(deep=True) if copy_input else data
+        # Always isolate the caller's frame. ``copy_input`` is retained for API
+        # compatibility; temporal evidence must never depend on transform mutation.
+        full_input = data.copy(deep=True)
         full_output = ensure_pandas_output(transform(full_input), name=name)
     except Exception as exc:  # noqa: BLE001
         error = f"{type(exc).__name__}: {exc}"
@@ -319,8 +323,7 @@ def audit_prefix_invariance(
         checkpoint_text = stable_checkpoint_repr(checkpoint)
         try:
             prefix = prefix_slice(data, checkpoint, time_level)
-            prefix_input = prefix.copy(deep=True) if copy_input else prefix
-            prefix_output = ensure_pandas_output(transform(prefix_input), name=name)
+            prefix_output = ensure_pandas_output(transform(prefix), name=name)
             left = point_slice(prefix_output, checkpoint, time_level)
             right = point_slice(full_output, checkpoint, time_level)
             stats = compare_labeled_outputs(left, right, atol=atol, rtol=rtol)
@@ -392,6 +395,8 @@ def audit_prefix_invariance(
             "atol": atol,
             "rtol": rtol,
             "coverage": plan.coverage,
+            "input_isolation": True,
+            "copy_input_argument": bool(copy_input),
         },
     )
 
@@ -410,22 +415,49 @@ def audit_determinism(
     if repetitions < 2:
         raise ValueError("repetitions must be at least 2.")
     name = transform_name or getattr(transform, "__name__", transform.__class__.__name__)
-    reference = ensure_pandas_output(transform(data.copy(deep=True)), name=name)
+    try:
+        reference = ensure_pandas_output(transform(data.copy(deep=True)), name=name)
+    except Exception as exc:  # noqa: BLE001
+        finding = Finding(
+            code="TS-DETERMINISM-201",
+            status=AuditStatus.ERROR,
+            message="The reference run failed; determinism could not be evaluated.",
+            details={"error": f"{type(exc).__name__}: {exc}"},
+        )
+        return DeterminismAuditResult(
+            status=AuditStatus.ERROR,
+            repetitions=repetitions,
+            changed_cells=0,
+            compared_cells=0,
+            findings=[finding],
+            metadata={"transform_name": name, "error_run": 0},
+        )
+
     total_changed = 0
     total_compared = 0
     total_missing_left = 0
     total_missing_right = 0
+    errors: list[str] = []
 
-    for _ in range(repetitions - 1):
-        candidate = ensure_pandas_output(transform(data.copy(deep=True)), name=name)
-        stats = compare_labeled_outputs(reference, candidate, atol=atol, rtol=rtol)
-        total_changed += stats.changed_cells
-        total_compared += stats.compared_cells
-        total_missing_left += stats.missing_left
-        total_missing_right += stats.missing_right
+    for repetition in range(1, repetitions):
+        try:
+            candidate = ensure_pandas_output(
+                transform(data.copy(deep=True)), name=name
+            )
+            stats = compare_labeled_outputs(reference, candidate, atol=atol, rtol=rtol)
+            total_changed += stats.changed_cells
+            total_compared += stats.compared_cells
+            total_missing_left += stats.missing_left
+            total_missing_right += stats.missing_right
+        except Exception as exc:  # noqa: BLE001
+            errors.append(f"run {repetition}: {type(exc).__name__}: {exc}")
 
     structural = total_missing_left + total_missing_right
-    if total_changed or structural:
+    if errors:
+        status = AuditStatus.ERROR
+        code = "TS-DETERMINISM-201"
+        message = "At least one repeated run failed; determinism is unresolved."
+    elif total_changed or structural:
         status = AuditStatus.FAIL
         code = "TS-DETERMINISM-101"
         message = "Repeated runs produced different values or labeled output structure."
@@ -448,6 +480,7 @@ def audit_determinism(
                 "changed_cells": total_changed,
                 "missing_left": total_missing_left,
                 "missing_right": total_missing_right,
+                "errors": errors,
             },
         )
     ]
@@ -459,4 +492,6 @@ def audit_determinism(
         missing_left=total_missing_left,
         missing_right=total_missing_right,
         findings=findings,
+        metadata={"transform_name": name, "errors": errors},
     )
+

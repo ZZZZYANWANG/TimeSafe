@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.hypothesis/
 .coverage
 htmlcov/
 dist/
@@ -12,3 +13,5 @@ build/
 venv/
 *.ipynb_checkpoints/
 .DS_Store
+experiments/actr20_public/results/generated/
+experiments/actr20_public/results/run-*/

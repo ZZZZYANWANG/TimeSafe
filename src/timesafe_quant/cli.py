@@ -10,6 +10,7 @@ from collections.abc import Callable
 
 import pandas as pd
 
+from .availability import AvailabilityRule, audit_availability_invariance
 from .demo import run_demo_report
 from .maturity import LabelContract, audit_label_maturity, build_label_intervals
 from .prefix import audit_determinism, audit_prefix_invariance
@@ -60,6 +61,24 @@ def _exit_code(status: AuditStatus) -> int:
     return 3
 
 
+def _parse_availability_rule(spec: str) -> AvailabilityRule:
+    parts = spec.split(":")
+    if len(parts) not in {2, 3, 4}:
+        raise ValueError(
+            "Availability rule must use "
+            "value_column:available_at_column[:event[:reference]]."
+        )
+    value_column, available_at_column = parts[:2]
+    event = parts[2] if len(parts) >= 3 else "after_close"
+    reference = parts[3] if len(parts) == 4 else "checkpoint"
+    return AvailabilityRule(
+        value_column=value_column,
+        available_at_column=available_at_column,
+        available_event=event,
+        reference=reference,
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="timesafe",
@@ -87,6 +106,33 @@ def build_parser() -> argparse.ArgumentParser:
     prefix.add_argument("--rtol", type=float, default=1e-8)
     prefix.add_argument("--determinism-runs", type=int, default=3)
     prefix.add_argument("--output")
+
+    availability = subparsers.add_parser(
+        "availability",
+        help="Audit dependence on values materialized before declared availability.",
+    )
+    availability.add_argument("--input", required=True, help="CSV input file.")
+    availability.add_argument("--callable", required=True, dest="callable_spec", help="module:function")
+    availability.add_argument("--time-col", required=True)
+    availability.add_argument("--asset-col")
+    availability.add_argument(
+        "--rule",
+        action="append",
+        required=True,
+        help=(
+            "value_column:available_at_column[:event[:reference]]; "
+            "reference is checkpoint (labels) or row (historical features)."
+        ),
+    )
+    availability.add_argument("--decision-event", default="close")
+    availability.add_argument(
+        "--checkpoint-policy", choices=["uniform", "all"], default="uniform"
+    )
+    availability.add_argument("--checkpoints", type=int, default=12)
+    availability.add_argument("--min-history", type=int, default=30)
+    availability.add_argument("--atol", type=float, default=1e-10)
+    availability.add_argument("--rtol", type=float, default=1e-8)
+    availability.add_argument("--output")
 
     maturity = subparsers.add_parser("maturity", help="Derive label maturity and purge requirements.")
     maturity.add_argument("--sessions", required=True, help="CSV containing a session column.")
@@ -136,6 +182,31 @@ def main(argv: list[str] | None = None) -> int:
                 rtol=args.rtol,
             )
             report = make_report(prefix=prefix_result, determinism=determinism)
+            _print_or_write(report, args.output)
+            return _exit_code(report.overall_status)
+
+        if args.command == "availability":
+            panel = _read_panel(args.input, args.time_col, args.asset_col)
+            function = _load_callable(args.callable_spec)
+            rules = [_parse_availability_rule(spec) for spec in args.rule]
+            for rule in rules:
+                if rule.available_at_column in panel.columns:
+                    panel[rule.available_at_column] = pd.to_datetime(
+                        panel[rule.available_at_column], errors="raise"
+                    )
+            result = audit_availability_invariance(
+                function,
+                panel,
+                rules=rules,
+                time_level=args.time_col,
+                checkpoint_policy=args.checkpoint_policy,
+                n_checkpoints=args.checkpoints,
+                min_history=args.min_history,
+                decision_event=args.decision_event,
+                atol=args.atol,
+                rtol=args.rtol,
+            )
+            report = make_report(prefix=result)
             _print_or_write(report, args.output)
             return _exit_code(report.overall_status)
 

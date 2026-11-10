@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from ._pandas import PandasObject, to_frame
+from ._pandas import PandasObject, ensure_pandas_output, to_frame
 
 
 @dataclass(frozen=True)
@@ -46,8 +46,10 @@ def compare_labeled_outputs(
 ) -> ComparisonStats:
     """Compare labeled outputs with strict label alignment and NaN-aware semantics."""
 
-    left_frame = to_frame(left)
-    right_frame = to_frame(right)
+    if atol < 0 or rtol < 0:
+        raise ValueError("atol and rtol must be non-negative.")
+    left_frame = to_frame(ensure_pandas_output(left, name="left"))
+    right_frame = to_frame(ensure_pandas_output(right, name="right"))
 
     union_index = left_frame.index.union(right_frame.index, sort=False)
     union_columns = left_frame.columns.union(right_frame.columns, sort=False)
@@ -107,12 +109,21 @@ def compare_labeled_outputs(
                 numeric_abs.append(abs_diff)
                 numeric_rel.append(abs_diff / denom)
         else:
-            left_values = left_col.iloc[np.flatnonzero(row_mask)]
-            right_values = right_col.iloc[np.flatnonzero(row_mask)]
-            equal = left_values.eq(right_values) | (
-                left_values.isna() & right_values.isna()
-            )
-            changed_cells += int((~equal.to_numpy(dtype=bool)).sum())
+            left_values = left_col.iloc[np.flatnonzero(row_mask)].astype(object).to_numpy()
+            right_values = right_col.iloc[np.flatnonzero(row_mask)].astype(object).to_numpy()
+            equal_values: list[bool] = []
+            for left_value, right_value in zip(left_values, right_values):
+                left_na = bool(pd.isna(left_value))
+                right_na = bool(pd.isna(right_value))
+                if left_na or right_na:
+                    equal_values.append(left_na and right_na)
+                    continue
+                try:
+                    comparison = left_value == right_value
+                    equal_values.append(False if comparison is pd.NA else bool(comparison))
+                except (TypeError, ValueError):
+                    equal_values.append(False)
+            changed_cells += int((~np.asarray(equal_values, dtype=bool)).sum())
 
     max_abs = None
     max_rel = None

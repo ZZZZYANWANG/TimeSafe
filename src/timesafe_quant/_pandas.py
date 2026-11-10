@@ -22,6 +22,8 @@ def ensure_pandas_output(value: object, *, name: str = "transform") -> PandasObj
         )
     if not value.index.is_unique:
         raise ValueError(f"{name} output index must be unique for unambiguous alignment.")
+    if isinstance(value, pd.DataFrame) and not value.columns.is_unique:
+        raise ValueError(f"{name} output columns must be unique for unambiguous alignment.")
     return value
 
 
@@ -87,3 +89,24 @@ def scalar_jsonable(value: object) -> object:
     if isinstance(value, np.generic):
         return value.item()
     return value
+
+
+def validate_temporal_order(
+    data: pd.DataFrame,
+    level: TimeLevel = 0,
+) -> None:
+    """Require a non-missing, non-decreasing temporal coordinate.
+
+    TimeSafe never sorts user input silently because rolling transforms may depend
+    on row order.  A temporal audit on unsorted observations would test a different
+    object from the one the researcher intended.
+    """
+
+    values = time_values(data.index, level)
+    if values.hasnans:
+        raise ValueError("The temporal index level must not contain missing values.")
+    if not values.is_monotonic_increasing:
+        raise ValueError(
+            "The temporal index level must be sorted in non-decreasing order; "
+            "TimeSafe does not reorder research data implicitly."
+        )

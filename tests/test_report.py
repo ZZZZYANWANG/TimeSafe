@@ -8,7 +8,7 @@ def test_report_renders_markdown_and_json(tmp_path):
     report = run_demo_report()
     markdown = render_markdown(report)
     assert "Evidence matrix" in markdown
-    assert "Prefix/refit invariance" in markdown
+    assert "Prefix invariance" in markdown
     assert "coverage=" in markdown
 
     md_path = write_report(report, tmp_path / "report.md")

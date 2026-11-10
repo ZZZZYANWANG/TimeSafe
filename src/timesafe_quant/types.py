@@ -52,6 +52,7 @@ class CheckpointComparison:
     max_abs_diff: float | None = None
     max_rel_diff: float | None = None
     error: str | None = None
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
     def structural_differences(self) -> int:
@@ -178,6 +179,7 @@ class DeterminismAuditResult:
     missing_left: int = 0
     missing_right: int = 0
     findings: list[Finding] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
     def structural_differences(self) -> int:
@@ -200,6 +202,7 @@ class DeterminismAuditResult:
             "structural_differences": self.structural_differences,
             "changed_fraction": self.changed_fraction,
             "findings": [item.to_dict() for item in self.findings],
+            "metadata": self.metadata,
         }
 
 
@@ -219,6 +222,8 @@ class LabelContractSummary:
     label_end_offset_sessions: int
     label_available_offset_sessions: int
     recommended_purge_sessions: int
+    contract_schema_version: int
+    fingerprint: str
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

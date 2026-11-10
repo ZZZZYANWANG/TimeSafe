@@ -1,64 +1,55 @@
 # Design: temporal integrity as an executable contract
 
-## 1. Two distinct audit modes
+## 1. Four independent audit surfaces
 
-TimeSafe separates two questions that are often conflated.
-
-### Transform audit
-
-For a pure transform \(F\):
+### Transform prefix invariance
 
 \[
-F(D_{1:t}) \stackrel{?}{=} F(D_{1:T})_t.
+F(D_{1:t}) \stackrel{?}{=} F(D_{1:T})_t
 \]
 
-This detects future dependence that enters through the supplied input rows. It is appropriate for factors, rolling transforms, data cleaning, universe construction, and deterministic prediction functions whose complete state is inside the input or function call.
+This detects future dependence entering through supplied rows. Inputs must be uniquely indexed and time-sorted; TimeSafe never silently reorders them.
 
-### Refit audit
+### Fresh-state refit invariance
 
-For trainable state, TimeSafe creates two fresh estimator instances at every checkpoint and executes the same fitting code once on the prefix and once on the full input. The fitting code is expected to enforce the legal historical boundary even when it receives the full dataset.
+At each checkpoint TimeSafe creates independent, unfitted objects and invokes the same fitting code on the prefix and full input. Correct fitting code must enforce the legal cutoff itself. scikit-learn objects are cloned with `sklearn.base.clone`.
 
-This catches full-sample fitting of scalers, PCA, imputers, clustering, regressors, and classifiers. All trainable state must be created by the estimator factory.
+### Availability perturbation
+
+A value can leak even when it is already stored on a historical row. TimeSafe masks declared unavailable cells and reruns the transform or fresh-state model. `reference="checkpoint"` is appropriate for labels available by model-fit time; `reference="row"` is appropriate for features that must have been published by each row's historical decision.
+
+### Label and split contract
+
+A label is represented by event-aware decision, entry, exit, availability, and safety-gap endpoints. Interval tables carry a contract fingerprint and are recomputed from the active contract and calendar before strict splitting.
 
 ## 2. Evidence semantics
 
-`PASS` is deliberately narrow:
-
-- every eligible checkpoint was checked;
-- at least one labeled cell was compared;
-- no value or structural difference occurred;
-- no checkpoint errored or remained unresolved.
-
-A uniform sample with no violations returns `WARN`, not `PASS`. Zero comparable output returns `INCONCLUSIVE`.
+`PASS` is deliberately narrow: all eligible checkpoints are tested, comparable evidence exists, no structural/value difference occurs, and no checkpoint remains unresolved. Sampled evidence is `WARN`; zero perturbation/output is `INCONCLUSIVE`.
 
 ## 3. Labeled comparison
 
-Value differences are computed only on cells present in both outputs. Structural additions and removals are counted separately. This prevents changed-cell fractions above 100% and makes dynamic-universe changes visible.
+Only cells present in both outputs contribute to value comparisons. Structural additions/removals are separate. Duplicate row/column labels are rejected because alignment would be ambiguous.
 
-## 4. Pipeline localization
+## 4. Input and stage isolation
 
-Each stage receives a deep copy and its output is snapshotted before the next stage runs. A later in-place mutation therefore cannot rewrite earlier evidence. Exceptions are recorded at the true failing stage; downstream stages are unresolved.
+User data is never passed as mutable shared state. Named pipeline stages receive private inputs and produce deep-copied snapshots. A later in-place mutation cannot rewrite earlier evidence.
 
-## 5. Event-aware label contract
-
-TimeSafe orders within-session events as:
+## 5. Event model
 
 ```text
 pre_open < open < intraday < close < after_close
 ```
 
-The contract rejects impossible sequences such as `close_t -> open_t`. It maps each decision to entry, exit, label availability, and the end of the declared safety gap.
+A contract rejects execution at or before the decision. Holding duration depends on both entry and exit events, not only session offsets.
 
 ## 6. Purge and embargo
 
-Past-only walk-forward training applies:
-
-\[
-label\_available\_with\_gap < test\_decision.
-\]
-
-A post-test embargo is irrelevant to a strictly past-only training set and is rejected rather than ignored. Arbitrary candidate train/test masks use `purged_train_test_masks`, which removes interval overlap, safety-gap violations, and post-test embargo rows.
+Each training sample has an information interval from decision through label availability plus the declared safety gap. Each test sample has an interval from decision through label end. Training intervals overlapping any merged test block are removed; a post-test embargo is applied after every test block.
 
 ## 7. Mature open-source reuse
 
-TimeSafe does not implement estimator cloning itself. The optional scikit-learn adapter delegates to `sklearn.base.clone`. It also does not reimplement CPCV, PSR, DSR, experiment tracking, or backtesting; those belong to skfolio/mlfinpy, MLflow, JoinQuant, Qlib, vectorbt, or an internal platform.
+TimeSafe delegates estimator cloning to scikit-learn and uses Hypothesis in the development suite for generated boundary cases. It intentionally does not reimplement CPCV, PSR/DSR, experiment tracking, backtesting, optimization, or execution simulation.
+
+## 8. Real-model validation
+
+The ACTR-20 experiment separates the full benchmark reproduction from bounded model audits. Every expensive audit executes in a fresh interpreter and writes a JSON artifact. Negative controls are mandatory: a validation suite that cannot reject deliberate full-sample training or immature labels is not accepted.

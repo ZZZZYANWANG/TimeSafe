@@ -34,3 +34,39 @@ def test_shared_and_missing_cells_are_separated():
     assert result.changed_cells == 0
     assert result.missing_left == 1
     assert result.missing_right == 1
+
+
+def test_nullable_string_and_category_comparison():
+    index = pd.Index(["a", "b", "c"])
+    left = pd.DataFrame(
+        {
+            "s": pd.Series(["x", pd.NA, "z"], index=index, dtype="string"),
+            "c": pd.Series(pd.Categorical(["u", "v", None]), index=index),
+        }
+    )
+    right = left.copy()
+    result = compare_labeled_outputs(left, right)
+    assert result.changed_cells == 0
+    assert result.compared_cells == 6
+
+
+def test_nullable_string_difference_is_detected():
+    index = pd.Index(["a", "b"])
+    left = pd.Series(["x", pd.NA], index=index, dtype="string")
+    right = pd.Series(["y", pd.NA], index=index, dtype="string")
+    result = compare_labeled_outputs(left, right)
+    assert result.changed_cells == 1
+
+
+def test_categorical_columns_with_different_category_sets_are_compared_safely():
+    left = pd.Series(
+        pd.Categorical(["a", "b"], categories=["a", "b"]),
+        index=[0, 1],
+    )
+    right = pd.Series(
+        pd.Categorical(["a", "c"], categories=["a", "c"]),
+        index=[0, 1],
+    )
+    result = compare_labeled_outputs(left, right)
+    assert result.compared_cells == 2
+    assert result.changed_cells == 1

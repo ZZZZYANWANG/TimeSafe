@@ -72,8 +72,16 @@ def render_markdown(report: TimeSafeReport) -> str:
         "|---|---|---|",
     ]
     if report.prefix is not None:
+        audit_mode = report.prefix.metadata.get("audit_mode", "transform")
+        audit_label = {
+            "transform": "Prefix invariance",
+            "refit": "Fresh-state refit invariance",
+            "availability_transform": "Availability perturbation",
+            "availability_refit": "Fresh-state availability perturbation",
+            "refit_determinism": "Fresh-state refit determinism",
+        }.get(audit_mode, "Temporal invariance")
         lines.append(
-            "| Prefix/refit invariance | "
+            f"| {audit_label} | "
             f"{report.prefix.status.value} | "
             f"{report.prefix.total_changed_cells} changed values; "
             f"{report.prefix.total_structural_differences} structural differences; "
@@ -125,8 +133,8 @@ def render_markdown(report: TimeSafeReport) -> str:
                 "",
                 "## Prefix/refit checkpoints",
                 "",
-                "| Checkpoint | Status | Compared | Changed | Missing left | Missing right | Max abs diff | Error |",
-                "|---|---:|---:|---:|---:|---:|---:|---|",
+                "| Checkpoint | Status | Compared | Changed | Missing left | Missing right | Max abs diff | Context | Error |",
+                "|---|---:|---:|---:|---:|---:|---:|---|---|",
             ]
         )
         for item in report.prefix.checkpoints:
@@ -134,7 +142,7 @@ def render_markdown(report: TimeSafeReport) -> str:
                 f"| {item.checkpoint} | {item.status.value} | {item.compared_cells} | "
                 f"{item.changed_cells} | {item.missing_left} | {item.missing_right} | "
                 f"{item.max_abs_diff if item.max_abs_diff is not None else ''} | "
-                f"{item.error or ''} |"
+                f"{item.metadata or ''} | {item.error or ''} |"
             )
 
     if report.pipeline is not None:

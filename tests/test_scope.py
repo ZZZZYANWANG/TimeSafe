@@ -10,7 +10,7 @@ from timesafe_quant import (
 from timesafe_quant.demo import make_demo_panel
 
 
-def test_prefit_external_state_is_outside_transform_audit_but_refit_detects_training_leak():
+def test_prefit_external_state_is_outside_transform_audit_but_refit_mode_detects_training_leak():
     panel = make_demo_panel(sessions=45, assets=2)
     mean = panel["return"].mean()
     std = panel["return"].std(ddof=0)

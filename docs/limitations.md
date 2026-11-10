@@ -2,38 +2,34 @@
 
 TimeSafe is an executable temporal-contract auditor, not a proof of strategy validity.
 
-## Data-vintage limits
+## Data vintages and timestamp authority
 
-Prefix invariance cannot reconstruct historical vendor vintages. If revised fundamentals, corrected trades, or retrospective classifications have already overwritten the past, TimeSafe sees only the supplied version. Publication timestamps and revision policies still require authoritative metadata.
+TimeSafe cannot reconstruct a historical vendor vintage that was never supplied. Publication timestamps and revision policies must come from authoritative metadata. Availability perturbation tests whether a pipeline depends on the declared unavailable cells; it does not certify that the declaration itself is true.
 
 ## External state
 
-Transform-only auditing cannot detect a scaler, PCA, model, cache, or database table that was fitted on the full sample before the transform was called. Use `audit_refit_prefix_invariance` and ensure all trainable state is created by the supplied factory. Hidden external state remains outside the guarantee.
+All trainable state must be created by the audited factory. Remote caches, databases, feature stores, global objects, and external checkpoints that are not rebuilt remain outside the guarantee.
 
-## Coverage
+## Coverage and computation
 
-A sampled audit can miss a localized violation. TimeSafe therefore reports eligible checkpoints, checked checkpoints, coverage, and policy. Only `checkpoint_policy="all"` can yield an exhaustive `PASS`.
+Exhaustive refit audits may be expensive. Sampled runs return `WARN` and disclose coverage. A negative control can establish sensitivity to a failure mode, but it cannot transform sampled evidence into exhaustive evidence.
 
-## Output requirements
+## Output and ordering requirements
 
-Transforms must return a uniquely indexed pandas Series or DataFrame. Empty output is `INCONCLUSIVE`, not `PASS`. Opaque arrays, side-effect-only code, and remote systems require an adapter that exposes labeled historical outputs.
+Transforms must return a uniquely indexed pandas Series/DataFrame with unique columns. Inputs must have a non-missing, non-decreasing temporal coordinate. Empty output or a perturbation that changes no actual cell is `INCONCLUSIVE`.
+
+## Availability semantics
+
+`reference="checkpoint"` and `reference="row"` answer different questions. Choosing the wrong reference can under-mask or over-mask data. Per-row publication/event metadata must be supplied when a constant rule is not valid.
 
 ## Calendar and event model
 
-The built-in contract uses a user-supplied ordered session calendar and five generic within-session events. Exchange auctions, lunch breaks, night sessions, time zones, early closes, and asset-specific calendars must be represented in the supplied data/calendar or handled by an adapter. TimeSafe does not claim official exchange-calendar authority.
+The built-in model uses a user-supplied session calendar and five generic events. Auctions, lunch breaks, night sessions, early closes, time zones, and asset-specific calendars require an adapter or a sufficiently detailed calendar. TimeSafe does not claim official exchange-calendar authority.
 
 ## Statistical and economic validity
 
-Temporal legality does not imply:
+Temporal legality does not imply absence of selection bias, a valid mechanism, realistic fills/costs/capacity, regime robustness, or production readiness. Use CPCV/DSR/PBO, experiment ledgers, mechanism-specific placebos, and cost-aware simulation separately.
 
-- absence of research overfitting;
-- valid economic mechanism;
-- realistic fills, costs, impact, or capacity;
-- robustness across regimes;
-- production readiness.
+## ACTR public experiment
 
-Use purged model selection and DSR/PBO tools, mechanism-specific placebos, and cost-aware simulation separately.
-
-## Computational cost
-
-Exhaustive prefix and refit audits may be expensive. Sampled mode is useful for development but returns `WARN`. CI can combine a fast sampled audit with a smaller exhaustive fixture.
+The ACTR anonymous benchmark is block-shuffled and deidentified. It validates code paths and structural reproduction, not chronological investment performance. The data remains governed by its external research-only terms and is not redistributed by TimeSafe.

@@ -104,7 +104,7 @@ def test_empty_output_is_inconclusive():
     assert result.total_compared_cells == 0
 
 
-def test_localized_leak_is_caught_exhaustively():
+def test_localized_leak_can_be_missed_by_sampling_but_caught_exhaustively():
     panel = make_demo_panel(sessions=70, assets=2)
     dates = panel.index.get_level_values("date").unique()
     leak_date = dates[31]
@@ -151,3 +151,21 @@ def test_unknown_checkpoint_is_rejected():
             time_level="date",
             checkpoints=[pd.Timestamp("1990-01-01")],
         )
+
+
+def test_duplicate_output_columns_are_rejected():
+    panel = make_demo_panel(sessions=40, assets=3)
+
+    def duplicate_columns(data):
+        out = pd.concat([data[["return"]], data[["return"]]], axis=1)
+        out.columns = ["x", "x"]
+        return out
+
+    result = audit_prefix_invariance(
+        duplicate_columns,
+        panel,
+        time_level="date",
+        checkpoint_policy="all",
+        min_history=15,
+    )
+    assert result.status is AuditStatus.ERROR
