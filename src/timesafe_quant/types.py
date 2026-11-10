@@ -8,10 +8,17 @@ from typing import Any
 
 
 class AuditStatus(str, Enum):
-    """Normalized audit state."""
+    """Normalized audit state.
+
+    ``PASS`` is reserved for conclusive, exhaustive evidence under the supplied
+    contract. ``WARN`` means no violation was found but coverage or another
+    non-fatal limitation remains. ``INCONCLUSIVE`` means the audit produced no
+    comparable evidence.
+    """
 
     PASS = "PASS"
     WARN = "WARN"
+    INCONCLUSIVE = "INCONCLUSIVE"
     FAIL = "FAIL"
     ERROR = "ERROR"
 
@@ -39,22 +46,27 @@ class CheckpointComparison:
     status: AuditStatus
     compared_cells: int
     changed_cells: int
-    changed_fraction: float
+    changed_fraction: float | None
     missing_left: int = 0
     missing_right: int = 0
     max_abs_diff: float | None = None
     max_rel_diff: float | None = None
     error: str | None = None
 
+    @property
+    def structural_differences(self) -> int:
+        return self.missing_left + self.missing_right
+
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
         payload["status"] = self.status.value
+        payload["structural_differences"] = self.structural_differences
         return payload
 
 
 @dataclass
 class PrefixAuditResult:
-    """Result of black-box prefix-invariance testing."""
+    """Result of black-box prefix-invariance or refit testing."""
 
     status: AuditStatus
     transform_name: str
@@ -62,14 +74,30 @@ class PrefixAuditResult:
     first_violation: str | None
     total_changed_cells: int
     total_compared_cells: int
+    total_missing_left: int = 0
+    total_missing_right: int = 0
+    eligible_checkpoints: int = 0
+    checked_checkpoints: int = 0
+    checkpoint_policy: str = "uniform"
+    exhaustive: bool = False
     findings: list[Finding] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
-    def changed_fraction(self) -> float:
+    def changed_fraction(self) -> float | None:
         if self.total_compared_cells == 0:
-            return 0.0
+            return None
         return self.total_changed_cells / self.total_compared_cells
+
+    @property
+    def coverage(self) -> float:
+        if self.eligible_checkpoints == 0:
+            return 0.0
+        return self.checked_checkpoints / self.eligible_checkpoints
+
+    @property
+    def total_structural_differences(self) -> int:
+        return self.total_missing_left + self.total_missing_right
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -79,7 +107,15 @@ class PrefixAuditResult:
             "first_violation": self.first_violation,
             "total_changed_cells": self.total_changed_cells,
             "total_compared_cells": self.total_compared_cells,
+            "total_missing_left": self.total_missing_left,
+            "total_missing_right": self.total_missing_right,
+            "total_structural_differences": self.total_structural_differences,
             "changed_fraction": self.changed_fraction,
+            "eligible_checkpoints": self.eligible_checkpoints,
+            "checked_checkpoints": self.checked_checkpoints,
+            "checkpoint_policy": self.checkpoint_policy,
+            "exhaustive": self.exhaustive,
+            "coverage": self.coverage,
             "findings": [item.to_dict() for item in self.findings],
             "metadata": self.metadata,
         }
@@ -95,10 +131,19 @@ class PipelineStageSummary:
     changed_cells: int
     compared_cells: int
     first_violation: str | None
+    missing_left: int = 0
+    missing_right: int = 0
+    error_checkpoints: int = 0
+    inconclusive_checkpoints: int = 0
+
+    @property
+    def structural_differences(self) -> int:
+        return self.missing_left + self.missing_right
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
         payload["status"] = self.status.value
+        payload["structural_differences"] = self.structural_differences
         return payload
 
 
@@ -110,6 +155,7 @@ class PipelineAuditResult:
     first_failing_stage: str | None
     stages: list[PipelineStageSummary]
     findings: list[Finding] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -117,6 +163,7 @@ class PipelineAuditResult:
             "first_failing_stage": self.first_failing_stage,
             "stages": [stage.to_dict() for stage in self.stages],
             "findings": [item.to_dict() for item in self.findings],
+            "metadata": self.metadata,
         }
 
 
@@ -128,7 +175,19 @@ class DeterminismAuditResult:
     repetitions: int
     changed_cells: int
     compared_cells: int
+    missing_left: int = 0
+    missing_right: int = 0
     findings: list[Finding] = field(default_factory=list)
+
+    @property
+    def structural_differences(self) -> int:
+        return self.missing_left + self.missing_right
+
+    @property
+    def changed_fraction(self) -> float | None:
+        if self.compared_cells == 0:
+            return None
+        return self.changed_cells / self.compared_cells
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -136,6 +195,10 @@ class DeterminismAuditResult:
             "repetitions": self.repetitions,
             "changed_cells": self.changed_cells,
             "compared_cells": self.compared_cells,
+            "missing_left": self.missing_left,
+            "missing_right": self.missing_right,
+            "structural_differences": self.structural_differences,
+            "changed_fraction": self.changed_fraction,
             "findings": [item.to_dict() for item in self.findings],
         }
 
@@ -148,6 +211,10 @@ class LabelContractSummary:
     holding_period_sessions: int
     label_publication_lag_sessions: int
     safety_gap_sessions: int
+    decision_event: str
+    execution_event: str
+    exit_event: str
+    label_available_event: str
     label_start_offset_sessions: int
     label_end_offset_sessions: int
     label_available_offset_sessions: int
