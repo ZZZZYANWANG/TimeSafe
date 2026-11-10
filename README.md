@@ -1,16 +1,17 @@
 # TimeSafe Quant
 
-**Black-box temporal integrity and label-maturity auditing for quantitative research pipelines.**
+**Temporal integrity, refit, and label-maturity auditing for quantitative research pipelines.**
 
-> A backtest platform can tell you how much a strategy earned. TimeSafe asks a more basic question: **was the historical signal allowed to know what it knew?**
+> A backtest can report what a strategy earned. TimeSafe asks a prior question:
+> **was the historical signal allowed to know what it knew?**
 
-TimeSafe is a small, platform-neutral Python library for detecting hidden future-data dependence in factors, feature pipelines, and model outputs. It focuses on three tasks:
+TimeSafe is a small, platform-neutral Python library for turning temporal assumptions into executable tests. It audits three distinct objects:
 
-1. **Prefix invariance** — would the value published at time `t` change after future rows are appended?
-2. **Label maturity and purge** — was a target actually observable when it entered training, and do train/test label intervals overlap?
-3. **Evidence reporting** — can the temporal assumptions and violations be rendered as an auditable Markdown/JSON evidence card?
+1. **Pure transforms** — would a factor or feature value at time `t` change after future rows are appended?
+2. **Trainable pipelines** — would a freshly rebuilt model produce a different historical prediction when its fitting code receives future rows?
+3. **Labels and splits** — were targets mature, was the decision/entry/exit sequence possible, and were purge, safety-gap, and embargo rules actually applied?
 
-It does **not** replace a backtester, model trainer, experiment tracker, or portfolio optimizer. Use it alongside JoinQuant, Qlib, vectorbt, skfolio, MLflow, or an internal research platform.
+TimeSafe deliberately does **not** implement backtesting, CPCV, DSR/PBO, experiment tracking, portfolio optimization, or execution simulation. Use it with JoinQuant, Qlib, vectorbt, skfolio/mlfinpy, MLflow, scikit-learn, or an internal research platform.
 
 ---
 
@@ -18,31 +19,51 @@ It does **not** replace a backtester, model trainer, experiment tracker, or port
 
 Look-ahead leakage is often subtler than `shift(-1)`:
 
-- global mean/std normalization fitted on the full history;
-- PCA or clustering fitted on all dates and backfilled into the past;
+- global standardization fitted on the full history;
+- PCA, clustering, imputation, or state labels fitted on all dates;
 - centered rolling windows or two-sided filters;
 - retrospective continuous-contract construction;
 - revised fundamentals replacing the vintage known at the time;
-- same-day member-position data published after the decision time;
-- labels that had not matured before model fitting;
-- random cross-validation on overlapping forward-return labels.
+- same-day data published after the decision event;
+- pre-fitted model state captured in a closure or global object;
+- labels entering training before their outcomes matured;
+- random validation on overlapping forward-return intervals.
 
-Many of these pipelines produce smooth, plausible signals and excellent backtests. Static source scanning is not enough. TimeSafe treats the pipeline as a black box and tests:
+Many such pipelines produce smooth factors and excellent backtests. Static code scanning cannot reliably detect them. TimeSafe uses executable temporal contracts.
+
+For a pure transform \(F\), prefix invariance is:
 
 \[
 F(D_{1:t}) \stackrel{?}{=} F(D_{1:T})_t.
 \]
 
-If adding future rows changes an output that was supposedly known at `t`, the implementation is not temporally invariant under the tested contract.
+For a trainable pipeline, TimeSafe also rebuilds **fresh estimator state** at each checkpoint and compares the prefix-only fit with the same fitting code run against the full input.
 
 ---
 
-## Quick start
+## Install
 
 ```bash
 pip install -e .
-timesafe demo
 ```
+
+For scikit-learn estimator cloning:
+
+```bash
+pip install -e ".[model]"
+```
+
+Development:
+
+```bash
+pip install -e ".[dev]"
+pytest
+ruff check .
+```
+
+---
+
+## 1. Pure-transform prefix audit
 
 ```python
 import pandas as pd
@@ -58,49 +79,98 @@ def factor(panel: pd.DataFrame) -> pd.Series:
         .rename("factor")
     )
 
+
 result = audit_prefix_invariance(
     factor,
-    panel,                 # unique (date, asset) MultiIndex
+    panel,                       # unique (date, asset) MultiIndex
     time_level="date",
-    n_checkpoints=20,
+    checkpoint_policy="all",     # exhaustive evidence
     min_history=60,
 )
 
 print(result.status)
+print(result.coverage)
 print(result.first_violation)
 ```
 
-The callable must return a uniquely indexed `pandas.Series` or `pandas.DataFrame`, aligned to the historical observations it describes.
+### Evidence semantics
+
+- `PASS`: every eligible historical checkpoint was tested and produced comparable output.
+- `WARN`: no violation was found, but the audit sampled checkpoints or had unresolved checkpoints.
+- `INCONCLUSIVE`: no comparable labeled cells were produced.
+- `FAIL`: values or labeled output structure changed.
+- `ERROR`: the audit could not complete.
+
+A clean sampled audit is intentionally **not** called `PASS`.
+
+```python
+sampled = audit_prefix_invariance(
+    factor,
+    panel,
+    time_level="date",
+    checkpoint_policy="uniform",
+    n_checkpoints=20,
+    min_history=60,
+)
+# usually WARN, with explicit eligible/checked counts and coverage
+```
+
+The final timestamp is excluded because `prefix == full history` there and provides no future-data evidence.
 
 ---
 
-## Prefix-invariance audit
+## 2. Refit-aware model audit
 
-For every historical checkpoint, TimeSafe runs the transform on:
-
-- the prefix that was available at the time;
-- the full history, then extracts the output at that same historical time.
-
-It reports changed cells, missing rows/columns, numerical differences, and the first violating date.
+A transform audit cannot detect trainable state that was fitted before the function was called. Use the refit audit when the research claim includes model training, preprocessing fit, PCA fit, imputation fit, or any learned state.
 
 ```python
-from timesafe_quant import audit_prefix_invariance
+import pandas as pd
+from sklearn.linear_model import Ridge
+from timesafe_quant import (
+    audit_refit_prefix_invariance,
+    sklearn_estimator_factory,
+)
 
-result = audit_prefix_invariance(
-    transform=my_pipeline,
-    data=panel,
+
+def fit_predict(estimator, data: pd.DataFrame, checkpoint):
+    dates = data.index.get_level_values("date")
+
+    # The fitting code must enforce the legal training boundary even when
+    # TimeSafe deliberately passes the full dataset.
+    train = dates < checkpoint
+    current = dates == checkpoint
+
+    estimator.fit(data.loc[train, ["feature"]], data.loc[train, "target"])
+    prediction = estimator.predict(data.loc[current, ["feature"]])
+    return pd.Series(prediction, index=data.index[current], name="prediction")
+
+
+result = audit_refit_prefix_invariance(
+    sklearn_estimator_factory(Ridge(alpha=10.0)),
+    fit_predict,
+    panel,
     time_level="date",
-    n_checkpoints=12,
+    checkpoint_policy="all",
     min_history=60,
-    atol=1e-10,
-    rtol=1e-8,
 )
 ```
 
-### Stage localization
+`sklearn_estimator_factory` delegates cloning to the mature `sklearn.base.clone` implementation. For non-scikit-learn models, pass any factory that returns a **fresh, unfitted object**.
+
+### Refit contract
+
+All trainable state must be created by the factory. TimeSafe cannot prove the legality of hidden global caches, vendor vintages, remote feature stores, or external pre-fitted objects that are not rebuilt inside the audit.
+
+---
+
+## 3. Stage-aware localization
 
 ```python
-from timesafe_quant import CausalPipeline, PipelineStep, audit_pipeline_prefix_invariance
+from timesafe_quant import (
+    CausalPipeline,
+    PipelineStep,
+    audit_pipeline_prefix_invariance,
+)
 
 pipeline = CausalPipeline([
     PipelineStep("raw", lambda x: x[["return"]]),
@@ -108,21 +178,34 @@ pipeline = CausalPipeline([
     PipelineStep("smooth", lambda x: x.ewm(span=10, adjust=False).mean()),
 ])
 
-result = audit_pipeline_prefix_invariance(pipeline, panel, time_level="date")
+result = audit_pipeline_prefix_invariance(
+    pipeline,
+    panel,
+    time_level="date",
+    checkpoint_policy="all",
+    min_history=60,
+)
+
 print(result.first_failing_stage)  # standardize
 ```
 
+Each stage is deep-copied into an immutable snapshot. In-place mutation by a later stage cannot rewrite an earlier stage's evidence. Exceptions are attributed to the actual failing stage; downstream stages become unresolved rather than falsely blamed.
+
 ---
 
-## Label maturity and purge
+## 4. Event-aware label maturity and purge
 
 ```python
 from timesafe_quant import LabelContract, build_label_intervals
 
 contract = LabelContract(
-    execution_offset_sessions=1,       # decide after close t, enter at open t+1
-    holding_period_sessions=20,        # exit at close t+20
+    decision_event="close",
+    execution_offset_sessions=1,
+    execution_event="open",
+    holding_period_sessions=20,
+    exit_event="close",
     label_publication_lag_sessions=0,
+    label_available_event="after_close",
     safety_gap_sessions=4,
 )
 
@@ -135,42 +218,78 @@ intervals = build_label_intervals(
 print(contract.recommended_purge_sessions)  # 24
 ```
 
-TimeSafe identifies immature labels, detects train/test interval overlap, and builds a past-only purged walk-forward split.
+Supported within-session order:
+
+```text
+pre_open < open < intraday < close < after_close
+```
+
+Impossible contracts are rejected. For example, a decision at `close_t` cannot execute at `open_t`.
+
+### Past-only walk-forward split
 
 ```python
-from timesafe_quant import audit_label_maturity, purged_walk_forward_masks
+from timesafe_quant import purged_walk_forward_masks
 
 train_mask, test_mask = purged_walk_forward_masks(
     intervals,
-    test_start=trading_calendar[-60],
-    test_end=trading_calendar[-40],
-)
-
-result = audit_label_maturity(
-    intervals,
+    test_start=trading_calendar[-80],
+    test_end=trading_calendar[-60],
     contract=contract,
-    train_mask=train_mask,
+    calendar=trading_calendar,
+)
+```
+
+The generated training mask applies the declared `safety_gap_sessions` in code; it is not merely reported.
+
+A post-test embargo is not meaningful for a strictly past-only training set. Passing a non-zero embargo therefore raises instead of being silently ignored. For arbitrary candidate train/test rows, use:
+
+```python
+from timesafe_quant import purged_train_test_masks
+
+clean_train, test = purged_train_test_masks(
+    intervals,
+    candidate_train_mask=candidate_train,
     test_mask=test_mask,
+    contract=contract,
+    embargo_sessions=5,
     calendar=trading_calendar,
 )
 ```
 
 ---
 
-## Evidence card
+## 5. Evidence cards
 
 ```python
 from timesafe_quant import audit_determinism, make_report, write_report
 
-prefix = audit_prefix_invariance(factor, panel, time_level="date")
+prefix = audit_prefix_invariance(
+    factor,
+    panel,
+    time_level="date",
+    checkpoint_policy="all",
+    min_history=60,
+)
 determinism = audit_determinism(factor, panel, repetitions=3)
-report = make_report(prefix=prefix, determinism=determinism)
 
+report = make_report(prefix=prefix, determinism=determinism)
 write_report(report, "report.md")
 write_report(report, "report.json")
 ```
 
-TimeSafe deliberately avoids a mysterious trust score. It exposes which contract passed, what failed, and the evidence behind each verdict.
+TimeSafe does not emit a mysterious trust score. It reports:
+
+- exhaustive vs sampled mode;
+- eligible and checked checkpoints;
+- exact coverage;
+- changed values;
+- structural additions/removals;
+- empty/no-evidence states;
+- first violating checkpoint or stage;
+- event contract;
+- immature labels;
+- interval overlap, safety-gap, and embargo violations.
 
 ---
 
@@ -185,69 +304,98 @@ python examples/leakage_gallery.py
 | Causal EMA | PASS | Future observations do not alter past values |
 | Expanding z-score | PASS | Parameters use the historical prefix only |
 | Full-sample z-score | FAIL | Mean/std include future rows |
-| Centered rolling mean | FAIL | The window reaches forward in time |
+| Centered rolling mean | FAIL | Window reaches forward |
 | Full-sample PCA | FAIL | Future rows change historical loadings |
-| Backfill | FAIL | Missing historical values are filled from the future |
+| Backfill | FAIL | Missing history is filled from the future |
 
-`examples/joinquant_adapter.py` shows how to convert JoinQuant data to a `(date, asset)` panel and audit a factor in a research notebook.
+Additional examples:
+
+- `examples/custom_pipeline.py`
+- `examples/refit_model.py`
+- `examples/joinquant_adapter.py`
 
 ---
 
-## Scope and limitations
+## What TimeSafe covers
 
-### TimeSafe can detect
+TimeSafe v0.2 supports:
 
-- historical outputs rewritten by future rows;
-- centered or two-sided transforms;
-- full-sample preprocessing and retrospective refits;
-- nondeterminism that can masquerade as leakage;
-- immature labels and overlapping train/test label intervals;
-- the first leaking stage in a named pandas pipeline.
+- deterministic pandas transforms with unique labeled output;
+- exhaustive, uniform-sampled, or explicit checkpoint plans;
+- value and output-structure comparison without double-counting;
+- named-stage leak localization;
+- fresh-state refit audits for trainable models;
+- optional scikit-learn cloning;
+- within-session decision/execution/exit validation;
+- label maturity and event-aware `as_of` checks;
+- actual safety-gap purge;
+- arbitrary split purge and post-test embargo;
+- Markdown/JSON evidence reports;
+- CLI, tests, CI, and JoinQuant-oriented examples.
 
-### It cannot prove by itself
+## What it does not prove
 
-- that an upstream vendor dataset was truly point-in-time;
-- that a publication timestamp supplied by the user is correct;
-- that the backtest has realistic fills, costs, and capacity;
-- that a strategy is not overfit after many research trials;
-- that an economically stated mechanism is true.
+A `PASS` does not prove:
+
+- that a vendor dataset was point-in-time correct;
+- that supplied publication timestamps are true;
+- that hidden external state was trained legally;
+- that fills, costs, impact, or capacity are realistic;
+- that a strategy survived multiple-testing adjustment;
+- that a claimed economic mechanism is true.
 
 Recommended complements:
 
-- **skfolio / mlfinpy** for purged model selection, CPCV, PSR, and DSR;
-- **MLflow** for experiment tracking and lineage;
-- **JoinQuant / Qlib / vectorbt** for research and backtesting;
-- cost, capacity, placebo, and mechanism-specific falsification tests.
+- **skfolio / mlfinpy**: purged model selection, CPCV, PSR, DSR;
+- **MLflow**: experiment tracking and lineage;
+- **JoinQuant / Qlib / vectorbt**: research and backtesting;
+- market-specific cost, capacity, placebo, and mechanism tests.
 
-See [design](docs/design.md), [JoinQuant integration](docs/joinquant.md), [limitations](docs/limitations.md), and the [Chinese research note](docs/research_note_zh.md).
-
----
-
-# 中文说明
-
-量化平台通常能告诉我们“策略历史赚了多少”，却未必能告诉我们：**过去时点的因子值，是否在后来加入未来数据后被悄悄改写。**
-
-TimeSafe只做三件事：
-
-1. 把因子或模型当作黑盒，比较 `F(截至t的数据)` 与 `F(全历史数据)在t时点的输出`；
-2. 根据决策、成交和持有期推导标签成熟时间与最小purge；
-3. 输出可以审计的Markdown/JSON证据卡。
-
-它特别适合发现全样本标准化、全样本PCA、居中窗口、双向滤波、事后连续合约、未来回填、未成熟标签和重叠标签污染等问题。
-
-本项目不重复实现回测、DSR、PBO、组合优化和实验管理。它应当与聚宽、Qlib、vectorbt、skfolio和MLflow结合使用：**现有工具评价结果，TimeSafe先检查这个结果是否有资格被评价。**
+TimeSafe checks whether a result is temporally eligible for evaluation. It does not replace the evaluation.
 
 ---
 
-## Development
+## CLI
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-pytest
-ruff check .
+timesafe demo
 ```
+
+```bash
+timesafe prefix \
+  --input panel.csv \
+  --callable my_module:build_factor \
+  --time-col date \
+  --asset-col asset \
+  --checkpoint-policy all \
+  --min-history 60 \
+  --output report.md
+```
+
+```bash
+timesafe maturity \
+  --sessions trading_calendar.csv \
+  --time-col date \
+  --decision-event close \
+  --execution-offset 1 \
+  --execution-event open \
+  --holding-period 20 \
+  --exit-event close \
+  --label-available-event after_close \
+  --safety-gap 4 \
+  --output maturity.json
+```
+
+CLI exit codes:
+
+- `0`: PASS;
+- `1`: WARN;
+- `2`: FAIL or INCONCLUSIVE;
+- `3`: ERROR.
+
+The built-in demo intentionally contains failing cases and exits `0`.
+
+---
 
 ## License
 

@@ -1,67 +1,64 @@
 # Design: temporal integrity as an executable contract
 
-## 1. The causal identity
+## 1. Two distinct audit modes
 
-Let `D[:t]` denote the information genuinely available up to time `t`, and let `F` be an arbitrary factor, preprocessing, or prediction pipeline. A necessary condition for a historical output to be causally well-defined is:
+TimeSafe separates two questions that are often conflated.
+
+### Transform audit
+
+For a pure transform \(F\):
 
 \[
-F(D_{1:t}) = F(D_{1:T})_t,
+F(D_{1:t}) \stackrel{?}{=} F(D_{1:T})_t.
 \]
 
-subject to numerical tolerance and an explicit data-vintage contract.
+This detects future dependence that enters through the supplied input rows. It is appropriate for factors, rolling transforms, data cleaning, universe construction, and deterministic prediction functions whose complete state is inside the input or function call.
 
-This is a **necessary**, not sufficient, condition. A vendor may have already backfilled revised information into `D[:t]`; TimeSafe cannot infer the missing vintage from the final table. But when the identity fails, the implementation itself is demonstrably sensitive to future rows.
+### Refit audit
 
-## 2. Why static scans are insufficient
+For trainable state, TimeSafe creates two fresh estimator instances at every checkpoint and executes the same fitting code once on the prefix and once on the full input. The fitting code is expected to enforce the legal historical boundary even when it receives the full dataset.
 
-A source scanner can detect obvious patterns such as negative shifts or centered windows, but leakage often enters through state fitted on the whole sample:
+This catches full-sample fitting of scalers, PCA, imputers, clustering, regressors, and classifiers. All trainable state must be created by the estimator factory.
 
-- scalers, encoders, PCA and clustering;
-- imputation and outlier thresholds;
-- universe definitions;
-- state labels and regime boundaries;
-- feature-selection thresholds;
-- retrospective contract mappings.
+## 2. Evidence semantics
 
-A dynamic prefix test observes the resulting behavior regardless of how that behavior was produced.
+`PASS` is deliberately narrow:
+
+- every eligible checkpoint was checked;
+- at least one labeled cell was compared;
+- no value or structural difference occurred;
+- no checkpoint errored or remained unresolved.
+
+A uniform sample with no violations returns `WARN`, not `PASS`. Zero comparable output returns `INCONCLUSIVE`.
 
 ## 3. Labeled comparison
 
-TimeSafe requires unique pandas indexes because quantitative data are panels, not anonymous matrices. A silent positional comparison can declare equality after rows have been reordered, assets dropped, or columns changed. The comparison therefore aligns both indexes and columns and counts structural mismatches explicitly.
+Value differences are computed only on cells present in both outputs. Structural additions and removals are counted separately. This prevents changed-cell fractions above 100% and makes dynamic-universe changes visible.
 
-## 4. Stage localization
+## 4. Pipeline localization
 
-A black-box failure proves that the final pipeline is not prefix invariant but may not identify the cause. `CausalPipeline` records each named stage and applies the same prefix/full comparison to every intermediate output. The first failing stage is a practical debugging hypothesis, not a formal causal attribution: a downstream stage may mask or amplify an upstream error.
+Each stage receives a deep copy and its output is snapshotted before the next stage runs. A later in-place mutation therefore cannot rewrite earlier evidence. Exceptions are recorded at the true failing stage; downstream stages are unresolved.
 
-## 5. Determinism before causality
+## 5. Event-aware label contract
 
-A stochastic model with an unfixed seed can produce different values across runs even without future leakage. TimeSafe includes a separate determinism audit. A prefix failure paired with a determinism failure should first be debugged as a reproducibility issue.
+TimeSafe orders within-session events as:
 
-## 6. Label maturity
+```text
+pre_open < open < intraday < close < after_close
+```
 
-For a decision at session `t`, entry offset `e`, and holding period `h`, the label interval ends at:
+The contract rejects impossible sequences such as `close_t -> open_t`. It maps each decision to entry, exit, label availability, and the end of the declared safety gap.
+
+## 6. Purge and embargo
+
+Past-only walk-forward training applies:
 
 \[
-t + e + h - 1.
+label\_available\_with\_gap < test\_decision.
 \]
 
-If publication lag is `p`, the label is not available until:
+A post-test embargo is irrelevant to a strictly past-only training set and is rejected rather than ignored. Arbitrary candidate train/test masks use `purged_train_test_masks`, which removes interval overlap, safety-gap violations, and post-test embargo rows.
 
-\[
-t + e + h - 1 + p.
-\]
+## 7. Mature open-source reuse
 
-A past training observation is eligible for a walk-forward test beginning at `T_0` only if its label is available strictly before `T_0`. This condition is stronger and clearer than applying a hard-coded purge without checking the actual event interval.
-
-## 7. Scope boundary
-
-TimeSafe deliberately does not implement:
-
-- backtesting or execution simulation;
-- CPCV, DSR or PBO;
-- experiment tracking;
-- point-in-time vendor storage;
-- economic mechanism validation;
-- portfolio construction.
-
-Those are separate layers. A small tool with a precise contract is easier to validate, reuse, and trust than an incomplete all-in-one platform.
+TimeSafe does not implement estimator cloning itself. The optional scikit-learn adapter delegates to `sklearn.base.clone`. It also does not reimplement CPCV, PSR, DSR, experiment tracking, or backtesting; those belong to skfolio/mlfinpy, MLflow, JoinQuant, Qlib, vectorbt, or an internal platform.

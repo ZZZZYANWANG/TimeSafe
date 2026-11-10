@@ -36,10 +36,12 @@ result = audit_prefix_invariance(
     momentum_20,
     panel,
     time_level="date",
-    n_checkpoints=20,
+    checkpoint_policy="all",
     min_history=80,
 )
 ```
+
+Use sampled mode during development only; a clean sampled run returns `WARN` and reports its coverage.
 
 ## What the adapter does not solve
 
@@ -48,4 +50,4 @@ result = audit_prefix_invariance(
 - exact intraday publication timestamps;
 - simulated fills, limit-up queues, slippage, or capacity.
 
-Those assumptions must be documented separately. Prefix invariance tests the code path against future-row dependence; it does not reconstruct an unavailable historical vintage.
+Those assumptions must be documented separately. Prefix invariance tests the code path against future-row dependence; it does not reconstruct an unavailable historical vintage. Trainable preprocessing and models should use the refit audit with fresh estimator state.
