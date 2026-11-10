@@ -1,4 +1,4 @@
-"""Six compact examples: four leaks, one legal transform, and label maturity."""
+"""Compact examples of legal transforms, hidden leaks, and timing contracts."""
 
 from __future__ import annotations
 
@@ -70,7 +70,7 @@ def expanding_zscore(data: pd.DataFrame) -> pd.Series:
 
 
 def main() -> None:
-    panel = make_demo_panel(sessions=180, assets=8)
+    panel = make_demo_panel(sessions=120, assets=5)
     transforms = {
         "causal EMA": causal_ema,
         "expanding z-score": expanding_zscore,
@@ -85,11 +85,14 @@ def main() -> None:
             transform,
             panel,
             time_level="date",
-            n_checkpoints=10,
+            checkpoint_policy="all",
             min_history=40,
             transform_name=name,
         )
-        print(f"{name:34s} {result.status.value:5s} first={result.first_violation}")
+        print(
+            f"{name:34s} {result.status.value:13s} "
+            f"coverage={result.coverage:.1%} first={result.first_violation}"
+        )
 
     pipeline = CausalPipeline(
         [
@@ -105,9 +108,10 @@ def main() -> None:
         pipeline,
         panel,
         time_level="date",
-        n_checkpoints=8,
+        checkpoint_policy="all",
         min_history=40,
     )
+    print(f"first failing stage: {stage_result.first_failing_stage}")
 
     calendar = pd.Index(panel.index.get_level_values("date").unique()).sort_values()
     contract = LabelContract(
@@ -121,6 +125,8 @@ def main() -> None:
         valid_intervals,
         contract=contract,
         as_of=calendar[-1],
+        as_of_event="after_close",
+        calendar=calendar,
     )
 
     report = make_report(

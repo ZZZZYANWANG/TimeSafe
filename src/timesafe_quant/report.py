@@ -11,8 +11,9 @@ from .types import AuditStatus, Finding, TimeSafeReport
 _STATUS_ORDER = {
     AuditStatus.PASS: 0,
     AuditStatus.WARN: 1,
-    AuditStatus.FAIL: 2,
-    AuditStatus.ERROR: 3,
+    AuditStatus.INCONCLUSIVE: 2,
+    AuditStatus.FAIL: 3,
+    AuditStatus.ERROR: 4,
 }
 
 
@@ -21,7 +22,7 @@ def combine_status(statuses: Iterable[AuditStatus]) -> AuditStatus:
 
     values = list(statuses)
     if not values:
-        return AuditStatus.PASS
+        return AuditStatus.INCONCLUSIVE
     return max(values, key=_STATUS_ORDER.__getitem__)
 
 
@@ -72,22 +73,29 @@ def render_markdown(report: TimeSafeReport) -> str:
     ]
     if report.prefix is not None:
         lines.append(
-            "| Prefix invariance | "
+            "| Prefix/refit invariance | "
             f"{report.prefix.status.value} | "
-            f"{report.prefix.total_changed_cells} changed cells; "
+            f"{report.prefix.total_changed_cells} changed values; "
+            f"{report.prefix.total_structural_differences} structural differences; "
+            f"coverage={report.prefix.checked_checkpoints}/"
+            f"{report.prefix.eligible_checkpoints} "
+            f"({report.prefix.coverage:.1%}); "
             f"first violation: {report.prefix.first_violation or 'none'} |"
         )
     if report.pipeline is not None:
+        coverage = report.pipeline.metadata.get("coverage", 0.0)
         lines.append(
             "| Stage localization | "
             f"{report.pipeline.status.value} | "
-            f"first failing stage: {report.pipeline.first_failing_stage or 'none'} |"
+            f"first failing stage: {report.pipeline.first_failing_stage or 'none'}; "
+            f"coverage={coverage:.1%} |"
         )
     if report.determinism is not None:
         lines.append(
             "| Determinism | "
             f"{report.determinism.status.value} | "
-            f"{report.determinism.changed_cells} changed cells across "
+            f"{report.determinism.changed_cells} changed values; "
+            f"{report.determinism.structural_differences} structural differences across "
             f"{report.determinism.repetitions} runs |"
         )
     if report.maturity is not None:
@@ -95,7 +103,7 @@ def render_markdown(report: TimeSafeReport) -> str:
             "| Label maturity / purge | "
             f"{report.maturity.status.value} | "
             f"{report.maturity.immature_rows} immature; "
-            f"{report.maturity.split_overlap_rows} overlapping train rows; "
+            f"{report.maturity.split_overlap_rows} violating train rows; "
             f"recommended purge={report.maturity.contract.recommended_purge_sessions} sessions |"
         )
 
@@ -106,23 +114,26 @@ def render_markdown(report: TimeSafeReport) -> str:
         for finding in report.findings:
             lines.append(f"- **{finding.status.value} — {finding.code}:** {finding.message}")
             if finding.details:
-                details = ", ".join(f"{key}={value}" for key, value in finding.details.items())
+                details = ", ".join(
+                    f"{key}={value}" for key, value in finding.details.items()
+                )
                 lines.append(f"  - {details}")
 
     if report.prefix is not None:
         lines.extend(
             [
                 "",
-                "## Prefix checkpoints",
+                "## Prefix/refit checkpoints",
                 "",
-                "| Checkpoint | Status | Compared | Changed | Max abs diff | Error |",
-                "|---|---:|---:|---:|---:|---|",
+                "| Checkpoint | Status | Compared | Changed | Missing left | Missing right | Max abs diff | Error |",
+                "|---|---:|---:|---:|---:|---:|---:|---|",
             ]
         )
         for item in report.prefix.checkpoints:
             lines.append(
                 f"| {item.checkpoint} | {item.status.value} | {item.compared_cells} | "
-                f"{item.changed_cells} | {item.max_abs_diff if item.max_abs_diff is not None else ''} | "
+                f"{item.changed_cells} | {item.missing_left} | {item.missing_right} | "
+                f"{item.max_abs_diff if item.max_abs_diff is not None else ''} | "
                 f"{item.error or ''} |"
             )
 
@@ -132,14 +143,16 @@ def render_markdown(report: TimeSafeReport) -> str:
                 "",
                 "## Pipeline stages",
                 "",
-                "| Stage | Status | Violating checkpoints | Changed cells | First violation |",
-                "|---|---:|---:|---:|---|",
+                "| Stage | Status | Violating | Errors | Inconclusive | Changed | Structural | First issue |",
+                "|---|---:|---:|---:|---:|---:|---:|---|",
             ]
         )
         for stage in report.pipeline.stages:
             lines.append(
-                f"| {stage.stage} | {stage.status.value} | {stage.violating_checkpoints} | "
-                f"{stage.changed_cells} | {stage.first_violation or ''} |"
+                f"| {stage.stage} | {stage.status.value} | "
+                f"{stage.violating_checkpoints} | {stage.error_checkpoints} | "
+                f"{stage.inconclusive_checkpoints} | {stage.changed_cells} | "
+                f"{stage.structural_differences} | {stage.first_violation or ''} |"
             )
 
     lines.extend(
@@ -147,10 +160,12 @@ def render_markdown(report: TimeSafeReport) -> str:
             "",
             "## Interpretation",
             "",
-            "A `PASS` means the tested implementation satisfied this audit under the supplied "
-            "checkpoints, tolerances, calendar, and timing contract. It is not a proof that every "
-            "upstream data source was point-in-time correct. Pair TimeSafe with data-vintage controls, "
-            "purged model selection, and cost-aware backtesting.",
+            "`PASS` is reserved for conclusive, exhaustive evidence under the supplied "
+            "contract. `WARN` means no violation was found but coverage or another "
+            "non-fatal limitation remains. `INCONCLUSIVE` means the audit produced no "
+            "comparable evidence. None of these statuses proves that an upstream vendor "
+            "dataset was historically point-in-time correct. Trainable pipelines should "
+            "use the refit audit with fresh estimator state.",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -163,7 +178,8 @@ def write_report(report: TimeSafeReport, path: str | Path) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
     if output.suffix.lower() == ".json":
         output.write_text(
-            json.dumps(report.to_dict(), ensure_ascii=False, indent=2, default=str) + "\n",
+            json.dumps(report.to_dict(), ensure_ascii=False, indent=2, default=str)
+            + "\n",
             encoding="utf-8",
         )
     elif output.suffix.lower() in {".md", ".markdown"}:

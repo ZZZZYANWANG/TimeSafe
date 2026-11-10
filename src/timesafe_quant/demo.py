@@ -5,7 +5,12 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .maturity import LabelContract, audit_label_maturity, build_label_intervals, purged_walk_forward_masks
+from .maturity import (
+    LabelContract,
+    audit_label_maturity,
+    build_label_intervals,
+    purged_walk_forward_masks,
+)
 from .prefix import audit_determinism, audit_prefix_invariance
 from .report import make_report
 
@@ -59,26 +64,34 @@ def run_demo_report():
         leaking_global_zscore,
         panel,
         time_level="date",
-        n_checkpoints=8,
+        checkpoint_policy="all",
         min_history=40,
     )
     determinism = audit_determinism(leaking_global_zscore, panel, repetitions=3)
 
     calendar = pd.Index(panel.index.get_level_values("date").unique()).sort_values()
-    contract = LabelContract(execution_offset_sessions=1, holding_period_sessions=20, safety_gap_sessions=4)
+    contract = LabelContract(
+        execution_offset_sessions=1,
+        holding_period_sessions=20,
+        safety_gap_sessions=4,
+    )
     intervals = build_label_intervals(calendar, calendar=calendar, contract=contract)
     train_mask, test_mask = purged_walk_forward_masks(
         intervals,
         test_start=calendar[-40],
         test_end=calendar[-21],
+        contract=contract,
+        calendar=calendar,
     )
     valid_intervals = intervals[intervals["interval_valid"]].reset_index(drop=True)
     maturity = audit_label_maturity(
         valid_intervals,
         contract=contract,
         as_of=calendar[-1],
+        as_of_event="after_close",
+        calendar=calendar,
     )
-    _ = audit_label_maturity(
+    split_result = audit_label_maturity(
         intervals,
         contract=contract,
         train_mask=train_mask,
@@ -90,5 +103,6 @@ def run_demo_report():
         prefix=prefix,
         determinism=determinism,
         maturity=maturity,
+        findings=split_result.findings,
         metadata={"demo": True, "expected_prefix_status": "FAIL"},
     )

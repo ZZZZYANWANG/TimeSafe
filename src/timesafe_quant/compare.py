@@ -12,7 +12,12 @@ from ._pandas import PandasObject, to_frame
 
 @dataclass(frozen=True)
 class ComparisonStats:
-    """Cell-level comparison statistics."""
+    """Cell-level comparison statistics.
+
+    ``changed_cells`` counts value differences only where both outputs contain the
+    same labeled cell. Structural additions/removals are reported separately through
+    ``missing_left`` and ``missing_right`` and are never double-counted.
+    """
 
     compared_cells: int
     changed_cells: int
@@ -22,10 +27,14 @@ class ComparisonStats:
     max_rel_diff: float | None
 
     @property
-    def changed_fraction(self) -> float:
+    def changed_fraction(self) -> float | None:
         if self.compared_cells == 0:
-            return 0.0
+            return None
         return self.changed_cells / self.compared_cells
+
+    @property
+    def structural_differences(self) -> int:
+        return self.missing_left + self.missing_right
 
 
 def compare_labeled_outputs(
@@ -35,35 +44,47 @@ def compare_labeled_outputs(
     atol: float = 1e-10,
     rtol: float = 1e-8,
 ) -> ComparisonStats:
-    """Compare labeled outputs with index/column alignment and NaN-aware semantics."""
+    """Compare labeled outputs with strict label alignment and NaN-aware semantics."""
 
     left_frame = to_frame(left)
     right_frame = to_frame(right)
-    left_aligned, right_aligned = left_frame.align(right_frame, join="outer", axis=None)
 
-    left_missing_rows = left_aligned.index.difference(left_frame.index)
-    right_missing_rows = right_aligned.index.difference(right_frame.index)
-    left_missing_cols = left_aligned.columns.difference(left_frame.columns)
-    right_missing_cols = right_aligned.columns.difference(right_frame.columns)
+    union_index = left_frame.index.union(right_frame.index, sort=False)
+    union_columns = left_frame.columns.union(right_frame.columns, sort=False)
+    left_aligned = left_frame.reindex(index=union_index, columns=union_columns)
+    right_aligned = right_frame.reindex(index=union_index, columns=union_columns)
 
-    missing_left = len(left_missing_rows) * max(1, len(left_aligned.columns)) + len(
-        left_missing_cols
-    ) * max(1, len(left_aligned.index))
-    missing_right = len(right_missing_rows) * max(1, len(right_aligned.columns)) + len(
-        right_missing_cols
-    ) * max(1, len(right_aligned.index))
+    left_rows = np.asarray(union_index.isin(left_frame.index), dtype=bool)[:, None]
+    right_rows = np.asarray(union_index.isin(right_frame.index), dtype=bool)[:, None]
+    left_columns = np.asarray(union_columns.isin(left_frame.columns), dtype=bool)[None, :]
+    right_columns = np.asarray(union_columns.isin(right_frame.columns), dtype=bool)[None, :]
 
-    changed = np.zeros(left_aligned.shape, dtype=bool)
+    left_present = left_rows & left_columns
+    right_present = right_rows & right_columns
+    both_present = left_present & right_present
+
+    missing_left = int((~left_present & right_present).sum())
+    missing_right = int((left_present & ~right_present).sum())
+    compared_cells = int(both_present.sum())
+    changed_cells = 0
     numeric_abs: list[np.ndarray] = []
     numeric_rel: list[np.ndarray] = []
 
-    for column_position, column in enumerate(left_aligned.columns):
+    for column_position, column in enumerate(union_columns):
+        row_mask = both_present[:, column_position]
+        if not row_mask.any():
+            continue
+
         left_col = left_aligned[column]
         right_col = right_aligned[column]
+        left_original = left_frame[column]
+        right_original = right_frame[column]
 
-        if pd.api.types.is_numeric_dtype(left_col) and pd.api.types.is_numeric_dtype(right_col):
-            left_values = left_col.to_numpy(dtype=float, na_value=np.nan)
-            right_values = right_col.to_numpy(dtype=float, na_value=np.nan)
+        if pd.api.types.is_numeric_dtype(left_original) and pd.api.types.is_numeric_dtype(
+            right_original
+        ):
+            left_values = left_col.to_numpy(dtype=float, na_value=np.nan)[row_mask]
+            right_values = right_col.to_numpy(dtype=float, na_value=np.nan)[row_mask]
             equal = np.isclose(
                 left_values,
                 right_values,
@@ -71,23 +92,28 @@ def compare_labeled_outputs(
                 rtol=rtol,
                 equal_nan=True,
             )
-            changed[:, column_position] = ~equal
+            changed_cells += int((~equal).sum())
 
             both_finite = np.isfinite(left_values) & np.isfinite(right_values)
             if both_finite.any():
                 abs_diff = np.abs(left_values[both_finite] - right_values[both_finite])
                 denom = np.maximum(
-                    np.maximum(np.abs(left_values[both_finite]), np.abs(right_values[both_finite])),
+                    np.maximum(
+                        np.abs(left_values[both_finite]),
+                        np.abs(right_values[both_finite]),
+                    ),
                     atol,
                 )
                 numeric_abs.append(abs_diff)
                 numeric_rel.append(abs_diff / denom)
         else:
-            equal = left_col.eq(right_col) | (left_col.isna() & right_col.isna())
-            changed[:, column_position] = ~equal.to_numpy(dtype=bool)
+            left_values = left_col.iloc[np.flatnonzero(row_mask)]
+            right_values = right_col.iloc[np.flatnonzero(row_mask)]
+            equal = left_values.eq(right_values) | (
+                left_values.isna() & right_values.isna()
+            )
+            changed_cells += int((~equal.to_numpy(dtype=bool)).sum())
 
-    compared_cells = int(changed.size)
-    changed_cells = int(changed.sum())
     max_abs = None
     max_rel = None
     if numeric_abs:
@@ -98,8 +124,8 @@ def compare_labeled_outputs(
     return ComparisonStats(
         compared_cells=compared_cells,
         changed_cells=changed_cells,
-        missing_left=int(missing_left),
-        missing_right=int(missing_right),
+        missing_left=missing_left,
+        missing_right=missing_right,
         max_abs_diff=max_abs,
         max_rel_diff=max_rel,
     )

@@ -1,41 +1,39 @@
 # Limitations
 
-## A pass is conditional
+TimeSafe is an executable temporal-contract auditor, not a proof of strategy validity.
 
-A TimeSafe pass is conditional on:
+## Data-vintage limits
 
-- the supplied data;
-- the selected checkpoints;
-- numerical tolerances;
-- the declared trading calendar and label contract;
-- the behavior exercised by the test inputs.
+Prefix invariance cannot reconstruct historical vendor vintages. If revised fundamentals, corrected trades, or retrospective classifications have already overwritten the past, TimeSafe sees only the supplied version. Publication timestamps and revision policies still require authoritative metadata.
 
-It is not a proof of universal causality.
+## External state
 
-## Vintage blindness
+Transform-only auditing cannot detect a scaler, PCA, model, cache, or database table that was fitted on the full sample before the transform was called. Use `audit_refit_prefix_invariance` and ensure all trainable state is created by the supplied factory. Hidden external state remains outside the guarantee.
 
-If a data provider has overwritten historical records with later revisions, both the prefix and full dataset may contain the same contaminated value. Prefix invariance cannot detect information that is already embedded in the historical prefix. Use point-in-time storage and publication timestamps.
+## Coverage
 
-## Stateful external systems
+A sampled audit can miss a localized violation. TimeSafe therefore reports eligible checkpoints, checked checkpoints, coverage, and policy. Only `checkpoint_policy="all"` can yield an exhaustive `PASS`.
 
-A transform that reads files, databases, model registries, network APIs, global variables, or wall-clock time may not be reproducible from the pandas argument alone. Wrap or freeze external state before auditing.
+## Output requirements
 
-## Expensive models
+Transforms must return a uniquely indexed pandas Series or DataFrame. Empty output is `INCONCLUSIVE`, not `PASS`. Opaque arrays, side-effect-only code, and remote systems require an adapter that exposes labeled historical outputs.
 
-Black-box prefix testing reruns the pipeline multiple times. For expensive training loops:
+## Calendar and event model
 
-- sample fewer checkpoints;
-- audit preprocessing stages separately;
-- cache immutable raw inputs outside the transform;
-- use a reduced but structurally representative dataset;
-- test fitted preprocessing and prediction components independently.
+The built-in contract uses a user-supplied ordered session calendar and five generic within-session events. Exchange auctions, lunch breaks, night sessions, time zones, early closes, and asset-specific calendars must be represented in the supplied data/calendar or handled by an adapter. TimeSafe does not claim official exchange-calendar authority.
 
-Do not cache outputs in a way that bypasses the historical-prefix refit you intend to test.
+## Statistical and economic validity
 
-## Numerical sensitivity
+Temporal legality does not imply:
 
-Parallel linear algebra, GPU kernels, stochastic training, and floating-point reduction order can create tiny differences. Run the determinism audit first and choose tolerances appropriate to the numerical stack. Large or systematic differences should not be dismissed as floating-point noise.
+- absence of research overfitting;
+- valid economic mechanism;
+- realistic fills, costs, impact, or capacity;
+- robustness across regimes;
+- production readiness.
 
-## Label conventions
+Use purged model selection and DSR/PBO tools, mechanism-specific placebos, and cost-aware simulation separately.
 
-The session-based contract assumes that the user has correctly specified execution offset, holding-period counting, publication lag, and safety gap. Markets with overnight sessions, auction events, or non-session timestamps may need an event-time adapter.
+## Computational cost
+
+Exhaustive prefix and refit audits may be expensive. Sampled mode is useful for development but returns `WARN`. CI can combine a fast sampled audit with a smaller exhaustive fixture.
