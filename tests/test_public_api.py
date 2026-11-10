@@ -1,7 +1,8 @@
-import timesafe_quant
+import timesafe_quant as tq
 
 
-def test_version_and_public_api():
-    assert timesafe_quant.__version__ == "0.1.0"
-    assert callable(timesafe_quant.audit_prefix_invariance)
-    assert callable(timesafe_quant.build_label_intervals)
+def test_public_api_exports_v02_features():
+    assert tq.__version__ == "0.2.0"
+    assert callable(tq.audit_prefix_invariance)
+    assert callable(tq.audit_refit_prefix_invariance)
+    assert callable(tq.purged_train_test_masks)

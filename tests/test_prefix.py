@@ -32,7 +32,27 @@ def random_transform(data: pd.DataFrame) -> pd.Series:
     return pd.Series(np.random.default_rng().normal(size=len(data)), index=data.index)
 
 
-def test_causal_ema_passes_prefix_invariance():
+def empty_transform(data: pd.DataFrame) -> pd.Series:
+    index = data.index[:0]
+    return pd.Series(index=index, dtype=float)
+
+
+def test_causal_ema_exhaustive_passes_prefix_invariance():
+    panel = make_demo_panel(sessions=60, assets=3)
+    result = audit_prefix_invariance(
+        causal_ema,
+        panel,
+        time_level="date",
+        checkpoint_policy="all",
+        min_history=25,
+    )
+    assert result.status is AuditStatus.PASS
+    assert result.exhaustive
+    assert result.coverage == 1.0
+    assert result.first_violation is None
+
+
+def test_clean_sampled_audit_is_warn_not_pass():
     panel = make_demo_panel(sessions=100, assets=4)
     result = audit_prefix_invariance(
         causal_ema,
@@ -41,18 +61,17 @@ def test_causal_ema_passes_prefix_invariance():
         n_checkpoints=8,
         min_history=25,
     )
-    assert result.status is AuditStatus.PASS
-    assert result.first_violation is None
-    assert result.total_changed_cells == 0
+    assert result.status is AuditStatus.WARN
+    assert 0 < result.coverage < 1
 
 
 def test_global_zscore_fails_prefix_invariance():
-    panel = make_demo_panel(sessions=100, assets=4)
+    panel = make_demo_panel(sessions=60, assets=3)
     result = audit_prefix_invariance(
         global_zscore,
         panel,
         time_level="date",
-        n_checkpoints=8,
+        checkpoint_policy="all",
         min_history=25,
     )
     assert result.status is AuditStatus.FAIL
@@ -61,15 +80,59 @@ def test_global_zscore_fails_prefix_invariance():
 
 
 def test_centered_window_fails_prefix_invariance():
-    panel = make_demo_panel(sessions=100, assets=4)
+    panel = make_demo_panel(sessions=60, assets=3)
     result = audit_prefix_invariance(
         centered_window,
         panel,
         time_level="date",
-        n_checkpoints=8,
+        checkpoint_policy="all",
         min_history=25,
     )
     assert result.status is AuditStatus.FAIL
+
+
+def test_empty_output_is_inconclusive():
+    panel = make_demo_panel(sessions=40, assets=2)
+    result = audit_prefix_invariance(
+        empty_transform,
+        panel,
+        time_level="date",
+        checkpoint_policy="all",
+        min_history=15,
+    )
+    assert result.status is AuditStatus.INCONCLUSIVE
+    assert result.total_compared_cells == 0
+
+
+def test_localized_leak_is_caught_exhaustively():
+    panel = make_demo_panel(sessions=70, assets=2)
+    dates = panel.index.get_level_values("date").unique()
+    leak_date = dates[31]
+
+    def local_leak(data: pd.DataFrame) -> pd.Series:
+        out = data["return"].copy()
+        all_dates = data.index.get_level_values("date")
+        if all_dates.max() > leak_date and leak_date in all_dates:
+            mask = all_dates == leak_date
+            out.loc[mask] = out.loc[mask] + float(data["return"].iloc[-1])
+        return out
+
+    sampled = audit_prefix_invariance(
+        local_leak,
+        panel,
+        time_level="date",
+        n_checkpoints=4,
+        min_history=15,
+    )
+    exhaustive = audit_prefix_invariance(
+        local_leak,
+        panel,
+        time_level="date",
+        checkpoint_policy="all",
+        min_history=15,
+    )
+    assert sampled.status in {AuditStatus.WARN, AuditStatus.FAIL}
+    assert exhaustive.status is AuditStatus.FAIL
 
 
 def test_nondeterministic_transform_fails_determinism():

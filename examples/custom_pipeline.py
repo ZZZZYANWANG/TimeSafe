@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import pandas as pd
 
-from timesafe_quant import audit_determinism, audit_prefix_invariance, make_report, write_report
+from timesafe_quant import (
+    audit_determinism,
+    audit_prefix_invariance,
+    make_report,
+    write_report,
+)
 
 
 def my_factor(panel: pd.DataFrame) -> pd.Series:
@@ -24,7 +29,7 @@ def audit(panel: pd.DataFrame) -> None:
         my_factor,
         panel,
         time_level="date",
-        n_checkpoints=20,
+        checkpoint_policy="all",
         min_history=60,
     )
     determinism = audit_determinism(my_factor, panel, repetitions=3)
