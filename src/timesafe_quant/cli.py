@@ -14,6 +14,7 @@ from .demo import run_demo_report
 from .maturity import LabelContract, audit_label_maturity, build_label_intervals
 from .prefix import audit_determinism, audit_prefix_invariance
 from .report import make_report, render_markdown, write_report
+from .types import AuditStatus
 
 
 def _load_callable(spec: str) -> Callable:
@@ -49,10 +50,20 @@ def _print_or_write(report, output: str | None) -> None:
         print(render_markdown(report))
 
 
+def _exit_code(status: AuditStatus) -> int:
+    if status is AuditStatus.PASS:
+        return 0
+    if status is AuditStatus.WARN:
+        return 1
+    if status in {AuditStatus.FAIL, AuditStatus.INCONCLUSIVE}:
+        return 2
+    return 3
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="timesafe",
-        description="Black-box temporal integrity auditing for quantitative research.",
+        description="Temporal integrity auditing for quantitative research.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -64,6 +75,12 @@ def build_parser() -> argparse.ArgumentParser:
     prefix.add_argument("--callable", required=True, dest="callable_spec", help="module:function")
     prefix.add_argument("--time-col", required=True)
     prefix.add_argument("--asset-col")
+    prefix.add_argument(
+        "--checkpoint-policy",
+        choices=["uniform", "all"],
+        default="uniform",
+        help="Use 'all' for a conclusive PASS; clean sampled audits return WARN.",
+    )
     prefix.add_argument("--checkpoints", type=int, default=12)
     prefix.add_argument("--min-history", type=int, default=30)
     prefix.add_argument("--atol", type=float, default=1e-10)
@@ -78,7 +95,12 @@ def build_parser() -> argparse.ArgumentParser:
     maturity.add_argument("--holding-period", type=int, default=20)
     maturity.add_argument("--publication-lag", type=int, default=0)
     maturity.add_argument("--safety-gap", type=int, default=0)
+    maturity.add_argument("--decision-event", default="close")
+    maturity.add_argument("--execution-event", default="open")
+    maturity.add_argument("--exit-event", default="close")
+    maturity.add_argument("--label-available-event", default="after_close")
     maturity.add_argument("--as-of")
+    maturity.add_argument("--as-of-event", default="after_close")
     maturity.add_argument("--output")
     return parser
 
@@ -100,6 +122,7 @@ def main(argv: list[str] | None = None) -> int:
                 function,
                 panel,
                 time_level=args.time_col,
+                checkpoint_policy=args.checkpoint_policy,
                 n_checkpoints=args.checkpoints,
                 min_history=args.min_history,
                 atol=args.atol,
@@ -114,29 +137,46 @@ def main(argv: list[str] | None = None) -> int:
             )
             report = make_report(prefix=prefix_result, determinism=determinism)
             _print_or_write(report, args.output)
-            return 0 if report.overall_status.value == "PASS" else 2
+            return _exit_code(report.overall_status)
 
         if args.command == "maturity":
             frame = pd.read_csv(args.sessions)
             if args.time_col not in frame.columns:
                 raise ValueError(f"CSV is missing time column {args.time_col!r}.")
-            sessions = pd.DatetimeIndex(pd.to_datetime(frame[args.time_col], errors="raise")).unique().sort_values()
+            sessions = pd.DatetimeIndex(
+                pd.to_datetime(frame[args.time_col], errors="raise")
+            ).unique().sort_values()
             contract = LabelContract(
                 execution_offset_sessions=args.execution_offset,
                 holding_period_sessions=args.holding_period,
                 label_publication_lag_sessions=args.publication_lag,
                 safety_gap_sessions=args.safety_gap,
+                decision_event=args.decision_event,
+                execution_event=args.execution_event,
+                exit_event=args.exit_event,
+                label_available_event=args.label_available_event,
             )
-            intervals = build_label_intervals(sessions, calendar=sessions, contract=contract)
+            intervals = build_label_intervals(
+                sessions, calendar=sessions, contract=contract
+            )
             as_of = pd.Timestamp(args.as_of) if args.as_of else sessions[-1]
-            result = audit_label_maturity(intervals, contract=contract, as_of=as_of)
+            result = audit_label_maturity(
+                intervals,
+                contract=contract,
+                as_of=as_of,
+                as_of_event=args.as_of_event,
+                calendar=sessions,
+            )
             report = make_report(maturity=result)
             _print_or_write(report, args.output)
-            return 0 if report.overall_status.value == "PASS" else 2
+            return _exit_code(report.overall_status)
 
         parser.error(f"Unknown command: {args.command}")
     except Exception as exc:  # noqa: BLE001
-        print(json.dumps({"status": "ERROR", "error": f"{type(exc).__name__}: {exc}"}), file=sys.stderr)
+        print(
+            json.dumps({"status": "ERROR", "error": f"{type(exc).__name__}: {exc}"}),
+            file=sys.stderr,
+        )
         return 3
     return 0
 
