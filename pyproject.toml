@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timesafe-quant"
+version = "0.1.0"
+description = "Black-box temporal integrity and label-maturity auditing for quantitative research pipelines."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "TimeSafe contributors" }
+]
+keywords = [
+  "quantitative-finance",
+  "lookahead-bias",
+  "data-leakage",
+  "time-series",
+  "backtesting",
+  "causal-pipeline"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.7",
+  "mypy>=1.11"
+]
+
+[project.scripts]
+timesafe = "timesafe_quant.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ZZZZYANWANG/TimeSafe"
+Repository = "https://github.com/ZZZZYANWANG/TimeSafe"
+Issues = "https://github.com/ZZZZYANWANG/TimeSafe/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["timesafe_quant*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
