@@ -24,7 +24,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .bootstrap/v031_part_* > /tmp/timesafe_v031.b64
+          cat \
+            .bootstrap/v031_part_00 \
+            .bootstrap/v031_part_00b \
+            .bootstrap/v031_part_01a \
+            .bootstrap/v031_part_01b \
+            .bootstrap/v031_part_02 \
+            .bootstrap/v031_part_03 \
+            .bootstrap/v031_part_04 \
+            .bootstrap/v031_part_05 \
+            .bootstrap/v031_part_06 \
+            > /tmp/timesafe_v031.b64
+          test "$(wc -c < /tmp/timesafe_v031.b64)" -eq 77312
           base64 --decode /tmp/timesafe_v031.b64 > /tmp/timesafe_v031.tar.xz
           echo "18864c628e431bcd818c370211143d6bdd2dbc31c6288622801e124af3193347  /tmp/timesafe_v031.tar.xz" | sha256sum --check --strict
 
