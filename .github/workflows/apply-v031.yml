@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Reassemble and verify patch
+      - name: Reassemble and verify patches
         shell: bash
         run: |
           set -euo pipefail
@@ -43,8 +43,12 @@ jobs:
           xz -dc /tmp/timesafe_v031_patch.xz > /tmp/timesafe_v031.patch
           git apply --check /tmp/timesafe_v031.patch
           git apply /tmp/timesafe_v031.patch
-          sed -i 's/^    output = atomic_write_json(args.output, payload)$/    atomic_write_json(args.output, payload)/' experiments/actr20_public/audit_worker.py
-          grep -q '^    atomic_write_json(args.output, payload)$' experiments/actr20_public/audit_worker.py
+
+          base64 --decode .bootstrap_v031/supplement_00 > /tmp/timesafe_v031_supplement.xz
+          echo "c9a559761796fa612b91a25b65b980b1ca5a1730e32a328a2047e44584f22192  /tmp/timesafe_v031_supplement.xz" | sha256sum --check --strict
+          xz -dc /tmp/timesafe_v031_supplement.xz > /tmp/timesafe_v031_supplement.patch
+          git apply --check /tmp/timesafe_v031_supplement.patch
+          git apply /tmp/timesafe_v031_supplement.patch
           git diff --check
 
       - name: Install complete development dependencies
