@@ -48,6 +48,19 @@ jobs:
           rm -f .github/workflows/apply-v031-payload.yml
           find . -type d \( -name __pycache__ -o -name .pytest_cache -o -name .ruff_cache -o -name .hypothesis \) -prune -exec rm -rf {} +
           find . -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '.coverage' \) -delete
+          python - <<'PY'
+          from pathlib import Path
+
+          for name in (
+              "tests/test_cli.py",
+              "tests/test_compare.py",
+              "tests/test_maturity.py",
+              "tests/test_prefix.py",
+              "tests/test_refit_determinism.py",
+          ):
+              path = Path(name)
+              path.write_text(path.read_text(encoding="utf-8").rstrip("\n") + "\n", encoding="utf-8")
+          PY
           git diff --check
 
       - name: Commit and push applied source
