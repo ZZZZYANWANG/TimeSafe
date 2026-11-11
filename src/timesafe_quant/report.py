@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+import uuid
 from pathlib import Path
 from typing import Iterable
 
@@ -185,13 +187,21 @@ def write_report(report: TimeSafeReport, path: str | Path) -> Path:
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
     if output.suffix.lower() == ".json":
-        output.write_text(
+        content = (
             json.dumps(report.to_dict(), ensure_ascii=False, indent=2, default=str)
-            + "\n",
-            encoding="utf-8",
+            + "\n"
         )
     elif output.suffix.lower() in {".md", ".markdown"}:
-        output.write_text(render_markdown(report), encoding="utf-8")
+        content = render_markdown(report)
     else:
         raise ValueError("Report path must end with .json, .md, or .markdown.")
+
+    temporary = output.with_name(
+        f".{output.name}.{os.getpid()}.{uuid.uuid4().hex}.tmp"
+    )
+    try:
+        temporary.write_text(content, encoding="utf-8")
+        os.replace(temporary, output)
+    finally:
+        temporary.unlink(missing_ok=True)
     return output

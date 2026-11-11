@@ -30,6 +30,32 @@ EstimatorFactory = Callable[[], Any]
 FitPredict = Callable[[Any, pd.DataFrame, Any], PandasObject]
 
 
+
+
+def _new_distinct_estimator(
+    estimator_factory: EstimatorFactory,
+    retained_estimators: list[Any],
+    *,
+    context: str,
+) -> Any:
+    """Create an estimator whose object identity has not appeared in this audit.
+
+    Strong references are retained for the duration of the audit so Python cannot
+    recycle object ids and conceal a factory that cycles previously returned state.
+    This proves object separation, not that an arbitrary custom estimator is unfitted;
+    use :func:`sklearn_estimator_factory` when scikit-learn clone semantics apply.
+    """
+
+    estimator = estimator_factory()
+    if any(estimator is prior for prior in retained_estimators):
+        raise RuntimeError(
+            "estimator_factory reused an estimator object across audit calls "
+            f"({context})."
+        )
+    retained_estimators.append(estimator)
+    return estimator
+
+
 def sklearn_estimator_factory(estimator: Any) -> EstimatorFactory:
     """Return a factory backed by :func:`sklearn.base.clone`.
 
@@ -93,37 +119,13 @@ def audit_refit_prefix_invariance(
         min_history=min_history,
     )
 
-    probe_left = estimator_factory()
-    probe_right = estimator_factory()
-    if probe_left is probe_right:
-        finding = Finding(
-            code="TS-REFIT-201",
-            status=AuditStatus.ERROR,
-            message="estimator_factory returned the same object twice; fresh state is required.",
-            details={"audit_name": audit_name},
-        )
-        return PrefixAuditResult(
-            status=AuditStatus.ERROR,
-            transform_name=audit_name,
-            checkpoints=[],
-            first_violation=None,
-            total_changed_cells=0,
-            total_compared_cells=0,
-            eligible_checkpoints=len(plan.eligible),
-            checked_checkpoints=0,
-            checkpoint_policy=plan.policy,
-            exhaustive=plan.exhaustive,
-            findings=[finding],
-            metadata={"audit_mode": "refit", "factory_isolation": False},
-        )
-    del probe_left, probe_right
-
     comparisons: list[CheckpointComparison] = []
     total_changed = 0
     total_compared = 0
     total_missing_left = 0
     total_missing_right = 0
     first_violation: str | None = None
+    retained_estimators: list[Any] = []
 
     for checkpoint in plan.selected:
         checkpoint_text = stable_checkpoint_repr(checkpoint)
@@ -133,12 +135,16 @@ def audit_refit_prefix_invariance(
             # copy_input argument is retained but cannot disable isolation.
             full_input = data.copy(deep=True)
 
-            prefix_estimator = estimator_factory()
-            full_estimator = estimator_factory()
-            if prefix_estimator is full_estimator:
-                raise RuntimeError(
-                    "estimator_factory returned shared state inside a checkpoint."
-                )
+            prefix_estimator = _new_distinct_estimator(
+                estimator_factory,
+                retained_estimators,
+                context=f"checkpoint={checkpoint!r} path=prefix",
+            )
+            full_estimator = _new_distinct_estimator(
+                estimator_factory,
+                retained_estimators,
+                context=f"checkpoint={checkpoint!r} path=full",
+            )
 
             prefix_output = ensure_pandas_output(
                 fit_predict(prefix_estimator, prefix_input, checkpoint),
@@ -198,14 +204,42 @@ def audit_refit_prefix_invariance(
         rtol=rtol,
         audit_mode="refit",
     )
+    factory_reuse_detected = any(
+        "estimator_factory reused an estimator object" in (item.error or "")
+        for item in comparisons
+    )
+    expected_instances = 2 * len(plan.selected)
+    if factory_reuse_detected:
+        factory_status = AuditStatus.ERROR
+        factory_code = "TS-REFIT-201"
+        factory_message = "The estimator factory reused an object during the audit."
+    elif len(retained_estimators) == expected_instances:
+        factory_status = AuditStatus.PASS
+        factory_code = "TS-REFIT-001"
+        factory_message = (
+            "Distinct estimator objects were created independently for every prefix "
+            "and full-data run. For arbitrary custom factories, object separation "
+            "does not by itself prove that returned objects are unfitted."
+        )
+    else:
+        factory_status = AuditStatus.INCONCLUSIVE
+        factory_code = "TS-REFIT-021"
+        factory_message = (
+            "Not every planned estimator instance was created because an upstream "
+            "audit step failed; complete factory-isolation evidence is unavailable."
+        )
     findings.append(
         Finding(
-            code="TS-REFIT-001",
-            status=AuditStatus.PASS,
-            message=(
-                "Fresh estimator state was created independently for prefix and full-data runs."
-            ),
-            details={"factory_isolation": True},
+            code=factory_code,
+            status=factory_status,
+            message=factory_message,
+            details={
+                "factory_isolation": (
+                    True if factory_status is AuditStatus.PASS else False if factory_reuse_detected else None
+                ),
+                "retained_estimator_instances": len(retained_estimators),
+                "expected_estimator_instances": expected_instances,
+            },
         )
     )
     return PrefixAuditResult(
@@ -224,12 +258,14 @@ def audit_refit_prefix_invariance(
         findings=findings,
         metadata={
             "audit_mode": "refit",
-            "factory_isolation": True,
+            "factory_isolation": not factory_reuse_detected,
             "time_level": time_level,
             "minimum_history": min_history,
             "coverage": plan.coverage,
             "input_isolation": True,
             "copy_input_argument": bool(copy_input),
+            "retained_estimator_instances": len(retained_estimators),
+            "custom_factory_unfitted_state_not_introspected": True,
         },
     )
 
@@ -273,20 +309,22 @@ def audit_refit_determinism(
     total_missing_left = 0
     total_missing_right = 0
     first_violation: str | None = None
+    retained_estimators: list[Any] = []
 
     for checkpoint in plan.selected:
         checkpoint_text = stable_checkpoint_repr(checkpoint)
         try:
             prefix_data = prefix_slice(data, checkpoint, time_level)
             outputs: list[PandasObject] = []
-            estimators: list[Any] = []
             for repetition in range(repetitions):
-                estimator = estimator_factory()
-                if any(estimator is prior for prior in estimators):
-                    raise RuntimeError(
-                        "estimator_factory reused an estimator object across repetitions."
-                    )
-                estimators.append(estimator)
+                estimator = _new_distinct_estimator(
+                    estimator_factory,
+                    retained_estimators,
+                    context=(
+                        f"determinism checkpoint={checkpoint!r} "
+                        f"repetition={repetition}"
+                    ),
+                )
                 output = ensure_pandas_output(
                     fit_predict(estimator, prefix_data.copy(deep=True), checkpoint),
                     name=f"{audit_name}.run_{repetition}",
@@ -406,5 +444,7 @@ def audit_refit_determinism(
             "audit_mode": "refit_determinism",
             "repetitions": repetitions,
             "coverage": plan.coverage,
+            "retained_estimator_instances": len(retained_estimators),
+            "custom_factory_unfitted_state_not_introspected": True,
         },
     )

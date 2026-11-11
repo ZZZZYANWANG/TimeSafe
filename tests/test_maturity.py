@@ -122,6 +122,7 @@ def test_purged_walk_forward_applies_safety_gap():
     result = audit_label_maturity(
         intervals,
         contract=contract,
+        as_of=calendar[-1],
         train_mask=train,
         test_mask=test,
         calendar=calendar,

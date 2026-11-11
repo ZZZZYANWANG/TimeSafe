@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reference": "PACKAGE_VERIFICATION.json",
+  "atol": 1e-09,
+  "max_abs_rankic_difference": 9.020562075079397e-17,
+  "actr_hac_p_difference": 8.651933336434325e-17,
+  "metric_differences": {
+    "strong_cs_rankic": 9.020562075079397e-17,
+    "strong_ts_rankic": 1.3877787807814457e-17,
+    "stable_fusion_rankic": 6.938893903907228e-17,
+    "cross_anchor_rankic": 0.0,
+    "actr_rankic": 4.163336342344337e-17
+  },
+  "data_sha256_match": true,
+  "selected_config_match": true,
+  "shape_match": true,
+  "expected_rows": 109499,
+  "expected_sessions": 1810
+}

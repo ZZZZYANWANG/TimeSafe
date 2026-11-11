@@ -20,6 +20,7 @@ from ._pandas import (
     validate_temporal_order,
 )
 from .compare import compare_labeled_outputs
+from .refit import _new_distinct_estimator
 from .prefix import (
     CheckpointPolicy,
     _build_prefix_findings,
@@ -65,6 +66,8 @@ class AvailabilityRule:
         object.__setattr__(self, "available_event", normalize_event(self.available_event))
         if self.reference not in {"checkpoint", "row"}:
             raise ValueError("reference must be 'checkpoint' or 'row'.")
+        if not pd.api.types.is_scalar(self.mask_value):
+            raise TypeError("mask_value must be a scalar replacement value.")
 
 
 def _availability_mask(
@@ -132,19 +135,31 @@ def mask_unavailable_fields(
     value_columns = [rule.value_column for rule in rules]
     if len(value_columns) != len(set(value_columns)):
         raise ValueError("Each availability rule must target a unique value_column.")
+    metadata_columns = {rule.available_at_column for rule in rules}
+    metadata_columns.update(
+        rule.available_event_column
+        for rule in rules
+        if rule.available_event_column is not None
+    )
+    overlap = sorted(set(value_columns).intersection(metadata_columns))
+    if overlap:
+        raise ValueError(
+            "Availability metadata columns cannot also be masked value columns: "
+            f"{overlap}."
+        )
     validate_temporal_order(data, time_level)
     masked = data.copy(deep=True)
     counts: dict[str, int] = {}
     total = 0
     for rule in rules:
         unavailable = _availability_mask(
-            masked,
+            data,
             checkpoint=checkpoint,
             decision_event=decision_event,
             time_level=time_level,
             rule=rule,
         )
-        values = masked[rule.value_column]
+        values = data[rule.value_column]
         if bool(pd.isna(rule.mask_value)):
             actually_changed = unavailable & values.notna().to_numpy(dtype=bool)
         else:
@@ -227,6 +242,8 @@ def _audit_availability(
             right = point_slice(materialized_output, checkpoint, time_level)
             stats = compare_labeled_outputs(left, right, atol=atol, rtol=rtol)
             status = _checkpoint_status(stats)
+            if masked_cells == 0 and status is AuditStatus.PASS:
+                status = AuditStatus.INCONCLUSIVE
             if status is AuditStatus.FAIL and first_violation is None:
                 first_violation = checkpoint_text
             total_changed += stats.changed_cells
@@ -411,13 +428,14 @@ def audit_refit_availability_invariance(
 ) -> PrefixAuditResult:
     """Fresh-state availability audit for a trainable model pipeline."""
 
-    probe_left = estimator_factory()
-    probe_right = estimator_factory()
-    if probe_left is probe_right:
-        raise ValueError("estimator_factory must return independent fresh objects.")
+    retained_estimators: list[Any] = []
 
     def runner(frame: pd.DataFrame, checkpoint: Any, path: str) -> PandasObject:
-        estimator = estimator_factory()
+        estimator = _new_distinct_estimator(
+            estimator_factory,
+            retained_estimators,
+            context=f"availability checkpoint={checkpoint!r} path={path}",
+        )
         return fit_predict(estimator, frame, checkpoint)
 
     return _audit_availability(

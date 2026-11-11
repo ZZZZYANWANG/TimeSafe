@@ -34,6 +34,36 @@ def _markdown_table(frame: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
+
+def _validate_evidence_identity(audits: dict, config: dict) -> dict:
+    """Tie the aggregate audit evidence to the benchmark reproduced in stage 1."""
+
+    identity = audits.get("identity")
+    if not isinstance(identity, dict):
+        raise RuntimeError("timesafe_audits.json is missing its shared identity block.")
+    if audits.get("all_expected") is not True:
+        raise RuntimeError("TimeSafe audit verdicts do not match the pre-registered plan.")
+    expected = {
+        "experiment_run_id": config.get("experiment_run_id"),
+        "implementation_sha256": config.get("implementation_sha256"),
+        "audit_contract_version": config.get("experiment_contract_version"),
+        "timesafe_version": config.get("timesafe_version"),
+        "benchmark_sha256": config.get("data_sha256"),
+        "actr_manifest_sha256": config.get("actr_manifest_sha256"),
+        "benchmark_rows": config.get("rows"),
+        "benchmark_sessions": config.get("sessions"),
+    }
+    mismatches = {
+        key: {"audit": identity.get(key), "benchmark": value}
+        for key, value in expected.items()
+        if identity.get(key) != value
+    }
+    if mismatches:
+        raise RuntimeError(
+            f"Benchmark and audit evidence identities are inconsistent: {mismatches}."
+        )
+    return identity
+
 def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
     root = Path(results_dir)
     summary = pd.read_csv(root / "benchmark_summary.csv")
@@ -43,6 +73,7 @@ def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
     verification = json.loads(
         (root / "benchmark_verification.json").read_text(encoding="utf-8")
     )
+    identity = _validate_evidence_identity(audits, config)
 
     rows = []
     purposes = {
@@ -96,7 +127,14 @@ def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
         f"- External manifest status: `{config['external_manifest_verification']['status']}` "
         f"({config['external_manifest_verification']['checked_files']} files verified)",
         f"- Benchmark data SHA-256: `{config['data_sha256']}`",
+        f"- External manifest SHA-256: `{config['actr_manifest_sha256']}`",
         f"- Rows / sessions: `{config['rows']}` / `{config['sessions']}`",
+        f"- TimeSafe / experiment contract: `{identity['timesafe_version']}` / "
+        f"`{identity['audit_contract_version']}`",
+        f"- Experiment run / implementation identity: `{identity['experiment_run_id']}` / "
+        f"`{identity['implementation_sha256']}`",
+        f"- Audit subset identity: `{identity['audit_asset_ids_sha256']}` "
+        f"({identity['audit_asset_count']} assets, {identity['audit_rows']} rows)",
         f"- Maximum absolute RankIC difference versus the ACTR package reference: "
         f"`{verification['max_abs_rankic_difference']:.3g}`",
         f"- ACTR HAC p-value difference versus reference: "
@@ -110,7 +148,7 @@ def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
         "",
         _markdown_table(pairs),
         "",
-        f"Selected anchor alpha: `{config['selected_anchor_alpha']}`  ",
+        f"Selected anchor alpha: `{config['selected_anchor_alpha']}`",
         f"Selected residual gamma: `{config['selected_residual_gamma']}`",
         "",
         "## TimeSafe verdicts",
@@ -138,7 +176,9 @@ def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
     ]
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    temporary = output.with_name(f".{output.name}.tmp")
+    temporary.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    temporary.replace(output)
     return output
 
 

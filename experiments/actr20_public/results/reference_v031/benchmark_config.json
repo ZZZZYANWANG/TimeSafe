@@ -1,0 +1,38 @@
+{
+  "experiment_run_id": "d17d41f19cb9406388a819d5ccb49088",
+  "implementation_sha256": "4c3e629c62242913fc9c588fb349c42b92982129e96675ad5601f60b4ceb72c6",
+  "experiment_contract_version": "actr20-timesafe-audit-v1",
+  "timesafe_version": "0.3.1",
+  "selected_anchor_alpha": 0.44999999999999996,
+  "selected_residual_gamma": 0.09999999999999999,
+  "data_sha256": "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128",
+  "actr_manifest_sha256": "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7",
+  "rows": 109499,
+  "sessions": 1810,
+  "external_reference_verification": {
+    "status": "PASS",
+    "reference": "PACKAGE_VERIFICATION.json",
+    "atol": 1e-09,
+    "max_abs_rankic_difference": 9.020562075079397e-17,
+    "actr_hac_p_difference": 8.651933336434325e-17,
+    "metric_differences": {
+      "strong_cs_rankic": 9.020562075079397e-17,
+      "strong_ts_rankic": 1.3877787807814457e-17,
+      "stable_fusion_rankic": 6.938893903907228e-17,
+      "cross_anchor_rankic": 0.0,
+      "actr_rankic": 4.163336342344337e-17
+    },
+    "data_sha256_match": true,
+    "selected_config_match": true,
+    "shape_match": true,
+    "expected_rows": 109499,
+    "expected_sessions": 1810
+  },
+  "external_manifest_verification": {
+    "status": "PASS",
+    "manifest": "MANIFEST.sha256",
+    "manifest_sha256": "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7",
+    "checked_files": 76,
+    "benchmark_sha256": "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128"
+  }
+}

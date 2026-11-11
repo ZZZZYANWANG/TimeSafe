@@ -37,6 +37,54 @@ class ComparisonStats:
         return self.missing_left + self.missing_right
 
 
+def _is_missing_scalar(value: object) -> bool:
+    """Return a boolean missingness flag without coercing array-like objects.
+
+    ``pandas.isna`` returns an array for list- or ndarray-valued object cells.
+    Treat those cells as ordinary values and let the equality branch decide, rather
+    than raising while attempting ``bool(array)``.
+    """
+
+    if not pd.api.types.is_scalar(value):
+        return False
+    result = pd.isna(value)
+    if isinstance(result, (bool, np.bool_)):
+        return bool(result)
+    return False
+
+
+
+def _object_values_equal(left: object, right: object) -> bool:
+    """Compare scalar or array-like object cells without ambiguous truth values."""
+
+    if not pd.api.types.is_scalar(left) or not pd.api.types.is_scalar(right):
+        try:
+            return bool(
+                np.array_equal(np.asarray(left), np.asarray(right), equal_nan=True)
+            )
+        except (TypeError, ValueError):
+            return False
+
+    try:
+        comparison = left == right
+    except (TypeError, ValueError):
+        comparison = None
+    if comparison is pd.NA:
+        return False
+    if isinstance(comparison, (bool, np.bool_)):
+        return bool(comparison)
+    if comparison is not None:
+        try:
+            comparison_array = np.asarray(comparison)
+            if comparison_array.dtype == bool:
+                return bool(comparison_array.all())
+        except (TypeError, ValueError):
+            pass
+    try:
+        return bool(np.array_equal(np.asarray(left), np.asarray(right), equal_nan=True))
+    except (TypeError, ValueError):
+        return False
+
 def compare_labeled_outputs(
     left: PandasObject,
     right: PandasObject,
@@ -85,8 +133,17 @@ def compare_labeled_outputs(
         if pd.api.types.is_numeric_dtype(left_original) and pd.api.types.is_numeric_dtype(
             right_original
         ):
-            left_values = left_col.to_numpy(dtype=float, na_value=np.nan)[row_mask]
-            right_values = right_col.to_numpy(dtype=float, na_value=np.nan)[row_mask]
+            complex_values = pd.api.types.is_complex_dtype(
+                left_original.dtype
+            ) or pd.api.types.is_complex_dtype(right_original.dtype)
+            target_dtype = np.complex128 if complex_values else np.float64
+            missing_value = np.nan + 0j if complex_values else np.nan
+            left_values = left_col.to_numpy(
+                dtype=target_dtype, na_value=missing_value
+            )[row_mask]
+            right_values = right_col.to_numpy(
+                dtype=target_dtype, na_value=missing_value
+            )[row_mask]
             equal = np.isclose(
                 left_values,
                 right_values,
@@ -99,12 +156,13 @@ def compare_labeled_outputs(
             both_finite = np.isfinite(left_values) & np.isfinite(right_values)
             if both_finite.any():
                 abs_diff = np.abs(left_values[both_finite] - right_values[both_finite])
+                scale_floor = max(float(atol), float(np.finfo(np.float64).tiny))
                 denom = np.maximum(
                     np.maximum(
                         np.abs(left_values[both_finite]),
                         np.abs(right_values[both_finite]),
                     ),
-                    atol,
+                    scale_floor,
                 )
                 numeric_abs.append(abs_diff)
                 numeric_rel.append(abs_diff / denom)
@@ -113,16 +171,12 @@ def compare_labeled_outputs(
             right_values = right_col.iloc[np.flatnonzero(row_mask)].astype(object).to_numpy()
             equal_values: list[bool] = []
             for left_value, right_value in zip(left_values, right_values):
-                left_na = bool(pd.isna(left_value))
-                right_na = bool(pd.isna(right_value))
+                left_na = _is_missing_scalar(left_value)
+                right_na = _is_missing_scalar(right_value)
                 if left_na or right_na:
                     equal_values.append(left_na and right_na)
                     continue
-                try:
-                    comparison = left_value == right_value
-                    equal_values.append(False if comparison is pd.NA else bool(comparison))
-                except (TypeError, ValueError):
-                    equal_values.append(False)
+                equal_values.append(_object_values_equal(left_value, right_value))
             changed_cells += int((~np.asarray(equal_values, dtype=bool)).sum())
 
     max_abs = None

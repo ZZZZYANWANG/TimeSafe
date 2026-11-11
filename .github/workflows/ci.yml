@@ -41,5 +41,5 @@ jobs:
       - run: python -m build
       - run: python -m venv /tmp/timesafe-wheel
       - run: /tmp/timesafe-wheel/bin/pip install dist/*.whl
-      - run: /tmp/timesafe-wheel/bin/python -c "import timesafe_quant; assert timesafe_quant.__version__ == '0.3.0'"
+      - run: /tmp/timesafe-wheel/bin/python -c "import timesafe_quant; assert timesafe_quant.__version__ == '0.3.1'"
       - run: /tmp/timesafe-wheel/bin/timesafe demo --output /tmp/timesafe_demo.json

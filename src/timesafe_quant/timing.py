@@ -125,12 +125,13 @@ def canonical_calendar(calendar: pd.Index | list[Any]) -> pd.Index:
     """Return a unique, sorted trading calendar."""
 
     raw = pd.Index(calendar)
+    if len(raw) == 0:
+        raise ValueError("calendar must not be empty.")
+    if bool(pd.isna(raw).any()):
+        raise ValueError("calendar must not contain missing sessions.")
     if not raw.is_unique:
         raise ValueError("calendar must contain unique sessions.")
-    sessions = raw.sort_values()
-    if len(sessions) == 0:
-        raise ValueError("calendar must not be empty.")
-    return sessions
+    return raw.sort_values()
 
 
 def shift_sessions(
@@ -140,11 +141,14 @@ def shift_sessions(
 ) -> pd.Index:
     """Shift calendar positions, returning missing values beyond calendar bounds."""
 
-    target = positions + int(offset)
+    source = np.asarray(positions, dtype=np.int64)
+    target = source + int(offset)
     missing_value: Any = pd.NaT if isinstance(sessions, pd.DatetimeIndex) else None
+    source_valid = (source >= 0) & (source < len(sessions))
+    target_valid = source_valid & (target >= 0) & (target < len(sessions))
     values = [
-        sessions[position] if 0 <= position < len(sessions) else missing_value
-        for position in target
+        sessions[int(position)] if valid else missing_value
+        for position, valid in zip(target, target_valid)
     ]
     if isinstance(sessions, pd.DatetimeIndex):
         return pd.DatetimeIndex(values)

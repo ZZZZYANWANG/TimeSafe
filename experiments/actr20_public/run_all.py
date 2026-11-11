@@ -127,12 +127,29 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--actr-root", required=True)
     parser.add_argument("--output-dir", default="results/generated")
-    parser.add_argument("--timeout-seconds", type=int, default=1800)
-    parser.add_argument("--heartbeat-seconds", type=float, default=10.0)
+    parser.add_argument(
+        "--total-timeout-seconds",
+        "--timeout-seconds",
+        dest="total_timeout_seconds",
+        type=int,
+        default=21600,
+        help="Maximum wall-clock time for the complete experiment (default: 6 hours).",
+    )
+    parser.add_argument(
+        "--stage-timeout-seconds",
+        type=int,
+        default=3600,
+        help="Maximum wall-clock time for each isolated stage (default: 1 hour).",
+    )
+    parser.add_argument("--heartbeat-seconds", type=float, default=30.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
-    if args.timeout_seconds <= 0 or args.heartbeat_seconds <= 0:
-        parser.error("timeout and heartbeat values must be positive")
+    if (
+        args.total_timeout_seconds <= 0
+        or args.stage_timeout_seconds <= 0
+        or args.heartbeat_seconds <= 0
+    ):
+        parser.error("total timeout, stage timeout, and heartbeat values must be positive")
 
     here = Path(__file__).resolve().parent
     actr_root = Path(args.actr_root).expanduser().resolve()
@@ -142,7 +159,13 @@ def main() -> None:
     status_file = output / "run_status.json"
     started_wall = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     started = time.monotonic()
-    deadline = started + args.timeout_seconds
+    total_deadline = started + args.total_timeout_seconds
+
+    def stage_deadline() -> float:
+        return min(
+            total_deadline,
+            time.monotonic() + args.stage_timeout_seconds,
+        )
     environment = _worker_environment()
     payload = {
         "status": "running",
@@ -150,6 +173,8 @@ def main() -> None:
         "started_at": started_wall,
         "finished_at": None,
         "python": sys.executable,
+        "total_timeout_seconds": args.total_timeout_seconds,
+        "stage_timeout_seconds": args.stage_timeout_seconds,
     }
     _atomic_json(status_file, payload)
 
@@ -167,9 +192,25 @@ def main() -> None:
             ],
             log_path=output / "logs" / "benchmark.log",
             environment=environment,
-            deadline=deadline,
+            deadline=stage_deadline(),
             heartbeat_seconds=args.heartbeat_seconds,
         )
+        benchmark_config = json.loads(
+            (output / "benchmark_config.json").read_text(encoding="utf-8")
+        )
+        run_id = benchmark_config.get("experiment_run_id")
+        if not isinstance(run_id, str) or not run_id:
+            raise RuntimeError("Benchmark stage did not create an experiment_run_id.")
+        payload.update(
+            {
+                "experiment_run_id": run_id,
+                "implementation_sha256": benchmark_config.get(
+                    "implementation_sha256"
+                ),
+                "benchmark_sha256": benchmark_config.get("data_sha256"),
+            }
+        )
+        _atomic_json(status_file, payload)
 
         for position, audit in enumerate(AUDIT_NAMES, start=1):
             _run_stage(
@@ -184,10 +225,12 @@ def main() -> None:
                     str(actr_root),
                     "--output",
                     str(output / "audit_workers" / f"{audit}.json"),
+                    "--run-id",
+                    run_id,
                 ],
                 log_path=output / "logs" / f"audit_{audit}.log",
                 environment=environment,
-                deadline=deadline,
+                deadline=stage_deadline(),
                 heartbeat_seconds=args.heartbeat_seconds,
             )
 
@@ -203,7 +246,7 @@ def main() -> None:
             ],
             log_path=output / "logs" / "combine_audits.log",
             environment=environment,
-            deadline=deadline,
+            deadline=stage_deadline(),
             heartbeat_seconds=args.heartbeat_seconds,
         )
         report = output / "ACTR20_TIMESAFE_EXPERIMENT.md"
@@ -220,7 +263,7 @@ def main() -> None:
             ],
             log_path=output / "logs" / "assemble_report.log",
             environment=environment,
-            deadline=deadline,
+            deadline=stage_deadline(),
             heartbeat_seconds=args.heartbeat_seconds,
         )
         if not report.is_file():
