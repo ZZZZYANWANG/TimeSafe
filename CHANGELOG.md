@@ -17,6 +17,7 @@
 - Anchored the ACTR package manifest to a fixed SHA-256 instead of trusting a self-consistent but replaceable manifest.
 - Separated per-stage and whole-experiment timeout ceilings so the documented one-command run can complete under realistic model-fit latency.
 - Made core Markdown/JSON evidence-card writes atomic.
+- Re-ran and content-addressed the ACTR-20 reference evidence under the exact final implementation.
 
 ## 0.3.0 — 2026-11-10
 
