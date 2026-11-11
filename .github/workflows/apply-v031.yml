@@ -43,6 +43,8 @@ jobs:
           xz -dc /tmp/timesafe_v031_patch.xz > /tmp/timesafe_v031.patch
           git apply --check /tmp/timesafe_v031.patch
           git apply /tmp/timesafe_v031.patch
+          sed -i 's/^    output = atomic_write_json(args.output, payload)$/    atomic_write_json(args.output, payload)/' experiments/actr20_public/audit_worker.py
+          grep -q '^    atomic_write_json(args.output, payload)$' experiments/actr20_public/audit_worker.py
           git diff --check
 
       - name: Install complete development dependencies
