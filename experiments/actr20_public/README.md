@@ -23,7 +23,8 @@ python experiments/actr20_public/run_all.py \
 
 Use a fresh output directory, or add `--overwrite` to replace a prior generated run.
 
-The orchestrator is synchronous and observable, but every expensive model audit is executed in a **fresh Python interpreter** with native thread pools limited to one thread. This avoids process-local BLAS/OpenMP state leaking from one histogram-boosting workload into the next. Each stage has its own log, and `run_status.json` is written atomically.
+The orchestrator is synchronous and observable, but every expensive model audit is executed in a **fresh Python interpreter** with native thread pools limited to one thread. This avoids process-local BLAS/OpenMP state leaking from one histogram-boosting workload into the next. Each stage has its own log, and `run_status.json` plus every worker evidence file are written atomically.
+The default ceilings are one hour per isolated stage and six hours overall. Use `--stage-timeout-seconds` and `--total-timeout-seconds` (the old `--timeout-seconds` name remains an alias for the total limit) to adapt the run to the host.
 
 A Bash convenience wrapper is also available:
 
@@ -55,7 +56,13 @@ python experiments/actr20_public/assemble_report.py --results-dir ... --output .
 | Fresh-state determinism | `WARN` or `PASS` | Fixed-seed fresh refits must reproduce predictions |
 | Label maturity and purge | `PASS` | Close-to-next-open 20-session labels plus a four-session safety gap |
 
-The expensive refit audits use four pre-registered checkpoints and the first 24 anonymous assets across all 1,810 sessions. A clean sampled audit therefore returns `WARN`, not a false full-history `PASS`. Exact coverage remains in `timesafe_audits.json`.
+The expensive refit audits use four pre-registered checkpoints and the first 24 anonymous assets across all 1,810 sessions. Every worker records the same benchmark SHA-256, TimeSafe version, anonymized-asset-set hash, row/session counts, and checkpoint plan; aggregation fails on any mixed or stale artifact. A clean sampled audit therefore returns `WARN`, not a false full-history `PASS`. Exact coverage remains in `timesafe_audits.json`.
+
+## Committed reference evidence
+
+`results/reference_v031/` contains the aggregate, non-sensitive outputs from an actual full benchmark reproduction and TimeSafe audit run. `MANIFEST.sha256` covers every committed result file. The benchmark array itself remains external under the ACTR research-only notice.
+
+The committed evidence is not treated as a substitute for rerunning the external package. It provides an inspectable record of the model metrics, negative-control verdicts, contract audit, source benchmark identity, and exact reference differences observed in the validated run.
 
 ## Output
 

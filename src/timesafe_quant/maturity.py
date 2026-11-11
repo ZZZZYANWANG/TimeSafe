@@ -701,6 +701,8 @@ def audit_label_maturity(
     """Audit contract consistency, label maturity, purge, gap, and embargo rules."""
 
     contract = contract or LabelContract()
+    if embargo_sessions < 0:
+        raise ValueError("embargo_sessions must be non-negative.")
     validation = validate_label_intervals(
         intervals, contract=contract, calendar=calendar
     )
@@ -764,8 +766,21 @@ def audit_label_maturity(
         )
 
     valid = frame["label_available"].notna() & frame["label_end"].notna()
+    maturity_time_declared = as_of is not None
     if as_of is None:
+        # Without an observation timestamp, structural completeness can be checked,
+        # but temporal maturity cannot be proven.
         mature = valid.copy()
+        findings.append(
+            Finding(
+                code="TS-MATURITY-011",
+                status=AuditStatus.WARN,
+                message=(
+                    "No as_of timestamp was supplied. Structurally complete labels are "
+                    "reported, but their maturity at a real audit time is unverified."
+                ),
+            )
+        )
     else:
         mature = valid & series_point_le(
             frame["label_available"],
@@ -826,25 +841,55 @@ def audit_label_maturity(
             overlap_rows = int((base | safety | embargo | invalid).sum())
 
     if immature_rows:
+        if maturity_time_declared:
+            code = "TS-MATURITY-101"
+            message = "One or more scoped labels were unavailable at the declared audit time."
+        else:
+            code = "TS-MATURITY-102"
+            message = (
+                "One or more scoped labels are structurally incomplete; maturity cannot "
+                "be established even before choosing an as_of audit time."
+            )
         findings.append(
             Finding(
-                code="TS-MATURITY-101",
+                code=code,
                 status=AuditStatus.FAIL,
-                message="One or more scoped labels were unavailable at the declared audit time.",
+                message=message,
                 details={
                     "as_of": scalar_jsonable(as_of),
+                    "as_of_declared": maturity_time_declared,
                     "as_of_event": as_of_event_value,
                     "immature_rows": immature_rows,
+                },
+            )
+        )
+    elif maturity_time_declared:
+        findings.append(
+            Finding(
+                code="TS-MATURITY-001",
+                status=AuditStatus.PASS,
+                message="All scoped labels were mature at the declared audit time.",
+                details={
+                    "mature_rows": mature_rows,
+                    "as_of": scalar_jsonable(as_of),
+                    "as_of_event": as_of_event_value,
+                    "as_of_declared": True,
                 },
             )
         )
     else:
         findings.append(
             Finding(
-                code="TS-MATURITY-001",
-                status=AuditStatus.PASS,
-                message="All scoped labels were mature at the declared audit time.",
-                details={"mature_rows": mature_rows},
+                code="TS-MATURITY-012",
+                status=AuditStatus.WARN,
+                message=(
+                    "All scoped labels are structurally complete, but maturity at a real "
+                    "audit time remains unverified because no as_of timestamp was supplied."
+                ),
+                details={
+                    "structurally_complete_rows": mature_rows,
+                    "as_of_declared": False,
+                },
             )
         )
 
@@ -898,6 +943,7 @@ def audit_label_maturity(
         findings=findings,
         metadata={
             "as_of": scalar_jsonable(as_of),
+            "as_of_declared": maturity_time_declared,
             "as_of_event": as_of_event_value,
             "embargo_sessions": embargo_sessions,
             "interval_overlap_rows": interval_overlap_rows,

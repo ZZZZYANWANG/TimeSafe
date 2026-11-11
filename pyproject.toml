@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "timesafe-quant"
-version = "0.3.0"
+version = "0.3.1"
 description = "Temporal integrity, refit, and label-maturity auditing for quantitative research pipelines."
 readme = "README.md"
 requires-python = ">=3.10"

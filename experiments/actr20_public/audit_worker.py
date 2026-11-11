@@ -18,7 +18,9 @@ from typing import Any
 import numpy as np
 
 from common import (
+    atomic_write_json,
     benchmark_to_panel,
+    build_audit_identity,
     fit_predict_full_sample,
     fit_predict_immature_labels,
     fit_predict_legal,
@@ -50,8 +52,8 @@ def _thread_limit_context():
     return threadpool_limits(limits=1)
 
 
-def _load_audit_panel(actr_root: str | Path):
-    _, data = load_actr_data(actr_root)
+def _load_audit_panel(actr_root: str | Path, experiment_run_id: str):
+    root, data = load_actr_data(actr_root)
     panel = benchmark_to_panel(data)
     # Pre-registered subset: all sessions and the first 24 anonymized assets.
     # The full benchmark is reproduced separately on every row.
@@ -59,15 +61,31 @@ def _load_audit_panel(actr_root: str | Path):
     panel = panel[panel.index.get_level_values("asset_id").isin(audit_assets)].copy()
     sessions = np.sort(panel.index.get_level_values("date_id").unique().to_numpy(dtype=int))
     checkpoints = [value for value in (1000, 1200, 1450, 1700) if value in set(sessions)]
-    return panel, sessions, audit_assets, checkpoints
+    identity = build_audit_identity(
+        root=root,
+        data=data,
+        panel=panel,
+        audit_assets=audit_assets,
+        sessions=sessions,
+        checkpoints=checkpoints,
+        experiment_run_id=experiment_run_id,
+    )
+    return panel, sessions, audit_assets, checkpoints, identity
 
 
-def run_one(audit: str, actr_root: str | Path) -> dict[str, Any]:
+def run_one(
+    audit: str, actr_root: str | Path, experiment_run_id: str
+) -> dict[str, Any]:
     if audit not in AUDIT_NAMES:
         raise ValueError(f"Unknown audit {audit!r}; choose one of {AUDIT_NAMES}")
 
-    panel, sessions, audit_assets, checkpoints = _load_audit_panel(actr_root)
-    factory = lambda: make_public_estimator(seed=20261110, max_iter=45)
+    panel, sessions, audit_assets, checkpoints, identity = _load_audit_panel(
+        actr_root, experiment_run_id
+    )
+
+    def factory() -> Any:
+        return make_public_estimator(seed=20261110, max_iter=45)
+
     rule = AvailabilityRule(
         value_column="target_rank",
         available_at_column="target_available",
@@ -195,6 +213,7 @@ def run_one(audit: str, actr_root: str | Path) -> dict[str, Any]:
 
     return {
         "audit": audit,
+        "identity": identity,
         "audit_asset_count": int(len(audit_assets)),
         "audit_rows": int(len(panel)),
         "checkpoints": [item.checkpoint for item in getattr(result, "checkpoints", [])],
@@ -207,16 +226,15 @@ def main() -> None:
     parser.add_argument("--audit", required=True, choices=AUDIT_NAMES)
     parser.add_argument("--actr-root", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--run-id", required=True)
     args = parser.parse_args()
 
     # Set before model fits; run_all also sets these before interpreter startup.
     for variable in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
         os.environ.setdefault(variable, "1")
 
-    payload = run_one(args.audit, args.actr_root)
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    payload = run_one(args.audit, args.actr_root, args.run_id)
+    atomic_write_json(args.output, payload)
     print(json.dumps({"audit": args.audit, "status": payload["result"]["status"]}))
 
 

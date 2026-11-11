@@ -33,3 +33,11 @@ Temporal legality does not imply absence of selection bias, a valid mechanism, r
 ## ACTR public experiment
 
 The ACTR anonymous benchmark is block-shuffled and deidentified. It validates code paths and structural reproduction, not chronological investment performance. The data remains governed by its external research-only terms and is not redistributed by TimeSafe.
+
+## Custom estimator factories
+
+TimeSafe verifies that a custom estimator factory returns distinct object identities throughout an audit. It cannot generically introspect whether an arbitrary custom object is truly unfitted or free of hidden external state. For scikit-learn estimators, prefer `sklearn_estimator_factory`, which delegates to the mature `sklearn.base.clone` contract.
+
+## Maturity observation time
+
+A label-maturity audit without an explicit `as_of` timestamp can verify interval structure but cannot prove that labels were observable at a real research cutoff. Such a run is reported as `WARN`, not `PASS`.

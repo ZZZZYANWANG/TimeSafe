@@ -325,9 +325,10 @@ The experiment:
 3. runs legal fresh-state refits and availability masking;
 4. runs deliberately leaking full-sample and immature-label negative controls;
 5. checks fresh-state determinism and the 20-session close-to-next-open label contract with a four-session safety gap;
-6. executes each expensive model audit in a fresh interpreter and exchanges only JSON artifacts.
+6. executes each expensive model audit in a fresh interpreter and exchanges only atomic JSON artifacts;
+7. binds every worker artifact to the same benchmark SHA-256, TimeSafe version, anonymized-asset-set hash, row/session counts, and pre-registered checkpoints before aggregation.
 
-Reference aggregate evidence is retained under `experiments/actr20_public/results/reference/`. The anonymous dataset, private factors, expert checkpoints, instruments, positions, and orders are not included.
+Reference aggregate evidence is retained under `experiments/actr20_public/results/reference_v031/`. The anonymous dataset, private factors, expert checkpoints, instruments, positions, and orders are not included.
 
 ---
 
