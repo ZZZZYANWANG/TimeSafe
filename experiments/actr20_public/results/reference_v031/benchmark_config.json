@@ -1,6 +1,6 @@
 {
-  "experiment_run_id": "a54e118cc8d64828ba400038c220f1d0",
-  "implementation_sha256": "2c4e0e0e82463a9c2ede359224b83f92c5cdb323fb278ad919eae878c8836052",
+  "experiment_run_id": "5a24a531da244dbdbc6a34d637e0f180",
+  "implementation_sha256": "9c29aaae8621203446af7d68d6d5beaf11c2166972f20424f412cb2a210dc592",
   "experiment_contract_version": "actr20-timesafe-audit-v1",
   "timesafe_version": "0.3.1",
   "selected_anchor_alpha": 0.44999999999999996,
