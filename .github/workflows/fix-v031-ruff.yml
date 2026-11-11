@@ -1,0 +1,43 @@
+name: Fix TimeSafe v0.3.1 Ruff gate
+
+on:
+  push:
+    branches: [fix/v0.3.1-final-hardening-r3]
+    paths: [".github/workflows/fix-v031-ruff.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/v0.3.1-final-hardening-r3
+          fetch-depth: 0
+      - name: Remove unused assignment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("experiments/actr20_public/audit_worker.py")
+          text = path.read_text(encoding="utf-8")
+          old = "    output = atomic_write_json(args.output, payload)\n"
+          new = "    atomic_write_json(args.output, payload)\n"
+          if text.count(old) != 1:
+              raise SystemExit("expected exactly one unused assignment")
+          path.write_text(text.replace(old, new), encoding="utf-8")
+          PY
+          rm -f .github/workflows/fix-v031-ruff.yml
+          git diff --check
+      - name: Commit fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: satisfy Ruff in ACTR audit worker"
+          git push origin HEAD:fix/v0.3.1-final-hardening-r3
