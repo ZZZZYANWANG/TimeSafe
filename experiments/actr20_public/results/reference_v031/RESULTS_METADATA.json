@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "experiment": "TimeSafe x ACTR-20 privacy-hardened public benchmark",
+  "timesafe_version": "0.3.1",
+  "experiment_run_id": "a54e118cc8d64828ba400038c220f1d0",
+  "implementation_sha256": "2c4e0e0e82463a9c2ede359224b83f92c5cdb323fb278ad919eae878c8836052",
+  "experiment_contract_version": "actr20-timesafe-audit-v1",
+  "external_package": "ACTR20_JQ_Public_Research_Package_20261110",
+  "external_benchmark_sha256": "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128",
+  "external_manifest_sha256": "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7",
+  "rows": 109499,
+  "sessions": 1810,
+  "audit_asset_ids_sha256": "088889b8071756d3559dc2172e525644f0be09d4b3fb26a697070bddcb805338",
+  "audit_asset_count": 24,
+  "audit_rows": 36399,
+  "audit_sessions": 1810,
+  "planned_checkpoints": [
+    1000,
+    1200,
+    1450,
+    1700
+  ],
+  "max_abs_rankic_difference": 9.020562075079397e-17,
+  "actr_hac_p_difference": 8.651933336434325e-17,
+  "all_expected_audit_verdicts": true,
+  "observed_verdicts": {
+    "mature_feedback_prefix": "PASS",
+    "legal_refit": "WARN",
+    "full_sample_negative_control": "FAIL",
+    "legal_availability": "WARN",
+    "immature_label_negative_control": "FAIL",
+    "refit_determinism": "WARN",
+    "label_maturity_and_purge": "PASS"
+  },
+  "worker_artifact_hashes_recorded": true,
+  "execution_mode": "explicit isolated stages",
+  "execution_note": "Benchmark and all seven audit workers completed in isolated Python processes; aggregate non-sensitive evidence only is committed.",
+  "elapsed_seconds": 55.542,
+  "python_runtime": "3.13.5"
+}

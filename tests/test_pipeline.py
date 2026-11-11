@@ -1,4 +1,3 @@
-import pandas as pd
 
 from timesafe_quant import (
     AuditStatus,

@@ -1,12 +1,17 @@
+import importlib
+
 import numpy as np
 import pandas as pd
 import pytest
 
-hypothesis = pytest.importorskip("hypothesis")
-from hypothesis import assume, given, settings, strategies as st
-
 from timesafe_quant import LabelContract, build_label_intervals, purged_train_test_masks
 from timesafe_quant.timing import EVENT_ORDER, EVENTS_PER_SESSION
+
+hypothesis = pytest.importorskip("hypothesis")
+assume = hypothesis.assume
+given = hypothesis.given
+settings = hypothesis.settings
+st = importlib.import_module("hypothesis.strategies")
 
 EVENTS = tuple(EVENT_ORDER)
 

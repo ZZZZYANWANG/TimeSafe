@@ -11,7 +11,9 @@ from __future__ import annotations
 import hashlib
 import importlib
 import json
+import os
 import sys
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +24,11 @@ import pandas as pd
 EXPECTED_BENCHMARK_SHA256 = (
     "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128"
 )
+EXPECTED_MANIFEST_SHA256 = (
+    "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7"
+)
+AUDIT_CONTRACT_VERSION = "actr20-timesafe-audit-v1"
+ARTIFACT_SCHEMA_VERSION = 1
 
 
 def file_sha256(path: str | Path) -> str:
@@ -34,7 +41,108 @@ def file_sha256(path: str | Path) -> str:
     return digest.hexdigest()
 
 
-def verify_sha256_manifest(root: str | Path) -> dict[str, Any]:
+def atomic_write_json(path: str | Path, payload: Any) -> Path:
+    """Write one JSON artifact atomically in its destination directory."""
+
+    output = Path(path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output.with_name(
+        f".{output.name}.{os.getpid()}.{uuid.uuid4().hex}.tmp"
+    )
+    try:
+        temporary.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        os.replace(temporary, output)
+    finally:
+        temporary.unlink(missing_ok=True)
+    return output
+
+
+def stable_int_array_sha256(values: Any) -> str:
+    """Hash integer identifiers using a platform-independent little-endian encoding."""
+
+    array = np.asarray(values, dtype="<i8")
+    return hashlib.sha256(array.tobytes(order="C")).hexdigest()
+
+
+def build_implementation_sha256() -> str:
+    """Hash the TimeSafe package and ACTR experiment Python implementation."""
+
+    import timesafe_quant
+
+    experiment_root = Path(__file__).resolve().parent
+    package_root = Path(timesafe_quant.__file__).resolve().parent
+    paths = sorted(experiment_root.glob("*.py")) + sorted(package_root.glob("*.py"))
+    digest = hashlib.sha256()
+    for path in paths:
+        if path.is_relative_to(experiment_root):
+            logical = f"experiment/{path.relative_to(experiment_root).as_posix()}"
+        else:
+            logical = f"timesafe_quant/{path.relative_to(package_root).as_posix()}"
+        payload = path.read_bytes()
+        digest.update(logical.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(str(len(payload)).encode("ascii"))
+        digest.update(b"\0")
+        digest.update(payload)
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def build_audit_identity(
+    *,
+    root: str | Path,
+    data: Any,
+    panel: pd.DataFrame,
+    audit_assets: Any,
+    sessions: Any,
+    checkpoints: list[int],
+    experiment_run_id: str,
+) -> dict[str, Any]:
+    """Build the immutable identity shared by every isolated audit worker."""
+
+    from timesafe_quant import __version__ as timesafe_version
+
+    package_root = Path(root).expanduser().resolve()
+    benchmark_path = package_root / "data" / "actr_deidentified_benchmark.npz"
+    benchmark_sha256 = file_sha256(benchmark_path)
+    if benchmark_sha256 != EXPECTED_BENCHMARK_SHA256:
+        raise RuntimeError(
+            "ACTR benchmark identity changed before audit execution: "
+            f"observed={benchmark_sha256}, expected={EXPECTED_BENCHMARK_SHA256}."
+        )
+    full_sessions = np.unique(np.asarray(data.date_id, dtype="<i8"))
+    audit_assets_array = np.asarray(audit_assets, dtype="<i8")
+    sessions_array = np.asarray(sessions, dtype="<i8")
+    if not experiment_run_id or not str(experiment_run_id).strip():
+        raise ValueError("experiment_run_id must be a non-empty string.")
+    return {
+        "artifact_schema_version": ARTIFACT_SCHEMA_VERSION,
+        "experiment_run_id": str(experiment_run_id),
+        "implementation_sha256": build_implementation_sha256(),
+        "audit_contract_version": AUDIT_CONTRACT_VERSION,
+        "benchmark_sha256": benchmark_sha256,
+        "actr_manifest_sha256": file_sha256(package_root / "MANIFEST.sha256"),
+        "benchmark_rows": int(len(data.date_id)),
+        "benchmark_sessions": int(len(full_sessions)),
+        "timesafe_version": timesafe_version,
+        "audit_asset_ids_sha256": stable_int_array_sha256(audit_assets_array),
+        "audit_asset_count": int(len(audit_assets_array)),
+        "audit_rows": int(len(panel)),
+        "audit_sessions": int(len(sessions_array)),
+        "audit_session_min": int(sessions_array.min()),
+        "audit_session_max": int(sessions_array.max()),
+        "planned_checkpoints": [int(value) for value in checkpoints],
+    }
+
+
+def verify_sha256_manifest(
+    root: str | Path,
+    *,
+    expected_manifest_sha256: str = EXPECTED_MANIFEST_SHA256,
+) -> dict[str, Any]:
     """Verify all files declared by an ACTR ``MANIFEST.sha256``.
 
     The manifest is treated as an external artifact contract. Paths must remain
@@ -47,6 +155,13 @@ def verify_sha256_manifest(root: str | Path) -> dict[str, Any]:
     manifest = package_root / "MANIFEST.sha256"
     if not manifest.is_file():
         raise FileNotFoundError(f"Missing ACTR manifest: {manifest}")
+    observed_manifest_sha256 = file_sha256(manifest)
+    if observed_manifest_sha256 != expected_manifest_sha256:
+        raise RuntimeError(
+            "ACTR manifest identity mismatch: "
+            f"observed={observed_manifest_sha256}, "
+            f"expected={expected_manifest_sha256}."
+        )
 
     checked: list[str] = []
     seen: set[str] = set()
@@ -106,9 +221,38 @@ def verify_sha256_manifest(root: str | Path) -> dict[str, Any]:
     return {
         "status": "PASS",
         "manifest": manifest.name,
+        "manifest_sha256": observed_manifest_sha256,
         "checked_files": len(checked),
         "benchmark_sha256": declared_benchmark,
     }
+
+
+def _assert_actr_module_origin(source: Path) -> None:
+    """Reject a pre-imported ACTR module from outside the verified source tree."""
+
+    source = source.resolve()
+    for name, module in list(sys.modules.items()):
+        if name != "actr_public" and not name.startswith("actr_public."):
+            continue
+        locations: list[Path] = []
+        module_file = getattr(module, "__file__", None)
+        if module_file:
+            locations.append(Path(module_file).resolve())
+        module_path = getattr(module, "__path__", None)
+        if module_path:
+            locations.extend(Path(value).resolve() for value in module_path)
+        if not locations:
+            raise RuntimeError(
+                f"Pre-imported module {name!r} has no verifiable filesystem origin."
+            )
+        for location in locations:
+            try:
+                location.relative_to(source)
+            except ValueError as exc:
+                raise RuntimeError(
+                    f"Pre-imported module {name!r} came from unverified path {location}. "
+                    "Start the experiment in a clean Python process."
+                ) from exc
 
 
 def register_actr_package(actr_root: str | Path) -> Path:
@@ -124,6 +268,7 @@ def register_actr_package(actr_root: str | Path) -> Path:
             "data/actr_deidentified_benchmark.npz, and LICENSE_RESEARCH_ONLY.md"
         )
     verify_sha256_manifest(root)
+    _assert_actr_module_origin(source)
     source_text = str(source)
     if source_text not in sys.path:
         sys.path.insert(0, source_text)
@@ -210,11 +355,30 @@ def make_public_estimator(*, seed: int = 20261110, max_iter: int = 45):
 
 
 def _fit_model(estimator: Any, x: np.ndarray, y: np.ndarray, weights: np.ndarray) -> Any:
-    try:
+    """Fit with date-equal weights without masking genuine estimator errors.
+
+    The public learner is normally a HistGradientBoostingRegressor. Older
+    scikit-learn builds use a Pipeline fallback, in which case sample weights must
+    be routed to the final step. We inspect the mature scikit-learn estimator API
+    instead of catching every ValueError and retrying a different call.
+    """
+
+    from sklearn.utils.validation import has_fit_parameter
+
+    if has_fit_parameter(estimator, "sample_weight"):
         estimator.fit(x, y, sample_weight=weights)
-    except (TypeError, ValueError):
-        estimator.fit(x, y, gradientboostingregressor__sample_weight=weights)
-    return estimator
+        return estimator
+
+    steps = getattr(estimator, "steps", None)
+    if steps:
+        final_name, final_estimator = steps[-1]
+        if has_fit_parameter(final_estimator, "sample_weight"):
+            estimator.fit(x, y, **{f"{final_name}__sample_weight": weights})
+            return estimator
+
+    raise TypeError(
+        f"Estimator {type(estimator).__name__} does not expose a sample_weight fit parameter."
+    )
 
 
 def _date_equal_weights(date_ids: np.ndarray) -> np.ndarray:

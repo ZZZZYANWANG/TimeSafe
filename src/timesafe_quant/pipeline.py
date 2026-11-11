@@ -172,6 +172,7 @@ def audit_pipeline_prefix_invariance(
 
     summaries: list[PipelineStageSummary] = []
     first_failing_stage: str | None = None
+    first_error_stage: str | None = None
     statuses: list[AuditStatus] = []
 
     for step in pipeline.steps:
@@ -189,6 +190,8 @@ def audit_pipeline_prefix_invariance(
 
         if status in {AuditStatus.FAIL, AuditStatus.ERROR} and first_failing_stage is None:
             first_failing_stage = step.name
+        if status is AuditStatus.ERROR and first_error_stage is None:
+            first_error_stage = step.name
         statuses.append(status)
         summaries.append(
             PipelineStageSummary(
@@ -232,7 +235,10 @@ def audit_pipeline_prefix_invariance(
         message = f"The first stage affected by future rows is {first_failing_stage!r}."
         code = "TS-PIPELINE-101"
     else:
-        message = f"The first stage that raised an audit error is {first_failing_stage!r}."
+        message = (
+            f"An audit error first occurred at stage {first_error_stage!r}; "
+            f"the first non-passing stage is {first_failing_stage!r}."
+        )
         code = "TS-PIPELINE-201"
 
     findings = [
@@ -247,6 +253,7 @@ def audit_pipeline_prefix_invariance(
                 "coverage": plan.coverage,
                 "exhaustive": plan.exhaustive,
                 "first_failing_stage": first_failing_stage,
+                "first_error_stage": first_error_stage,
                 "full_reference_error_stage": full_run.error_stage,
                 "full_reference_error": full_run.error,
             },
@@ -256,6 +263,7 @@ def audit_pipeline_prefix_invariance(
         status=overall,
         first_failing_stage=first_failing_stage,
         stages=summaries,
+        first_error_stage=first_error_stage,
         findings=findings,
         metadata={
             "checkpoint_policy": plan.policy,
@@ -263,5 +271,6 @@ def audit_pipeline_prefix_invariance(
             "checked_checkpoints": len(plan.selected),
             "coverage": plan.coverage,
             "exhaustive": plan.exhaustive,
+            "first_error_stage": first_error_stage,
         },
     )

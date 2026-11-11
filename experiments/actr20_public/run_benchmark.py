@@ -4,11 +4,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import uuid
 from pathlib import Path
 
 import numpy as np
 
-from common import file_sha256, register_actr_package, verify_sha256_manifest
+from common import (
+    AUDIT_CONTRACT_VERSION,
+    atomic_write_json,
+    build_implementation_sha256,
+    file_sha256,
+    register_actr_package,
+    verify_sha256_manifest,
+)
 
 
 METRIC_NAME_MAP = {
@@ -94,7 +102,9 @@ def _verify_against_external_package(
     }
 
 
-def run(actr_root: str | Path, output_dir: str | Path) -> dict:
+def run(
+    actr_root: str | Path, output_dir: str | Path, *, run_id: str | None = None
+) -> dict:
     root = Path(actr_root).expanduser().resolve()
     manifest_verification = verify_sha256_manifest(root)
     root = register_actr_package(root)
@@ -123,21 +133,25 @@ def run(actr_root: str | Path, output_dir: str | Path) -> dict:
         rows=rows,
         sessions=sessions,
     )
+    from timesafe_quant import __version__ as timesafe_version
+
+    run_id = run_id or uuid.uuid4().hex
     config = {
+        "experiment_run_id": run_id,
+        "implementation_sha256": build_implementation_sha256(),
+        "experiment_contract_version": AUDIT_CONTRACT_VERSION,
+        "timesafe_version": timesafe_version,
         "selected_anchor_alpha": result.selected_alpha,
         "selected_residual_gamma": result.selected_gamma,
         "data_sha256": data_hash,
+        "actr_manifest_sha256": manifest_verification["manifest_sha256"],
         "rows": rows,
         "sessions": sessions,
         "external_reference_verification": verification,
         "external_manifest_verification": manifest_verification,
     }
-    (output / "benchmark_config.json").write_text(
-        json.dumps(config, indent=2), encoding="utf-8"
-    )
-    (output / "benchmark_verification.json").write_text(
-        json.dumps(verification, indent=2), encoding="utf-8"
-    )
+    atomic_write_json(output / "benchmark_config.json", config)
+    atomic_write_json(output / "benchmark_verification.json", verification)
     return config
 
 
@@ -145,8 +159,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--actr-root", required=True)
     parser.add_argument("--output-dir", required=True)
+    parser.add_argument("--run-id")
     args = parser.parse_args()
-    result = run(args.actr_root, args.output_dir)
+    result = run(args.actr_root, args.output_dir, run_id=args.run_id)
     print(json.dumps(result, indent=2))
 
 

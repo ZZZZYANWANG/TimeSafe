@@ -155,6 +155,7 @@ class PipelineAuditResult:
     status: AuditStatus
     first_failing_stage: str | None
     stages: list[PipelineStageSummary]
+    first_error_stage: str | None = None
     findings: list[Finding] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
@@ -162,6 +163,7 @@ class PipelineAuditResult:
         return {
             "status": self.status.value,
             "first_failing_stage": self.first_failing_stage,
+            "first_error_stage": self.first_error_stage,
             "stages": [stage.to_dict() for stage in self.stages],
             "findings": [item.to_dict() for item in self.findings],
             "metadata": self.metadata,

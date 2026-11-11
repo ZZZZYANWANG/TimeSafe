@@ -122,6 +122,7 @@ def test_purged_walk_forward_applies_safety_gap():
     result = audit_label_maturity(
         intervals,
         contract=contract,
+        as_of=calendar[-1],
         train_mask=train,
         test_mask=test,
         calendar=calendar,
@@ -193,3 +194,65 @@ def test_insufficient_purge_is_detected():
     assert result.status is AuditStatus.FAIL
     assert result.split_overlap_rows > 0
     assert result.metadata["safety_gap_rows"] > 0
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("execution_offset_sessions", 1.5),
+        ("holding_period_sessions", 1.5),
+        ("label_publication_lag_sessions", 0.5),
+        ("safety_gap_sessions", True),
+    ],
+)
+
+
+def test_label_contract_rejects_non_integer_session_counts(field, value):
+    with pytest.raises(TypeError, match="integer"):
+        LabelContract(**{field: value})
+
+
+def test_label_contract_normalizes_numpy_integer_counts():
+    contract = LabelContract(
+        execution_offset_sessions=np.int64(1),
+        holding_period_sessions=np.int64(3),
+        label_publication_lag_sessions=np.int64(1),
+        safety_gap_sessions=np.int64(2),
+    )
+    assert contract.execution_offset_sessions == 1
+    assert contract.holding_period_sessions == 3
+    assert contract.label_publication_lag_sessions == 1
+    assert contract.safety_gap_sessions == 2
+
+
+def test_purge_rejects_non_integer_embargo_sessions():
+    calendar = pd.bdate_range("2021-01-04", periods=40)
+    contract = LabelContract(holding_period_sessions=3)
+    intervals = build_label_intervals(calendar, calendar=calendar, contract=contract)
+    tests = np.zeros(len(intervals), dtype=bool)
+    tests[20:22] = True
+    candidates = ~tests
+    with pytest.raises(TypeError, match="embargo_sessions"):
+        purged_train_test_masks(
+            intervals,
+            candidate_train_mask=candidates,
+            test_mask=tests,
+            contract=contract,
+            embargo_sessions=1.5,
+            calendar=calendar,
+        )
+
+
+def test_walk_forward_rejects_fractional_zero_embargo():
+    calendar = pd.bdate_range("2021-01-04", periods=40)
+    contract = LabelContract(holding_period_sessions=3)
+    intervals = build_label_intervals(calendar, calendar=calendar, contract=contract)
+    with pytest.raises(TypeError, match="embargo_sessions"):
+        purged_walk_forward_masks(
+            intervals,
+            test_start=calendar[20],
+            test_end=calendar[24],
+            contract=contract,
+            calendar=calendar,
+            embargo_sessions=0.0,
+        )

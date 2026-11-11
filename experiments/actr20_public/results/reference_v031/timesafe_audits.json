@@ -1,0 +1,1093 @@
+{
+  "experiment": "ACTR-20 privacy-hardened public benchmark",
+  "orchestration": "one_fresh_process_per_audit",
+  "identity": {
+    "artifact_schema_version": 1,
+    "experiment_run_id": "a54e118cc8d64828ba400038c220f1d0",
+    "implementation_sha256": "2c4e0e0e82463a9c2ede359224b83f92c5cdb323fb278ad919eae878c8836052",
+    "audit_contract_version": "actr20-timesafe-audit-v1",
+    "benchmark_sha256": "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128",
+    "actr_manifest_sha256": "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7",
+    "benchmark_rows": 109499,
+    "benchmark_sessions": 1810,
+    "timesafe_version": "0.3.1",
+    "audit_asset_ids_sha256": "088889b8071756d3559dc2172e525644f0be09d4b3fb26a697070bddcb805338",
+    "audit_asset_count": 24,
+    "audit_rows": 36399,
+    "audit_sessions": 1810,
+    "audit_session_min": 0,
+    "audit_session_max": 1809,
+    "planned_checkpoints": [
+      1000,
+      1200,
+      1450,
+      1700
+    ]
+  },
+  "audit_asset_count": 24,
+  "audit_rows": 36399,
+  "checkpoint_counts": {
+    "mature_feedback_prefix": 21,
+    "legal_refit": 4,
+    "full_sample_negative_control": 4,
+    "legal_availability": 4,
+    "immature_label_negative_control": 4,
+    "refit_determinism": 2,
+    "label_maturity_and_purge": 0
+  },
+  "mature_feedback_prefix": {
+    "status": "PASS",
+    "transform_name": "actr_mature_feedback",
+    "checkpoints": [
+      {
+        "checkpoint": "899",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "900",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "901",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "902",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "903",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "904",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "905",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "906",
+        "status": "PASS",
+        "compared_cells": 330,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "907",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "908",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "909",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "910",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "911",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "912",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "913",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "914",
+        "status": "PASS",
+        "compared_cells": 315,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "915",
+        "status": "PASS",
+        "compared_cells": 300,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "916",
+        "status": "PASS",
+        "compared_cells": 300,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "917",
+        "status": "PASS",
+        "compared_cells": 300,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "918",
+        "status": "PASS",
+        "compared_cells": 300,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "919",
+        "status": "PASS",
+        "compared_cells": 285,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": null,
+    "total_changed_cells": 0,
+    "total_compared_cells": 6540,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.0,
+    "eligible_checkpoints": 21,
+    "checked_checkpoints": 21,
+    "checkpoint_policy": "all",
+    "exhaustive": true,
+    "coverage": 1.0,
+    "findings": [
+      {
+        "code": "TS-PREFIX-001",
+        "status": "PASS",
+        "message": "Historical outputs are invariant at every eligible checkpoint under the supplied audit contract.",
+        "details": {
+          "audit_mode": "transform",
+          "checkpoint_policy": "all",
+          "eligible_checkpoints": 21,
+          "checked_checkpoints": 21,
+          "coverage": 1.0,
+          "exhaustive": true,
+          "atol": 1e-10,
+          "rtol": 1e-08
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "transform",
+      "time_level": "date_id",
+      "minimum_history": 900,
+      "atol": 1e-10,
+      "rtol": 1e-08,
+      "coverage": 1.0,
+      "input_isolation": true,
+      "copy_input_argument": true
+    }
+  },
+  "legal_refit": {
+    "status": "WARN",
+    "transform_name": "actr_legal_refit",
+    "checkpoints": [
+      {
+        "checkpoint": "1000",
+        "status": "PASS",
+        "compared_cells": 20,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1200",
+        "status": "PASS",
+        "compared_cells": 22,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1450",
+        "status": "PASS",
+        "compared_cells": 23,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1700",
+        "status": "PASS",
+        "compared_cells": 22,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": null,
+    "total_changed_cells": 0,
+    "total_compared_cells": 87,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.0,
+    "eligible_checkpoints": 910,
+    "checked_checkpoints": 4,
+    "checkpoint_policy": "explicit",
+    "exhaustive": false,
+    "coverage": 0.004395604395604396,
+    "findings": [
+      {
+        "code": "TS-PREFIX-011",
+        "status": "WARN",
+        "message": "No violation was found in the tested checkpoints, but the evidence is sampled or contains unresolved checkpoints. Use checkpoint_policy='all' for an exhaustive verdict.",
+        "details": {
+          "audit_mode": "refit",
+          "checkpoint_policy": "explicit",
+          "eligible_checkpoints": 910,
+          "checked_checkpoints": 4,
+          "coverage": 0.004395604395604396,
+          "exhaustive": false,
+          "atol": 1e-10,
+          "rtol": 1e-08
+        }
+      },
+      {
+        "code": "TS-REFIT-001",
+        "status": "PASS",
+        "message": "Distinct estimator objects were created independently for every prefix and full-data run. For arbitrary custom factories, object separation does not by itself prove that returned objects are unfitted.",
+        "details": {
+          "factory_isolation": true,
+          "retained_estimator_instances": 8,
+          "expected_estimator_instances": 8
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "refit",
+      "factory_isolation": true,
+      "time_level": "date_id",
+      "minimum_history": 900,
+      "coverage": 0.004395604395604396,
+      "input_isolation": true,
+      "copy_input_argument": true,
+      "retained_estimator_instances": 8,
+      "custom_factory_unfitted_state_not_introspected": true
+    }
+  },
+  "full_sample_negative_control": {
+    "status": "FAIL",
+    "transform_name": "actr_full_sample_negative_control",
+    "checkpoints": [
+      {
+        "checkpoint": "1000",
+        "status": "FAIL",
+        "compared_cells": 20,
+        "changed_cells": 19,
+        "changed_fraction": 0.95,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.3,
+        "max_rel_diff": 0.5,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1200",
+        "status": "FAIL",
+        "compared_cells": 22,
+        "changed_cells": 18,
+        "changed_fraction": 0.8181818181818182,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.31818181818181823,
+        "max_rel_diff": 0.8333333333333333,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1450",
+        "status": "FAIL",
+        "compared_cells": 23,
+        "changed_cells": 19,
+        "changed_fraction": 0.8260869565217391,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.6086956521739131,
+        "max_rel_diff": 0.8461538461538461,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1700",
+        "status": "FAIL",
+        "compared_cells": 22,
+        "changed_cells": 19,
+        "changed_fraction": 0.8636363636363636,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.18181818181818182,
+        "max_rel_diff": 0.7499999999999999,
+        "error": null,
+        "metadata": {},
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": "1000",
+    "total_changed_cells": 75,
+    "total_compared_cells": 87,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.8620689655172413,
+    "eligible_checkpoints": 910,
+    "checked_checkpoints": 4,
+    "checkpoint_policy": "explicit",
+    "exhaustive": false,
+    "coverage": 0.004395604395604396,
+    "findings": [
+      {
+        "code": "TS-PREFIX-101",
+        "status": "FAIL",
+        "message": "At least one historical output changed or changed structure when future rows were added.",
+        "details": {
+          "audit_mode": "refit",
+          "checkpoint_policy": "explicit",
+          "eligible_checkpoints": 910,
+          "checked_checkpoints": 4,
+          "coverage": 0.004395604395604396,
+          "exhaustive": false,
+          "atol": 1e-10,
+          "rtol": 1e-08,
+          "first_violation": "1000",
+          "changed_cells": 75,
+          "missing_left": 0,
+          "missing_right": 0
+        }
+      },
+      {
+        "code": "TS-REFIT-001",
+        "status": "PASS",
+        "message": "Distinct estimator objects were created independently for every prefix and full-data run. For arbitrary custom factories, object separation does not by itself prove that returned objects are unfitted.",
+        "details": {
+          "factory_isolation": true,
+          "retained_estimator_instances": 8,
+          "expected_estimator_instances": 8
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "refit",
+      "factory_isolation": true,
+      "time_level": "date_id",
+      "minimum_history": 900,
+      "coverage": 0.004395604395604396,
+      "input_isolation": true,
+      "copy_input_argument": true,
+      "retained_estimator_instances": 8,
+      "custom_factory_unfitted_state_not_introspected": true
+    }
+  },
+  "legal_availability": {
+    "status": "WARN",
+    "transform_name": "actr_legal_availability",
+    "checkpoints": [
+      {
+        "checkpoint": "1000",
+        "status": "PASS",
+        "compared_cells": 20,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "masked_cells": 478,
+          "masked_by_column": {
+            "target_rank": 478
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1200",
+        "status": "PASS",
+        "compared_cells": 22,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "masked_cells": 495,
+          "masked_by_column": {
+            "target_rank": 495
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1450",
+        "status": "PASS",
+        "compared_cells": 23,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "masked_cells": 572,
+          "masked_by_column": {
+            "target_rank": 572
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1700",
+        "status": "PASS",
+        "compared_cells": 22,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "masked_cells": 564,
+          "masked_by_column": {
+            "target_rank": 564
+          }
+        },
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": null,
+    "total_changed_cells": 0,
+    "total_compared_cells": 87,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.0,
+    "eligible_checkpoints": 910,
+    "checked_checkpoints": 4,
+    "checkpoint_policy": "explicit",
+    "exhaustive": false,
+    "coverage": 0.004395604395604396,
+    "findings": [
+      {
+        "code": "TS-PREFIX-011",
+        "status": "WARN",
+        "message": "No violation was found in the tested checkpoints, but the evidence is sampled or contains unresolved checkpoints. Use checkpoint_policy='all' for an exhaustive verdict.",
+        "details": {
+          "audit_mode": "availability_refit",
+          "checkpoint_policy": "explicit",
+          "eligible_checkpoints": 910,
+          "checked_checkpoints": 4,
+          "coverage": 0.004395604395604396,
+          "exhaustive": false,
+          "atol": 1e-10,
+          "rtol": 1e-08
+        }
+      },
+      {
+        "code": "TS-AVAILABILITY-001",
+        "status": "PASS",
+        "message": "Predictions were invariant to masking values that were not yet available under the supplied rules.",
+        "details": {
+          "masked_cells": 2109
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "availability_refit",
+      "coverage": 0.004395604395604396,
+      "decision_event": "close",
+      "masked_cells": 2109,
+      "availability_rules": [
+        {
+          "value_column": "target_rank",
+          "available_at_column": "target_available",
+          "available_event": "pre_open",
+          "reference": "checkpoint"
+        }
+      ]
+    }
+  },
+  "immature_label_negative_control": {
+    "status": "FAIL",
+    "transform_name": "actr_immature_label_negative_control",
+    "checkpoints": [
+      {
+        "checkpoint": "1000",
+        "status": "FAIL",
+        "compared_cells": 20,
+        "changed_cells": 15,
+        "changed_fraction": 0.75,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.15,
+        "max_rel_diff": 0.5,
+        "error": null,
+        "metadata": {
+          "masked_cells": 478,
+          "masked_by_column": {
+            "target_rank": 478
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1200",
+        "status": "FAIL",
+        "compared_cells": 22,
+        "changed_cells": 14,
+        "changed_fraction": 0.6363636363636364,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.18181818181818188,
+        "max_rel_diff": 0.6666666666666666,
+        "error": null,
+        "metadata": {
+          "masked_cells": 495,
+          "masked_by_column": {
+            "target_rank": 495
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1450",
+        "status": "FAIL",
+        "compared_cells": 23,
+        "changed_cells": 14,
+        "changed_fraction": 0.6086956521739131,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.5217391304347826,
+        "max_rel_diff": 0.75,
+        "error": null,
+        "metadata": {
+          "masked_cells": 572,
+          "masked_by_column": {
+            "target_rank": 572
+          }
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1700",
+        "status": "FAIL",
+        "compared_cells": 22,
+        "changed_cells": 15,
+        "changed_fraction": 0.6818181818181818,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.13636363636363646,
+        "max_rel_diff": 0.2499999999999999,
+        "error": null,
+        "metadata": {
+          "masked_cells": 564,
+          "masked_by_column": {
+            "target_rank": 564
+          }
+        },
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": "1000",
+    "total_changed_cells": 58,
+    "total_compared_cells": 87,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.6666666666666666,
+    "eligible_checkpoints": 910,
+    "checked_checkpoints": 4,
+    "checkpoint_policy": "explicit",
+    "exhaustive": false,
+    "coverage": 0.004395604395604396,
+    "findings": [
+      {
+        "code": "TS-PREFIX-101",
+        "status": "FAIL",
+        "message": "At least one historical output changed or changed structure when future rows were added.",
+        "details": {
+          "audit_mode": "availability_refit",
+          "checkpoint_policy": "explicit",
+          "eligible_checkpoints": 910,
+          "checked_checkpoints": 4,
+          "coverage": 0.004395604395604396,
+          "exhaustive": false,
+          "atol": 1e-10,
+          "rtol": 1e-08,
+          "first_violation": "1000",
+          "changed_cells": 58,
+          "missing_left": 0,
+          "missing_right": 0
+        }
+      },
+      {
+        "code": "TS-AVAILABILITY-101",
+        "status": "FAIL",
+        "message": "Predictions changed when not-yet-available values were masked; the pipeline depends on materialized future information.",
+        "details": {
+          "masked_cells": 2109,
+          "first_violation": "1000"
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "availability_refit",
+      "coverage": 0.004395604395604396,
+      "decision_event": "close",
+      "masked_cells": 2109,
+      "availability_rules": [
+        {
+          "value_column": "target_rank",
+          "available_at_column": "target_available",
+          "available_event": "pre_open",
+          "reference": "checkpoint"
+        }
+      ]
+    }
+  },
+  "refit_determinism": {
+    "status": "WARN",
+    "transform_name": "actr_refit_determinism",
+    "checkpoints": [
+      {
+        "checkpoint": "1000",
+        "status": "PASS",
+        "compared_cells": 20,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "repetitions": 2
+        },
+        "structural_differences": 0
+      },
+      {
+        "checkpoint": "1200",
+        "status": "PASS",
+        "compared_cells": 22,
+        "changed_cells": 0,
+        "changed_fraction": 0.0,
+        "missing_left": 0,
+        "missing_right": 0,
+        "max_abs_diff": 0.0,
+        "max_rel_diff": 0.0,
+        "error": null,
+        "metadata": {
+          "repetitions": 2
+        },
+        "structural_differences": 0
+      }
+    ],
+    "first_violation": null,
+    "total_changed_cells": 0,
+    "total_compared_cells": 42,
+    "total_missing_left": 0,
+    "total_missing_right": 0,
+    "total_structural_differences": 0,
+    "changed_fraction": 0.0,
+    "eligible_checkpoints": 910,
+    "checked_checkpoints": 2,
+    "checkpoint_policy": "explicit",
+    "exhaustive": false,
+    "coverage": 0.002197802197802198,
+    "findings": [
+      {
+        "code": "TS-PREFIX-011",
+        "status": "WARN",
+        "message": "No violation was found in the tested checkpoints, but the evidence is sampled or contains unresolved checkpoints. Use checkpoint_policy='all' for an exhaustive verdict.",
+        "details": {
+          "audit_mode": "refit_determinism",
+          "checkpoint_policy": "explicit",
+          "eligible_checkpoints": 910,
+          "checked_checkpoints": 2,
+          "coverage": 0.002197802197802198,
+          "exhaustive": false,
+          "atol": 1e-10,
+          "rtol": 1e-08
+        }
+      },
+      {
+        "code": "TS-REFIT-DETERMINISM-001",
+        "status": "PASS",
+        "message": "Fresh-state refits were reproducible at the tested checkpoints.",
+        "details": {
+          "repetitions": 2
+        }
+      }
+    ],
+    "metadata": {
+      "audit_mode": "refit_determinism",
+      "repetitions": 2,
+      "coverage": 0.002197802197802198,
+      "retained_estimator_instances": 4,
+      "custom_factory_unfitted_state_not_introspected": true
+    }
+  },
+  "label_maturity_and_purge": {
+    "status": "PASS",
+    "contract": {
+      "execution_offset_sessions": 1,
+      "holding_period_sessions": 20,
+      "label_publication_lag_sessions": 0,
+      "safety_gap_sessions": 4,
+      "decision_event": "close",
+      "execution_event": "open",
+      "exit_event": "close",
+      "label_available_event": "after_close",
+      "label_start_offset_sessions": 1,
+      "label_end_offset_sessions": 20,
+      "label_available_offset_sessions": 20,
+      "recommended_purge_sessions": 24,
+      "contract_schema_version": 1,
+      "fingerprint": "1f03578d39311dc9572de3673399f5976862e9f6d4135510b04f0c566d07cccf"
+    },
+    "rows": 1152,
+    "mature_rows": 1152,
+    "immature_rows": 0,
+    "split_overlap_rows": 0,
+    "findings": [
+      {
+        "code": "TS-CONTRACT-001",
+        "status": "PASS",
+        "message": "The interval table was recomputed from the active contract and calendar.",
+        "details": {
+          "fingerprint": "1f03578d39311dc9572de3673399f5976862e9f6d4135510b04f0c566d07cccf"
+        }
+      },
+      {
+        "code": "TS-MATURITY-001",
+        "status": "PASS",
+        "message": "All scoped labels were mature at the declared audit time.",
+        "details": {
+          "mature_rows": 1152,
+          "as_of": 1809,
+          "as_of_event": "after_close",
+          "as_of_declared": true
+        }
+      },
+      {
+        "code": "TS-PURGE-001",
+        "status": "PASS",
+        "message": "No training row violates overlap, safety-gap, embargo, or validity rules.",
+        "details": {
+          "embargo_sessions": 0,
+          "safety_gap_sessions": 4
+        }
+      }
+    ],
+    "metadata": {
+      "as_of": 1809,
+      "as_of_declared": true,
+      "as_of_event": "after_close",
+      "embargo_sessions": 0,
+      "interval_overlap_rows": 0,
+      "safety_gap_rows": 0,
+      "embargo_rows": 0,
+      "invalid_train_rows": 0,
+      "contract_validation": {
+        "status": "PASS",
+        "fingerprint_present": true,
+        "fingerprint_match": true,
+        "recomputed": true,
+        "mismatched_rows": 0,
+        "mismatched_columns": [],
+        "findings": [
+          {
+            "code": "TS-CONTRACT-001",
+            "status": "PASS",
+            "message": "The interval table was recomputed from the active contract and calendar.",
+            "details": {
+              "fingerprint": "1f03578d39311dc9572de3673399f5976862e9f6d4135510b04f0c566d07cccf"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "expected_verdicts": {
+    "mature_feedback_prefix": [
+      "PASS"
+    ],
+    "legal_refit": [
+      "PASS",
+      "WARN"
+    ],
+    "full_sample_negative_control": [
+      "FAIL"
+    ],
+    "legal_availability": [
+      "PASS",
+      "WARN"
+    ],
+    "immature_label_negative_control": [
+      "FAIL"
+    ],
+    "refit_determinism": [
+      "PASS",
+      "WARN"
+    ],
+    "label_maturity_and_purge": [
+      "PASS"
+    ]
+  },
+  "observed_verdicts": {
+    "mature_feedback_prefix": "PASS",
+    "legal_refit": "WARN",
+    "full_sample_negative_control": "FAIL",
+    "legal_availability": "WARN",
+    "immature_label_negative_control": "FAIL",
+    "refit_determinism": "WARN",
+    "label_maturity_and_purge": "PASS"
+  },
+  "all_expected": true,
+  "worker_artifacts": {
+    "mature_feedback_prefix": "audit_workers/mature_feedback_prefix.json",
+    "legal_refit": "audit_workers/legal_refit.json",
+    "full_sample_negative_control": "audit_workers/full_sample_negative_control.json",
+    "legal_availability": "audit_workers/legal_availability.json",
+    "immature_label_negative_control": "audit_workers/immature_label_negative_control.json",
+    "refit_determinism": "audit_workers/refit_determinism.json",
+    "label_maturity_and_purge": "audit_workers/label_maturity_and_purge.json"
+  },
+  "worker_artifact_sha256": {
+    "mature_feedback_prefix": "30d1271dcb3e226f15309090f90aedded31735c4f946b1c0863f863b0d9a9c84",
+    "legal_refit": "20b28bffe99c4cc56ceb004e2a38b7b8ed8e572808599f14a0dd73ef8adf84aa",
+    "full_sample_negative_control": "056b70ac0978e5b36c1011195e3b2fbd7045dc9ac44bc8944dd5050272c37d65",
+    "legal_availability": "e1e2bf5cddb010b03b6131b4e6d53a6ff2a4f0d48635f5feaa660519605313f7",
+    "immature_label_negative_control": "2d7008b3f71bb5800d2fb1df67340ef74de1e1fd92100151fc3ec4d5ba902f6f",
+    "refit_determinism": "c5dfa3754fc73ebe92cb78acb2b4f8733c2af1b59488ba7319c46a4fcbd98f4f",
+    "label_maturity_and_purge": "0c9bb6910679c1329bd847dac4ff20ae73d3f4bfe4041ffc0ef15d215f8c0c37"
+  }
+}

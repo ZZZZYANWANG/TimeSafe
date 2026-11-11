@@ -34,6 +34,21 @@ CONTRACT_FINGERPRINT_COLUMN = "_timesafe_contract_fingerprint"
 CONTRACT_SCHEMA_COLUMN = "_timesafe_contract_schema"
 
 
+def _session_count(value: Any, *, name: str, minimum: int = 0) -> int:
+    """Return a strict integer session count without silently truncating floats."""
+
+    if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)):
+        raise TypeError(f"{name} must be an integer number of sessions.")
+    normalized = int(value)
+    if normalized < minimum:
+        if minimum == 0:
+            raise ValueError(f"{name} must be non-negative.")
+        if minimum == 1:
+            raise ValueError(f"{name} must be positive.")
+        raise ValueError(f"{name} must be at least {minimum}.")
+    return normalized
+
+
 @dataclass(frozen=True)
 class LabelContract:
     """Session- and event-aware forward-label contract.
@@ -59,14 +74,39 @@ class LabelContract:
     label_available_event: str | SessionEvent = SessionEvent.AFTER_CLOSE
 
     def __post_init__(self) -> None:
-        if self.execution_offset_sessions < 0:
-            raise ValueError("execution_offset_sessions must be non-negative.")
-        if self.holding_period_sessions <= 0:
-            raise ValueError("holding_period_sessions must be positive.")
-        if self.label_publication_lag_sessions < 0:
-            raise ValueError("label_publication_lag_sessions must be non-negative.")
-        if self.safety_gap_sessions < 0:
-            raise ValueError("safety_gap_sessions must be non-negative.")
+        object.__setattr__(
+            self,
+            "execution_offset_sessions",
+            _session_count(
+                self.execution_offset_sessions,
+                name="execution_offset_sessions",
+            ),
+        )
+        object.__setattr__(
+            self,
+            "holding_period_sessions",
+            _session_count(
+                self.holding_period_sessions,
+                name="holding_period_sessions",
+                minimum=1,
+            ),
+        )
+        object.__setattr__(
+            self,
+            "label_publication_lag_sessions",
+            _session_count(
+                self.label_publication_lag_sessions,
+                name="label_publication_lag_sessions",
+            ),
+        )
+        object.__setattr__(
+            self,
+            "safety_gap_sessions",
+            _session_count(
+                self.safety_gap_sessions,
+                name="safety_gap_sessions",
+            ),
+        )
 
         decision_event = normalize_event(self.decision_event)
         execution_event = normalize_event(self.execution_event)
@@ -607,8 +647,9 @@ def purged_train_test_masks(
     """
 
     contract = contract or LabelContract()
-    if embargo_sessions < 0:
-        raise ValueError("embargo_sessions must be non-negative.")
+    embargo_sessions = _session_count(
+        embargo_sessions, name="embargo_sessions"
+    )
     if calendar is None:
         raise ValueError("calendar is required for strict purge construction.")
 
@@ -663,6 +704,9 @@ def purged_walk_forward_masks(
     that it was applied.
     """
 
+    embargo_sessions = _session_count(
+        embargo_sessions, name="embargo_sessions"
+    )
     if embargo_sessions:
         raise ValueError(
             "embargo_sessions is not applicable to a past-only walk-forward split; "
@@ -701,6 +745,9 @@ def audit_label_maturity(
     """Audit contract consistency, label maturity, purge, gap, and embargo rules."""
 
     contract = contract or LabelContract()
+    embargo_sessions = _session_count(
+        embargo_sessions, name="embargo_sessions"
+    )
     validation = validate_label_intervals(
         intervals, contract=contract, calendar=calendar
     )
@@ -764,8 +811,21 @@ def audit_label_maturity(
         )
 
     valid = frame["label_available"].notna() & frame["label_end"].notna()
+    maturity_time_declared = as_of is not None
     if as_of is None:
+        # Without an observation timestamp, structural completeness can be checked,
+        # but temporal maturity cannot be proven.
         mature = valid.copy()
+        findings.append(
+            Finding(
+                code="TS-MATURITY-011",
+                status=AuditStatus.WARN,
+                message=(
+                    "No as_of timestamp was supplied. Structurally complete labels are "
+                    "reported, but their maturity at a real audit time is unverified."
+                ),
+            )
+        )
     else:
         mature = valid & series_point_le(
             frame["label_available"],
@@ -826,25 +886,55 @@ def audit_label_maturity(
             overlap_rows = int((base | safety | embargo | invalid).sum())
 
     if immature_rows:
+        if maturity_time_declared:
+            code = "TS-MATURITY-101"
+            message = "One or more scoped labels were unavailable at the declared audit time."
+        else:
+            code = "TS-MATURITY-102"
+            message = (
+                "One or more scoped labels are structurally incomplete; maturity cannot "
+                "be established even before choosing an as_of audit time."
+            )
         findings.append(
             Finding(
-                code="TS-MATURITY-101",
+                code=code,
                 status=AuditStatus.FAIL,
-                message="One or more scoped labels were unavailable at the declared audit time.",
+                message=message,
                 details={
                     "as_of": scalar_jsonable(as_of),
+                    "as_of_declared": maturity_time_declared,
                     "as_of_event": as_of_event_value,
                     "immature_rows": immature_rows,
+                },
+            )
+        )
+    elif maturity_time_declared:
+        findings.append(
+            Finding(
+                code="TS-MATURITY-001",
+                status=AuditStatus.PASS,
+                message="All scoped labels were mature at the declared audit time.",
+                details={
+                    "mature_rows": mature_rows,
+                    "as_of": scalar_jsonable(as_of),
+                    "as_of_event": as_of_event_value,
+                    "as_of_declared": True,
                 },
             )
         )
     else:
         findings.append(
             Finding(
-                code="TS-MATURITY-001",
-                status=AuditStatus.PASS,
-                message="All scoped labels were mature at the declared audit time.",
-                details={"mature_rows": mature_rows},
+                code="TS-MATURITY-012",
+                status=AuditStatus.WARN,
+                message=(
+                    "All scoped labels are structurally complete, but maturity at a real "
+                    "audit time remains unverified because no as_of timestamp was supplied."
+                ),
+                details={
+                    "structurally_complete_rows": mature_rows,
+                    "as_of_declared": False,
+                },
             )
         )
 
@@ -898,6 +988,7 @@ def audit_label_maturity(
         findings=findings,
         metadata={
             "as_of": scalar_jsonable(as_of),
+            "as_of_declared": maturity_time_declared,
             "as_of_event": as_of_event_value,
             "embargo_sessions": embargo_sessions,
             "interval_overlap_rows": interval_overlap_rows,
