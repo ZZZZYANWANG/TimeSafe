@@ -1,0 +1,96 @@
+name: Apply verified TimeSafe v0.3.1 tree
+
+on:
+  push:
+    branches: [fix/v0.3.1-final-hardening-r3]
+    paths:
+      - ".github/workflows/apply-v031-from-verified-tree.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/v0.3.1-final-hardening-r3
+          fetch-depth: 0
+
+      - name: Import exact verified release files
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERIFIED_SHA=555a3a46aa365f98280471e090d89febfdf867d0
+          git fetch origin fix/v0.3.1-final-hardening-r2
+          test "$(git rev-parse "$VERIFIED_SHA^{commit}")" = "$VERIFIED_SHA"
+          git checkout "$VERIFIED_SHA" -- \
+            .github/workflows/ci.yml \
+            CHANGELOG.md \
+            README.md \
+            docs/limitations.md \
+            experiments/actr20_public/README.md \
+            experiments/actr20_public/assemble_report.py \
+            experiments/actr20_public/audit_worker.py \
+            experiments/actr20_public/common.py \
+            experiments/actr20_public/results/reference_v031/ACTR20_TIMESAFE_EXPERIMENT.md \
+            experiments/actr20_public/results/reference_v031/MANIFEST.sha256 \
+            experiments/actr20_public/results/reference_v031/RESULTS_METADATA.json \
+            experiments/actr20_public/results/reference_v031/benchmark_config.json \
+            experiments/actr20_public/results/reference_v031/benchmark_pairs.csv \
+            experiments/actr20_public/results/reference_v031/benchmark_summary.csv \
+            experiments/actr20_public/results/reference_v031/benchmark_verification.json \
+            experiments/actr20_public/results/reference_v031/timesafe_audits.json \
+            experiments/actr20_public/run_all.py \
+            experiments/actr20_public/run_audits.py \
+            experiments/actr20_public/run_benchmark.py \
+            pyproject.toml \
+            src/timesafe_quant/__init__.py \
+            src/timesafe_quant/availability.py \
+            src/timesafe_quant/cli.py \
+            src/timesafe_quant/compare.py \
+            src/timesafe_quant/maturity.py \
+            src/timesafe_quant/pipeline.py \
+            src/timesafe_quant/prefix.py \
+            src/timesafe_quant/refit.py \
+            src/timesafe_quant/report.py \
+            src/timesafe_quant/timing.py \
+            src/timesafe_quant/types.py \
+            tests/test_actr_experiment.py \
+            tests/test_availability.py \
+            tests/test_cli.py \
+            tests/test_compare.py \
+            tests/test_maturity.py \
+            tests/test_maturity_hypothesis.py \
+            tests/test_maturity_oracle.py \
+            tests/test_pipeline.py \
+            tests/test_prefix.py \
+            tests/test_public_api.py \
+            tests/test_refit_determinism.py \
+            tests/test_release_hardening_v03.py
+
+          rm -rf .bootstrap
+          rm -f .github/workflows/apply-v031-from-verified-tree.yml
+
+          python - <<'PY'
+          from pathlib import Path
+          import tomllib
+
+          with Path("pyproject.toml").open("rb") as handle:
+              project = tomllib.load(handle)["project"]
+          assert project["version"] == "0.3.1"
+          assert not Path(".bootstrap").exists()
+          PY
+
+          git diff --check
+
+      - name: Commit exact release tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: finalize TimeSafe v0.3.1 temporal evidence"
+          git push origin HEAD:fix/v0.3.1-final-hardening-r3
