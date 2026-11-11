@@ -17,6 +17,7 @@
 - Anchored the ACTR package manifest to a fixed SHA-256 instead of trusting a self-consistent but replaceable manifest.
 - Separated per-stage and whole-experiment timeout ceilings so the documented one-command run can complete under realistic model-fit latency.
 - Made core Markdown/JSON evidence-card writes atomic.
+- Re-ran and content-addressed the ACTR-20 reference evidence under the exact final implementation.
 
 ## 0.3.0 — 2026-11-10
 
@@ -29,6 +30,10 @@
 - Added empty train/test evidence guards and stricter test-label validity checks.
 - Added fresh-state refit determinism and clearer component-level findings.
 - Hardened nullable/categorical output comparison and duplicate-label rejection.
+- Fixed missing-aware equality for nested string/object containers in labeled outputs.
+- Rejected fractional and boolean session-count parameters instead of silently truncating them.
+- Made the CSV CLI preserve row order so unsorted research inputs are rejected instead of silently reordered.
+- Forced deterministic child-process hash seeding in the ACTR experiment orchestrator.
 - Added a verified ACTR-20 public-model experiment with mandatory leaking negative controls.
 - Added isolated model workers, atomic run status, external-reference verification, and dependency-light reports.
 - Added generated/adversarial tests and an 85% CI coverage floor.

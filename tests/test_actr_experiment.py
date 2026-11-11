@@ -270,6 +270,20 @@ def test_report_assembly_rejects_mismatched_benchmark_and_audit_identity(tmp_pat
         assemble_report.assemble(tmp_path, tmp_path / "report.md")
 
 
+def test_worker_environment_forces_deterministic_hash_and_single_thread(monkeypatch):
+    monkeypatch.setenv("PYTHONHASHSEED", "random")
+    monkeypatch.setenv("OMP_NUM_THREADS", "8")
+    environment = run_all._worker_environment()
+    assert environment["PYTHONHASHSEED"] == "0"
+    for variable in (
+        "OMP_NUM_THREADS",
+        "OPENBLAS_NUM_THREADS",
+        "MKL_NUM_THREADS",
+        "NUMEXPR_NUM_THREADS",
+    ):
+        assert environment[variable] == "1"
+
+
 def test_orchestrator_refuses_stale_output_without_overwrite(tmp_path):
     output = tmp_path / "existing"
     output.mkdir()

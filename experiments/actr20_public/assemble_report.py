@@ -34,7 +34,6 @@ def _markdown_table(frame: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
-
 def _validate_evidence_identity(audits: dict, config: dict) -> dict:
     """Tie the aggregate audit evidence to the benchmark reproduced in stage 1."""
 
@@ -63,6 +62,7 @@ def _validate_evidence_identity(audits: dict, config: dict) -> dict:
             f"Benchmark and audit evidence identities are inconsistent: {mismatches}."
         )
     return identity
+
 
 def assemble(results_dir: str | Path, output_path: str | Path) -> Path:
     root = Path(results_dir)

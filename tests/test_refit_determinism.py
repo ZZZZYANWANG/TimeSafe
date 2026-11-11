@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pytest
 from sklearn.linear_model import Ridge
 
 from timesafe_quant import (
@@ -87,3 +88,17 @@ def test_refit_determinism_empty_predictions_are_inconclusive():
         min_history=10,
     )
     assert result.status is AuditStatus.INCONCLUSIVE
+
+
+def test_refit_determinism_rejects_non_integer_repetitions():
+    panel = make_demo_panel(sessions=45, assets=3)
+    with pytest.raises(TypeError, match="positive integer"):
+        audit_refit_determinism(
+            lambda: object(),
+            lambda estimator, frame, checkpoint: frame.loc[
+                frame.index.get_level_values("date") == checkpoint, "return"
+            ],
+            panel,
+            time_level="date",
+            repetitions=2.5,
+        )
