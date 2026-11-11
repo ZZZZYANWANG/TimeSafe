@@ -234,7 +234,7 @@ def main() -> None:
         os.environ.setdefault(variable, "1")
 
     payload = run_one(args.audit, args.actr_root, args.run_id)
-    output = atomic_write_json(args.output, payload)
+    atomic_write_json(args.output, payload)
     print(json.dumps({"audit": args.audit, "status": payload["result"]["status"]}))
 
 
