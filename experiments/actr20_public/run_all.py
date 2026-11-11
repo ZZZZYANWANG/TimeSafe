@@ -32,7 +32,7 @@ def _worker_environment() -> dict[str, str]:
         "NUMEXPR_NUM_THREADS",
     ):
         environment[variable] = "1"
-    environment.setdefault("PYTHONHASHSEED", "0")
+    environment["PYTHONHASHSEED"] = "0"
     return environment
 
 

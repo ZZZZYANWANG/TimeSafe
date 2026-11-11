@@ -90,6 +90,7 @@ result = audit_prefix_invariance(
 ```
 
 TimeSafe never sorts research data silently: an unsorted temporal coordinate is rejected because rolling transforms depend on row order. User frames are isolated from in-place mutation.
+The CSV CLI follows the same rule and preserves input row order rather than silently sorting it.
 
 ### Evidence semantics
 

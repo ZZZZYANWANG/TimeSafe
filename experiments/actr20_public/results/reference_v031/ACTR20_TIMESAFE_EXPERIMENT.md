@@ -10,7 +10,7 @@ This experiment combines the external ACTR privacy-hardened public benchmark wit
 - External manifest SHA-256: `4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7`
 - Rows / sessions: `109499` / `1810`
 - TimeSafe / experiment contract: `0.3.1` / `actr20-timesafe-audit-v1`
-- Experiment run / implementation identity: `d17d41f19cb9406388a819d5ccb49088` / `4c3e629c62242913fc9c588fb349c42b92982129e96675ad5601f60b4ceb72c6`
+- Experiment run / implementation identity: `a54e118cc8d64828ba400038c220f1d0` / `2c4e0e0e82463a9c2ede359224b83f92c5cdb323fb278ad919eae878c8836052`
 - Audit subset identity: `088889b8071756d3559dc2172e525644f0be09d4b3fb26a697070bddcb805338` (24 assets, 36399 rows)
 - Maximum absolute RankIC difference versus the ACTR package reference: `9.02e-17`
 - ACTR HAC p-value difference versus reference: `8.65e-17`
