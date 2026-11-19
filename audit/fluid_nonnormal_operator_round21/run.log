@@ -1,0 +1,32 @@
+kline_downloads=250/1656 perp=122 spot=128
+kline_downloads=500/1656 perp=249 spot=251
+kline_downloads=750/1656 perp=377 spot=373
+kline_downloads=1000/1656 perp=503 spot=497
+kline_downloads=1250/1656 perp=628 spot=622
+kline_downloads=1500/1656 perp=751 spot=749
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+{
+  "candidate_columns": 68,
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "development_tests": 952,
+  "discovery_holdout_opened": 0,
+  "discovery_promoted": [],
+  "discovery_validation_passed": 0,
+  "frozen_identities": 4,
+  "raw_primitives": 17,
+  "replication_holdout_opened": 0,
+  "replication_validation_passed": 0
+}
