@@ -1,0 +1,1 @@
+Recompute fluid round16 validation with corrected nonoverlap issue-grid block bootstrap; formulas, signs and horizons remain frozen. Triggered 2026-11-19 Asia/Tokyo.
