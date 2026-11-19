@@ -31,7 +31,7 @@ jobs:
           PYTHONUNBUFFERED: '1'
         run: |
           cd research_repo
-          python research/fluid_round21/run_nonnormal_operator_round21.py 2>&1 | tee ../fluid-round21.log
+          python research/fluid_round21/run_nonnormal_operator_round21_fast.py 2>&1 | tee ../fluid-round21.log
       - name: Preserve evidence and log
         if: always()
         run: |
