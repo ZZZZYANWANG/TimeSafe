@@ -1,0 +1,42 @@
+kline_downloads=250/1656 perp=123 spot=127
+kline_downloads=500/1656 perp=250 spot=250
+kline_downloads=750/1656 perp=374 spot=376
+kline_downloads=1000/1656 perp=500 spot=500
+kline_downloads=1250/1656 perp=624 spot=626
+kline_downloads=1500/1656 perp=749 spot=751
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+Traceback (most recent call last):
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25_fixed.py", line 23, in <module>
+    experiment.main()
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25.py", line 352, in main
+    crossfit_rows.extend(development_crossfit(discovery, spec))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25.py", line 323, in development_crossfit
+    model = fit_model(panel, spec, train_year, train_year)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 31, in fit_model
+RuntimeError: insufficient hierarchical observations for impulse_balance_direction_ewm24: 95
