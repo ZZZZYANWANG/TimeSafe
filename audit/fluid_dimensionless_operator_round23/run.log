@@ -1,0 +1,70 @@
+kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=500/1656 perp=249 spot=251
+kline_downloads=750/1656 perp=374 spot=376
+kline_downloads=1000/1656 perp=499 spot=501
+kline_downloads=1250/1656 perp=624 spot=626
+kline_downloads=1500/1656 perp=750 spot=750
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=500/1656 perp=249 spot=251
+kline_downloads=750/1656 perp=373 spot=377
+kline_downloads=1000/1656 perp=498 spot=502
+kline_downloads=1250/1656 perp=627 spot=623
+kline_downloads=1500/1656 perp=748 spot=752
+round20_mechanisms=AAVEUSDT rows=50362
+round20_mechanisms=ALGOUSDT rows=50362
+round20_mechanisms=ATOMUSDT rows=50362
+round20_mechanisms=AVAXUSDT rows=50362
+round20_mechanisms=FILUSDT rows=50242
+round20_mechanisms=GRTUSDT rows=50242
+round20_mechanisms=NEARUSDT rows=50242
+round20_mechanisms=RUNEUSDT rows=50362
+round20_mechanisms=SNXUSDT rows=50362
+round20_mechanisms=THETAUSDT rows=50362
+round20_mechanisms=UNIUSDT rows=50362
+round20_mechanisms=XTZUSDT rows=50362
+round22_candidates=AAVEUSDT rows=50362
+round22_candidates=ALGOUSDT rows=50362
+round22_candidates=ATOMUSDT rows=50362
+round22_candidates=AVAXUSDT rows=50362
+round22_candidates=FILUSDT rows=50242
+round22_candidates=GRTUSDT rows=50242
+round22_candidates=NEARUSDT rows=50242
+round22_candidates=RUNEUSDT rows=50362
+round22_candidates=SNXUSDT rows=50362
+round22_candidates=THETAUSDT rows=50362
+round22_candidates=UNIUSDT rows=50362
+round22_candidates=XTZUSDT rows=50362
+{
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "frozen_identities": 2,
+  "replication_holdout_passed": 0,
+  "replication_validation_passed": 0
+}

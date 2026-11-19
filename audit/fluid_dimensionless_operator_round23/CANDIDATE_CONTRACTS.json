@@ -1,0 +1,14 @@
+{
+  "execution_impulse_balance_direction_120h": {
+    "equation": "deadzone[tanh(impulse_balance_direction_ewm24/1.25), 0.35]",
+    "horizon_hours": 120,
+    "mechanism": "dimensionless tradable excitation generated when source and pressure impulses create an imbalanced non-normal shear response",
+    "parent": "impulse_balance_direction_ewm24"
+  },
+  "execution_slow_mode_damped_nonnormal_72h": {
+    "equation": "deadzone[tanh(slow_mode_damped_nonnormal_ewm72/1.25), 0.35]",
+    "horizon_hours": 72,
+    "mechanism": "bounded transient direction after attenuation by the slow stable mode; the same map was frozen as Round22 execution policy",
+    "parent": "slow_mode_damped_nonnormal_ewm72"
+  }
+}
