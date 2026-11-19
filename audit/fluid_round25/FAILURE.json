@@ -1,0 +1,4 @@
+{
+  "error": "RuntimeError: insufficient hierarchical observations for impulse_balance_direction_ewm24: 968",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25.py\", line 471, in <module>\n    main()\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25.py\", line 349, in main\n    model = fit_model(discovery, spec, 2021, 2022)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview-api/research/fluid_round25/run_hierarchical_constitutive_round25.py\", line 160, in fit_model\n    raise RuntimeError(f\"insufficient hierarchical observations for {parent}: {int(valid.sum())}\")\nRuntimeError: insufficient hierarchical observations for impulse_balance_direction_ewm24: 968\n"
+}
