@@ -1,0 +1,51 @@
+name: Publish Fluid Round19 Evidence
+
+on:
+  push:
+    branches:
+      - research-fluid-public-memory-round19-20261119
+    paths:
+      - research/fluid_round19/TRIGGER_PUBLISH_EVIDENCE.txt
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research-fluid-public-memory-round19-20261119
+      - name: Download exact experiment artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf research/fluid_round19/audit_results
+          mkdir -p research/fluid_round19/audit_results
+          gh run download 44499087577 \
+            --repo ZZZZYANWANG/TimeSafe \
+            --name fluid-round19-public-ashare-memory-results \
+            --dir research/fluid_round19/audit_results
+      - name: Bind artifact and commit evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          root=Path('research/fluid_round19/audit_results')
+          rows={}
+          for p in sorted(root.rglob('*')):
+              if p.is_file():
+                  rows[str(p.relative_to(root))]=hashlib.sha256(p.read_bytes()).hexdigest()
+          (root/'ARTIFACT_BINDING.json').write_text(json.dumps({
+              'source_run_id': 44499087577,
+              'source_head_sha': '5b1af358df653efe97a388d6ee4b2303409c4825',
+              'files_sha256': rows,
+          }, indent=2), encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/fluid_round19/audit_results research/fluid_round19/TRIGGER_PUBLISH_EVIDENCE.txt
+          git commit -m 'research: freeze round19 public A-share memory evidence'
+          git push origin HEAD:research-fluid-public-memory-round19-20261119
