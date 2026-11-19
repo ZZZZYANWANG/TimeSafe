@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   test:
-    if: ${{ !contains(github.event.head_commit.message, '[fluid-round14]') }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -30,7 +29,6 @@ jobs:
       - run: pytest --cov=timesafe_quant --cov-report=term-missing --cov-fail-under=85
 
   package-smoke:
-    if: ${{ !contains(github.event.head_commit.message, '[fluid-round14]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,55 +43,3 @@ jobs:
       - run: /tmp/timesafe-wheel/bin/pip install dist/*.whl
       - run: /tmp/timesafe-wheel/bin/python -c "import timesafe_quant; assert timesafe_quant.__version__ == '0.3.1'"
       - run: /tmp/timesafe-wheel/bin/timesafe demo --output /tmp/timesafe_demo.json
-
-  fluid-round14:
-    if: ${{ contains(github.event.head_commit.message, '[fluid-round14]') }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
-    steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Clone isolated research branch
-        run: |
-          git clone --depth 1 --branch research-fluid-characteristic-wave-round14-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
-      - name: Install research dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install numpy pandas scipy scikit-learn requests pyarrow huggingface-hub tabulate
-      - name: Patch inherited round13 compatibility
-        working-directory: research-repo
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('research/fluid_round13/run_baroclinic_torque.py')
-          text = path.read_text()
-          replacements = {
-              'hours = (frame["time"].astype("int64") // 3_600_000_000_000).astype("int64")':
-                  'hours = ((frame["time"] - pd.Timestamp("1970-01-01", tz="UTC")) // pd.Timedelta(hours=1)).astype("int64")',
-              'flat = pd.DataFrame(values, index=times, columns=SYMBOLS).stack(dropna=False)':
-                  'flat = pd.Series(values.reshape(-1), index=index)',
-          }
-          for old, new in replacements.items():
-              if old in text:
-                  text = text.replace(old, new)
-          text = text.replace('.to_numpy(dtype=float)', '.to_numpy(dtype=float, copy=True)')
-          path.write_text(text)
-          PY
-      - name: Run characteristic-wave research
-        working-directory: research-repo
-        shell: bash
-        run: |
-          set -o pipefail
-          rm -rf research_outputs/fluid_characteristic_wave_round14
-          mkdir -p research_outputs/fluid_characteristic_wave_round14
-          python research/fluid_round14/run_characteristic_wave_action.py 2>&1 | tee research_outputs/fluid_characteristic_wave_round14/run.log
-      - name: Upload frozen evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: fluid-characteristic-wave-round14-results
-          path: research-repo/research_outputs/fluid_characteristic_wave_round14
-          if-no-files-found: warn
-          retention-days: 14
