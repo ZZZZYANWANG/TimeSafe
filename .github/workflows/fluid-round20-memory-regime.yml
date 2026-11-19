@@ -32,7 +32,7 @@ jobs:
         run: |
           set -o pipefail
           cd research-repo
-          python research/fluid_round20/run_state_dependent_memory_round20.py 2>&1 | tee ../fluid-round20.log
+          python research/fluid_round20/run_state_dependent_memory_round20_fixed.py 2>&1 | tee ../fluid-round20.log
       - name: Preserve log
         if: always()
         run: |
