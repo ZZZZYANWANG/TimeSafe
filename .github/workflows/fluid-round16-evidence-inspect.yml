@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install report dependency
+        run: python -m pip install pandas
       - name: Print compact evidence matrix
         shell: bash
         run: |
