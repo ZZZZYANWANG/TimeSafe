@@ -1,0 +1,44 @@
+kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=500/1656 perp=250 spot=250
+kline_downloads=750/1656 perp=376 spot=374
+kline_downloads=1000/1656 perp=501 spot=499
+kline_downloads=1250/1656 perp=627 spot=623
+kline_downloads=1500/1656 perp=750 spot=750
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+{
+  "error": "RuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 427, in <module>\n    main()\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 316, in main\n    residual_model = fit_residual_model(discovery, spec, scaled_residual)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 155, in fit_residual_model\n    raise RuntimeError(f\"insufficient OOF residual observations for {parent}: {int(valid.sum())}\")\nRuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0\n"
+}
+Traceback (most recent call last):
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 427, in <module>
+    main()
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 316, in main
+    residual_model = fit_residual_model(discovery, spec, scaled_residual)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 155, in fit_residual_model
+    raise RuntimeError(f"insufficient OOF residual observations for {parent}: {int(valid.sum())}")
+RuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0
