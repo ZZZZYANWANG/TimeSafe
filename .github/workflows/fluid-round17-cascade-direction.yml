@@ -1,0 +1,43 @@
+name: Fluid Round17 Cascade Direction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round17_cascade_direction_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-multiscale-constitutive-round16-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn requests pyarrow huggingface-hub tabulate
+      - name: Run fresh-universe cascade direction research
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/fluid_cascade_direction_round17
+          mkdir -p research_outputs/fluid_cascade_direction_round17
+          python research/fluid_round17/run_cascade_direction_round17.py 2>&1 | tee research_outputs/fluid_cascade_direction_round17/run.log
+      - name: Upload round17 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-cascade-direction-round17-results
+          path: research-repo/research_outputs/fluid_cascade_direction_round17
+          if-no-files-found: warn
+          retention-days: 14
