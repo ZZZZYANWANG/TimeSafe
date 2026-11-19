@@ -1,0 +1,60 @@
+name: Fluid dimensionless operator round23
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fluid-round23-dimensionless-operator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests pyarrow tabulate huggingface_hub
+      - name: Checkout frozen research code
+        run: |
+          git clone --depth 1 --branch research-fluid-dimensionless-operator-round23-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research_repo
+      - name: Run Round23
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          cd research_repo
+          python research/fluid_round23/run_dimensionless_operator_round23.py 2>&1 | tee ../fluid-round23.log
+      - name: Preserve evidence and log
+        if: always()
+        run: |
+          mkdir -p round23-artifact
+          cp -r research_repo/research_outputs/fluid_dimensionless_operator_round23/* round23-artifact/ 2>/dev/null || true
+          cp fluid-round23.log round23-artifact/run.log 2>/dev/null || true
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-dimensionless-operator-round23-results
+          path: round23-artifact
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish audit evidence branch
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git checkout -B audit-fluid-dimensionless-operator-round23-20261119
+          rm -rf audit/fluid_dimensionless_operator_round23
+          mkdir -p audit/fluid_dimensionless_operator_round23
+          cp -r round23-artifact/. audit/fluid_dimensionless_operator_round23/
+          git add audit/fluid_dimensionless_operator_round23
+          git commit -m 'audit: freeze dimensionless operator round23 evidence' || exit 0
+          git push origin HEAD:audit-fluid-dimensionless-operator-round23-20261119
