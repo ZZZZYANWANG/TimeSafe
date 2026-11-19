@@ -1,0 +1,58 @@
+name: Inspect Fluid Round18 Evidence
+
+on:
+  workflow_run:
+    workflows: ["Fluid Round18 Dispersion Stability"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download round18 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-dispersion-stability-round18-results
+          path: evidence
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Print decision evidence
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv
+          import json
+
+          root = Path('evidence')
+          def locate(name):
+              matches = list(root.rglob(name))
+              return matches[0] if matches else None
+
+          print('=== UPSTREAM ===')
+          print(json.dumps({
+              'run_id': '${{ github.event.workflow_run.id }}',
+              'conclusion': '${{ github.event.workflow_run.conclusion }}',
+              'head_sha': '${{ github.event.workflow_run.head_sha }}',
+          }, indent=2))
+          for name in ['FAILURE.json','SUMMARY.json','DISCOVERY_PROMOTED.json','CONFIRMED.json']:
+              path = locate(name)
+              if path:
+                  print(f'=== {name} ===')
+                  print(path.read_text())
+          for name in ['FROZEN_SELECTION.csv','DISCOVERY_VALIDATION_RESULTS.csv','DISCOVERY_HOLDOUT_RESULTS.csv','REPLICATION_VALIDATION_RESULTS.csv','REPLICATION_HOLDOUT_RESULTS.csv']:
+              path = locate(name)
+              if not path or path.stat().st_size == 0:
+                  continue
+              with path.open(newline='') as handle:
+                  rows = list(csv.DictReader(handle))
+              print(f'=== {name} ===')
+              if 'VALIDATION' in name:
+                  passed = [row for row in rows if row.get('validation_gate','').lower() == 'true']
+                  rows = passed if passed else sorted(rows, key=lambda row: float(row.get('cs_rankic') or '-999'), reverse=True)[:10]
+              print(json.dumps(rows, indent=2, sort_keys=True))
+          PY

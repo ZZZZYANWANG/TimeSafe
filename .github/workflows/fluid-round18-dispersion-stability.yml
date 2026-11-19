@@ -1,0 +1,43 @@
+name: Fluid Round18 Dispersion Stability
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round18_dispersion_stability_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-dispersion-stability-round18-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn requests pyarrow huggingface-hub tabulate
+      - name: Run fresh-universe dispersion and stability research
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/fluid_dispersion_stability_round18
+          mkdir -p research_outputs/fluid_dispersion_stability_round18
+          python research/fluid_round18/run_dispersion_stability_round18.py 2>&1 | tee research_outputs/fluid_dispersion_stability_round18/run.log
+      - name: Upload round18 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-dispersion-stability-round18-results
+          path: research-repo/research_outputs/fluid_dispersion_stability_round18
+          if-no-files-found: warn
+          retention-days: 14
