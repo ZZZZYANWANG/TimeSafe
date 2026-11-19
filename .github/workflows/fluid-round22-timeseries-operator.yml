@@ -1,0 +1,60 @@
+name: Fluid time-series operator round22
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fluid-round22-timeseries-operator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests pyarrow tabulate huggingface_hub
+      - name: Checkout frozen research code
+        run: |
+          git clone --depth 1 --branch research-fluid-timeseries-operator-round22-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research_repo
+      - name: Run Round22
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          cd research_repo
+          python research/fluid_round22/run_timeseries_operator_round22.py 2>&1 | tee ../fluid-round22.log
+      - name: Preserve evidence and log
+        if: always()
+        run: |
+          mkdir -p round22-artifact
+          cp -r research_repo/research_outputs/fluid_timeseries_operator_round22/* round22-artifact/ 2>/dev/null || true
+          cp fluid-round22.log round22-artifact/run.log 2>/dev/null || true
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-timeseries-operator-round22-results
+          path: round22-artifact
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish audit evidence branch
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git checkout -B audit-fluid-timeseries-operator-round22-20261119
+          rm -rf audit/fluid_timeseries_operator_round22
+          mkdir -p audit/fluid_timeseries_operator_round22
+          cp -r round22-artifact/. audit/fluid_timeseries_operator_round22/
+          git add audit/fluid_timeseries_operator_round22
+          git commit -m 'audit: freeze time-series operator round22 evidence' || exit 0
+          git push origin HEAD:audit-fluid-timeseries-operator-round22-20261119
