@@ -1,0 +1,54 @@
+{
+  "regime_constitutive_impulse_120h": {
+    "execution_map": "deadzone(tanh(prediction / development_prediction_std / 1.25), 0.35)",
+    "family": "regime_constitutive_impulse",
+    "fit_period": "2021-2022 discovery universe only",
+    "horizon_hours": 120,
+    "interaction_terms": [
+      "parent",
+      "parent_x_lead",
+      "parent_x_source",
+      "parent_x_impedance",
+      "parent_x_dominance",
+      "parent_x_lead_x_source",
+      "parent_x_lead_x_impedance",
+      "parent_x_source_x_impedance",
+      "parent_x_lead_x_dominance"
+    ],
+    "mechanism": "source-pressure impulse imbalance read through a development-frozen constitutive coefficient conditioned on lead direction, leverage loading, impedance matching and venue dominance",
+    "parent": "impulse_balance_direction_ewm24",
+    "regime_basis": [
+      "regime_lead_direction",
+      "regime_source_loading",
+      "regime_impedance_match",
+      "regime_perp_dominance"
+    ],
+    "ridge_alpha": 50.0
+  },
+  "regime_constitutive_slowmode_72h": {
+    "execution_map": "deadzone(tanh(prediction / development_prediction_std / 1.25), 0.35)",
+    "family": "regime_constitutive_slowmode",
+    "fit_period": "2021-2022 discovery universe only",
+    "horizon_hours": 72,
+    "interaction_terms": [
+      "parent",
+      "parent_x_lead",
+      "parent_x_source",
+      "parent_x_impedance",
+      "parent_x_dominance",
+      "parent_x_lead_x_source",
+      "parent_x_lead_x_impedance",
+      "parent_x_source_x_impedance",
+      "parent_x_lead_x_dominance"
+    ],
+    "mechanism": "slow-mode-damped non-normal transient read through the same development-frozen propagation-regime basis",
+    "parent": "slow_mode_damped_nonnormal_ewm72",
+    "regime_basis": [
+      "regime_lead_direction",
+      "regime_source_loading",
+      "regime_impedance_match",
+      "regime_perp_dominance"
+    ],
+    "ridge_alpha": 50.0
+  }
+}

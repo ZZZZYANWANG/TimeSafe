@@ -1,0 +1,11 @@
+{
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "development_crossfit_rows": 4,
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "frozen_models": 2,
+  "model_terms": 9,
+  "replication_holdout_passed": 0,
+  "replication_validation_passed": 0
+}

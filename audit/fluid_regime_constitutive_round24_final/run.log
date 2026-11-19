@@ -1,0 +1,78 @@
+kline_downloads=250/1656 perp=125 spot=125
+kline_downloads=500/1656 perp=249 spot=251
+kline_downloads=750/1656 perp=375 spot=375
+kline_downloads=1000/1656 perp=499 spot=501
+kline_downloads=1250/1656 perp=623 spot=627
+kline_downloads=1500/1656 perp=749 spot=751
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24_final.py:63: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[temporary], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24_final.py:63: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[temporary], inplace=True)
+kline_downloads=250/1656 perp=125 spot=125
+kline_downloads=500/1656 perp=251 spot=249
+kline_downloads=750/1656 perp=375 spot=375
+kline_downloads=1000/1656 perp=502 spot=498
+kline_downloads=1250/1656 perp=625 spot=625
+kline_downloads=1500/1656 perp=750 spot=750
+round20_mechanisms=AAVEUSDT rows=50362
+round20_mechanisms=ALGOUSDT rows=50362
+round20_mechanisms=ATOMUSDT rows=50362
+round20_mechanisms=AVAXUSDT rows=50362
+round20_mechanisms=FILUSDT rows=50242
+round20_mechanisms=GRTUSDT rows=50242
+round20_mechanisms=NEARUSDT rows=50242
+round20_mechanisms=RUNEUSDT rows=50362
+round20_mechanisms=SNXUSDT rows=50362
+round20_mechanisms=THETAUSDT rows=50362
+round20_mechanisms=UNIUSDT rows=50362
+round20_mechanisms=XTZUSDT rows=50362
+round22_candidates=AAVEUSDT rows=50362
+round22_candidates=ALGOUSDT rows=50362
+round22_candidates=ATOMUSDT rows=50362
+round22_candidates=AVAXUSDT rows=50362
+round22_candidates=FILUSDT rows=50242
+round22_candidates=GRTUSDT rows=50242
+round22_candidates=NEARUSDT rows=50242
+round22_candidates=RUNEUSDT rows=50362
+round22_candidates=SNXUSDT rows=50362
+round22_candidates=THETAUSDT rows=50362
+round22_candidates=UNIUSDT rows=50362
+round22_candidates=XTZUSDT rows=50362
+{
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "development_crossfit_rows": 4,
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "frozen_models": 2,
+  "model_terms": 9,
+  "replication_holdout_passed": 0,
+  "replication_validation_passed": 0
+}

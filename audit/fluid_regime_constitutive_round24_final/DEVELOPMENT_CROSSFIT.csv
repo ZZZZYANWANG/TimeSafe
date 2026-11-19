@@ -1,0 +1,5 @@
+factor,train_year,test_year,status,reason,ts_ic,positive_asset_share,annual_log_return_5bp,sharpe_5bp
+regime_constitutive_impulse_120h,2021,2022,insufficient_nonoverlap_for_diagnostic,insufficient non-overlapping development observations for impulse_balance_direction_ewm24: 106,,,,
+regime_constitutive_impulse_120h,2022,2021,estimated,,-0.05896217236319804,0.0,0.023292376367408912,0.06907207526572791
+regime_constitutive_slowmode_72h,2021,2022,insufficient_nonoverlap_for_diagnostic,insufficient non-overlapping development observations for slow_mode_damped_nonnormal_ewm72: 169,,,,
+regime_constitutive_slowmode_72h,2022,2021,estimated,,0.06748292056527597,1.0,0.12311258020531404,0.30032174309834764

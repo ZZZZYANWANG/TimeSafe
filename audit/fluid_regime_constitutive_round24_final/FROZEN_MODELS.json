@@ -1,0 +1,112 @@
+{
+  "regime_constitutive_impulse_120h": {
+    "beta": [
+      0.11657169348302132,
+      -0.01999581616102732,
+      0.04173513831854309,
+      0.03456547447680114,
+      -0.06698647296381381,
+      -0.02568028939295919,
+      0.04476162095167612,
+      0.05261042626346925,
+      0.015317615530998783
+    ],
+    "columns": [
+      "parent",
+      "parent_x_lead",
+      "parent_x_source",
+      "parent_x_impedance",
+      "parent_x_dominance",
+      "parent_x_lead_x_source",
+      "parent_x_lead_x_impedance",
+      "parent_x_source_x_impedance",
+      "parent_x_lead_x_dominance"
+    ],
+    "end_year": 2022,
+    "fix": "align minimum sample count with non-overlapping issuance clock",
+    "horizon": 120,
+    "mean": [
+      -0.028184927157821563,
+      0.0019872516277727194,
+      0.010707851189756023,
+      0.049982272662002655,
+      0.02557905538335223,
+      -0.004292010879811349,
+      -0.0100822602278779,
+      -0.0005745401430387132,
+      0.007848040025246875
+    ],
+    "minimum_observations": 300,
+    "n_train": 979,
+    "parent": "impulse_balance_direction_ewm24",
+    "prediction_scale": 0.1553243273622003,
+    "start_year": 2021,
+    "std": [
+      0.5769170203995766,
+      0.47773591992579395,
+      0.2097393037150027,
+      0.39178681351846595,
+      0.35689129643304573,
+      0.16952133012289816,
+      0.33258124719739146,
+      0.1472791035460476,
+      0.29913346586479145
+    ],
+    "y_mean": -0.10468282006310753
+  },
+  "regime_constitutive_slowmode_72h": {
+    "beta": [
+      0.059094138933963064,
+      0.02347684024003196,
+      -0.029277962000375517,
+      0.03665638068690664,
+      -0.07423754566323666,
+      0.02574904570828867,
+      0.024016865798309934,
+      0.008134305193652066,
+      0.004995023881588666
+    ],
+    "columns": [
+      "parent",
+      "parent_x_lead",
+      "parent_x_source",
+      "parent_x_impedance",
+      "parent_x_dominance",
+      "parent_x_lead_x_source",
+      "parent_x_lead_x_impedance",
+      "parent_x_source_x_impedance",
+      "parent_x_lead_x_dominance"
+    ],
+    "end_year": 2022,
+    "fix": "align minimum sample count with non-overlapping issuance clock",
+    "horizon": 72,
+    "mean": [
+      0.018549959079633364,
+      0.0385409819480782,
+      -0.004619102203112643,
+      -0.029171856467374174,
+      0.011850778342941197,
+      0.0020867106103940078,
+      -0.008925555859069286,
+      -0.005782729372943719,
+      0.0019999750289452145
+    ],
+    "minimum_observations": 300,
+    "n_train": 1627,
+    "parent": "slow_mode_damped_nonnormal_ewm72",
+    "prediction_scale": 0.0990550969274815,
+    "start_year": 2021,
+    "std": [
+      0.5988449542083187,
+      0.46015834341922696,
+      0.226465251330728,
+      0.3791830868864197,
+      0.37284896881940505,
+      0.17366543361291253,
+      0.29523203606667453,
+      0.14921798567702368,
+      0.29113623596659777
+    ],
+    "y_mean": -0.08189870439312566
+  }
+}
