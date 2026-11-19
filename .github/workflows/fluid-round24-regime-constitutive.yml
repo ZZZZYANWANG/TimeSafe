@@ -26,12 +26,13 @@ jobs:
       - name: Checkout frozen research code
         run: |
           git clone --depth 1 --branch research-fluid-regime-constitutive-round24-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research_repo
-      - name: Run Round24
+      - name: Run corrected Round24
         env:
           PYTHONUNBUFFERED: '1'
         run: |
+          set -o pipefail
           cd research_repo
-          python research/fluid_round24/run_regime_constitutive_round24.py 2>&1 | tee ../fluid-round24.log
+          python research/fluid_round24/run_regime_constitutive_round24_fixed.py 2>&1 | tee ../fluid-round24.log
       - name: Preserve evidence and log
         if: always()
         run: |
@@ -56,5 +57,5 @@ jobs:
           mkdir -p audit/fluid_regime_constitutive_round24
           cp -r round24-artifact/. audit/fluid_regime_constitutive_round24/
           git add audit/fluid_regime_constitutive_round24
-          git commit -m 'audit: freeze regime-dependent constitutive round24 evidence' || exit 0
+          git commit -m 'audit: freeze corrected regime-dependent constitutive round24 evidence' || exit 0
           git push origin HEAD:audit-fluid-regime-constitutive-round24-20261119
