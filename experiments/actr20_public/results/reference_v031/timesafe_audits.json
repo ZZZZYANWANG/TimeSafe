@@ -3,8 +3,8 @@
   "orchestration": "one_fresh_process_per_audit",
   "identity": {
     "artifact_schema_version": 1,
-    "experiment_run_id": "d17d41f19cb9406388a819d5ccb49088",
-    "implementation_sha256": "4c3e629c62242913fc9c588fb349c42b92982129e96675ad5601f60b4ceb72c6",
+    "experiment_run_id": "5a24a531da244dbdbc6a34d637e0f180",
+    "implementation_sha256": "9c29aaae8621203446af7d68d6d5beaf11c2166972f20424f412cb2a210dc592",
     "audit_contract_version": "actr20-timesafe-audit-v1",
     "benchmark_sha256": "dcc663779842c5701440f16015ceb36fe0555bc125f33f8b8f8e53ca9a02e128",
     "actr_manifest_sha256": "4e482c68c8578983712752c5d3e35afd78c7dc31a03820927edf76e11c559ba7",
@@ -1082,12 +1082,12 @@
     "label_maturity_and_purge": "audit_workers/label_maturity_and_purge.json"
   },
   "worker_artifact_sha256": {
-    "mature_feedback_prefix": "f875c29694b85da765105f9ac343e9fba534ea385a1135a4e5d7b160ede2e0a3",
-    "legal_refit": "7fd132ca54c1e705c2ed7cb133236030e36b4f97e3770949432de42255f0d24d",
-    "full_sample_negative_control": "e1423edaf75977a3267337519c72213b6e35c05ec899997cdfad6c17aa9118f3",
-    "legal_availability": "149d2c0ac51bba2d60c2a7bea8b03355ee22fe957342eea44ae042e34857efb5",
-    "immature_label_negative_control": "fcf23600a26ae4b7a2bd3d053639b2ab0264f951d5e3e9cd1d89998a328d9c88",
-    "refit_determinism": "f6f8fbd6f8c94ec5b6ce57ca3eedab26e7da8eae475391c03838d09f7bc217c2",
-    "label_maturity_and_purge": "8398d69d5060f696e39244081d37bfef680bf9e49567ab0a1b468b6e6ec0bed5"
+    "mature_feedback_prefix": "db2564517744a3d61dd27955253d1297158ae59cb2311f20876f841d30cbefa4",
+    "legal_refit": "6feb7a9e845de8c556703bc478013712cec5d4f2f1a5120f8ea6c66fa516fed6",
+    "full_sample_negative_control": "0203c304c4f6185af4b4e6aa945e1042491c193caac73714ddd0453df06e9d47",
+    "legal_availability": "53c3a2d1d7cbbe23a94f4572621a70590131ec5ec0fed4bffb11825886d54a5d",
+    "immature_label_negative_control": "e5f8bcca7d182b99231ff2e0ec106da3b0eb9fe442518b1617fc33d9e8b6218a",
+    "refit_determinism": "2379f64a6b5bb7f6e7ded7f82f218f8c8b79b2354894b3bfccc10dafefbfd43d",
+    "label_maturity_and_purge": "debbeea8949df66aabfc9d0025f1b90f9cc4246c84062ac38e13d52751720b56"
   }
 }

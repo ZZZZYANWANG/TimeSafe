@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 
 import numpy as np
@@ -53,37 +54,108 @@ def _is_missing_scalar(value: object) -> bool:
     return False
 
 
+def _object_values_equal(
+    left: object,
+    right: object,
+    *,
+    _seen: set[tuple[int, int]] | None = None,
+) -> bool:
+    """Compare nested object cells with missing-aware, non-ambiguous semantics.
 
-def _object_values_equal(left: object, right: object) -> bool:
-    """Compare scalar or array-like object cells without ambiguous truth values."""
+    ``numpy.array_equal(..., equal_nan=True)`` raises on arrays of strings and
+    arbitrary objects.  TimeSafe therefore handles common containers recursively
+    and reserves NumPy's numeric fast path for genuine numeric arrays.
+    """
 
-    if not pd.api.types.is_scalar(left) or not pd.api.types.is_scalar(right):
-        try:
-            return bool(
-                np.array_equal(np.asarray(left), np.asarray(right), equal_nan=True)
-            )
-        except (TypeError, ValueError):
+    if left is right:
+        return True
+
+    left_na = _is_missing_scalar(left)
+    right_na = _is_missing_scalar(right)
+    if left_na or right_na:
+        return left_na and right_na
+
+    if _seen is None:
+        _seen = set()
+    pair = (id(left), id(right))
+    if pair in _seen:
+        return True
+    _seen.add(pair)
+
+    if isinstance(left, (pd.Series, pd.DataFrame, pd.Index)) or isinstance(
+        right, (pd.Series, pd.DataFrame, pd.Index)
+    ):
+        return type(left) is type(right) and bool(left.equals(right))
+
+    if isinstance(left, Mapping) or isinstance(right, Mapping):
+        if not isinstance(left, Mapping) or not isinstance(right, Mapping):
             return False
+        if left.keys() != right.keys():
+            return False
+        return all(
+            _object_values_equal(left[key], right[key], _seen=_seen)
+            for key in left
+        )
+
+    if isinstance(left, np.ndarray) or isinstance(right, np.ndarray):
+        if not isinstance(left, np.ndarray) or not isinstance(right, np.ndarray):
+            return False
+        if left.shape != right.shape:
+            return False
+        if pd.api.types.is_numeric_dtype(left.dtype) and pd.api.types.is_numeric_dtype(
+            right.dtype
+        ):
+            return bool(np.array_equal(left, right, equal_nan=True))
+        return all(
+            _object_values_equal(left_value, right_value, _seen=_seen)
+            for left_value, right_value in zip(left.flat, right.flat)
+        )
+
+    sequence_types = (list, tuple)
+    if isinstance(left, sequence_types) or isinstance(right, sequence_types):
+        if type(left) is not type(right) or len(left) != len(right):
+            return False
+        return all(
+            _object_values_equal(left_value, right_value, _seen=_seen)
+            for left_value, right_value in zip(left, right)
+        )
+
+    if isinstance(left, (set, frozenset)) or isinstance(right, (set, frozenset)):
+        if type(left) is not type(right) or len(left) != len(right):
+            return False
+        unmatched = list(right)
+        for left_value in left:
+            match_index = next(
+                (
+                    index
+                    for index, right_value in enumerate(unmatched)
+                    if _object_values_equal(
+                        left_value,
+                        right_value,
+                        _seen=set(_seen),
+                    )
+                ),
+                None,
+            )
+            if match_index is None:
+                return False
+            unmatched.pop(match_index)
+        return True
 
     try:
         comparison = left == right
     except (TypeError, ValueError):
-        comparison = None
+        return False
     if comparison is pd.NA:
         return False
     if isinstance(comparison, (bool, np.bool_)):
         return bool(comparison)
-    if comparison is not None:
-        try:
-            comparison_array = np.asarray(comparison)
-            if comparison_array.dtype == bool:
-                return bool(comparison_array.all())
-        except (TypeError, ValueError):
-            pass
     try:
-        return bool(np.array_equal(np.asarray(left), np.asarray(right), equal_nan=True))
+        comparison_array = np.asarray(comparison)
     except (TypeError, ValueError):
         return False
+    return bool(comparison_array.dtype == bool and comparison_array.all())
+
 
 def compare_labeled_outputs(
     left: PandasObject,

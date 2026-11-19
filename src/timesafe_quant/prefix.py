@@ -32,6 +32,15 @@ Transform = Callable[[pd.DataFrame], PandasObject]
 CheckpointPolicy = Literal["uniform", "all", "explicit"]
 
 
+def _positive_integer(value: Any, *, name: str) -> int:
+    if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)):
+        raise TypeError(f"{name} must be a positive integer.")
+    normalized = int(value)
+    if normalized <= 0:
+        raise ValueError(f"{name} must be positive.")
+    return normalized
+
+
 @dataclass(frozen=True)
 class CheckpointPlan:
     """Resolved checkpoint sampling plan."""
@@ -67,9 +76,9 @@ def plan_checkpoints(
     """
 
     validate_temporal_order(data, time_level)
+    min_history = _positive_integer(min_history, name="min_history")
+    n_checkpoints = _positive_integer(n_checkpoints, name="n_checkpoints")
     times = sorted_unique_times(data.index, time_level)
-    if min_history < 1:
-        raise ValueError("min_history must be at least 1.")
     if len(times) <= min_history:
         raise ValueError(
             f"Need more than min_history={min_history} unique times; received {len(times)}."
@@ -98,9 +107,6 @@ def plan_checkpoints(
         raise ValueError("checkpoint_policy='explicit' requires checkpoints=...")
     if checkpoint_policy == "all":
         return CheckpointPlan(selected=eligible, eligible=eligible, policy="all")
-    if n_checkpoints <= 0:
-        raise ValueError("n_checkpoints must be positive.")
-
     count = min(n_checkpoints, len(eligible))
     chosen_positions = np.linspace(0, len(eligible) - 1, num=count, dtype=int)
     selected = [eligible[position] for position in np.unique(chosen_positions)]
@@ -412,6 +418,7 @@ def audit_determinism(
 ) -> DeterminismAuditResult:
     """Run the same transform repeatedly and verify identical labeled outputs."""
 
+    repetitions = _positive_integer(repetitions, name="repetitions")
     if repetitions < 2:
         raise ValueError("repetitions must be at least 2.")
     name = transform_name or getattr(transform, "__name__", transform.__class__.__name__)

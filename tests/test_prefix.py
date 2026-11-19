@@ -1,7 +1,13 @@
 import numpy as np
 import pandas as pd
+import pytest
 
-from timesafe_quant import AuditStatus, audit_determinism, audit_prefix_invariance
+from timesafe_quant import (
+    AuditStatus,
+    audit_determinism,
+    audit_prefix_invariance,
+    plan_checkpoints,
+)
 from timesafe_quant.demo import make_demo_panel
 
 
@@ -169,3 +175,17 @@ def test_duplicate_output_columns_are_rejected():
         min_history=15,
     )
     assert result.status is AuditStatus.ERROR
+
+
+@pytest.mark.parametrize(
+    ("keyword", "value"),
+    [("min_history", 2.5), ("n_checkpoints", True)],
+)
+
+
+def test_checkpoint_plan_rejects_non_integer_counts(keyword, value):
+    panel = make_demo_panel(sessions=20, assets=2)
+    kwargs = {"min_history": 3, "n_checkpoints": 4}
+    kwargs[keyword] = value
+    with pytest.raises(TypeError, match="positive integer"):
+        plan_checkpoints(panel, time_level="date", **kwargs)

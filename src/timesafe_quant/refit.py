@@ -22,14 +22,13 @@ from .prefix import (
     _build_prefix_findings,
     _checkpoint_status,
     _overall_prefix_status,
+    _positive_integer,
     plan_checkpoints,
 )
 from .types import AuditStatus, CheckpointComparison, Finding, PrefixAuditResult
 
 EstimatorFactory = Callable[[], Any]
 FitPredict = Callable[[Any, pd.DataFrame, Any], PandasObject]
-
-
 
 
 def _new_distinct_estimator(
@@ -287,6 +286,7 @@ def audit_refit_determinism(
 ) -> PrefixAuditResult:
     """Audit training reproducibility with fresh estimator state at each checkpoint."""
 
+    repetitions = _positive_integer(repetitions, name="repetitions")
     if repetitions < 2:
         raise ValueError("repetitions must be at least 2.")
     if not isinstance(data, pd.DataFrame) or data.empty:

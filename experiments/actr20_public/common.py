@@ -41,7 +41,6 @@ def file_sha256(path: str | Path) -> str:
     return digest.hexdigest()
 
 
-
 def atomic_write_json(path: str | Path, payload: Any) -> Path:
     """Write one JSON artifact atomically in its destination directory."""
 
@@ -68,7 +67,6 @@ def stable_int_array_sha256(values: Any) -> str:
     return hashlib.sha256(array.tobytes(order="C")).hexdigest()
 
 
-
 def build_implementation_sha256() -> str:
     """Hash the TimeSafe package and ACTR experiment Python implementation."""
 
@@ -91,6 +89,7 @@ def build_implementation_sha256() -> str:
         digest.update(payload)
         digest.update(b"\0")
     return digest.hexdigest()
+
 
 def build_audit_identity(
     *,
@@ -137,6 +136,7 @@ def build_audit_identity(
         "audit_session_max": int(sessions_array.max()),
         "planned_checkpoints": [int(value) for value in checkpoints],
     }
+
 
 def verify_sha256_manifest(
     root: str | Path,

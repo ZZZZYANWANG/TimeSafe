@@ -37,9 +37,9 @@ def _read_panel(path: str, time_col: str, asset_col: str | None) -> pd.DataFrame
     if asset_col:
         if asset_col not in frame.columns:
             raise ValueError(f"CSV is missing asset column {asset_col!r}.")
-        frame = frame.set_index([time_col, asset_col]).sort_index()
+        frame = frame.set_index([time_col, asset_col])
     else:
-        frame = frame.set_index(time_col).sort_index()
+        frame = frame.set_index(time_col)
     return frame
 
 
