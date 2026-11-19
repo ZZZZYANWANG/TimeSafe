@@ -1,0 +1,49 @@
+name: Fluid state-dependent memory round20
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  research:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.title, '[fluid-round20]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - name: Checkout research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-memory-regime-round20-20261119 \
+            https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: research-repo/pyproject.toml
+      - name: Install research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests pyarrow tabulate
+      - name: Run state-dependent non-Markovian fluid research
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          cd research-repo
+          python research/fluid_round20/run_state_dependent_memory_round20.py 2>&1 | tee ../fluid-round20.log
+      - name: Preserve log
+        if: always()
+        run: |
+          mkdir -p research-repo/research_outputs/fluid_state_dependent_memory_round20
+          cp fluid-round20.log research-repo/research_outputs/fluid_state_dependent_memory_round20/run.log || true
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-state-dependent-memory-round20-results
+          path: research-repo/research_outputs/fluid_state_dependent_memory_round20
+          if-no-files-found: error
+          retention-days: 14
