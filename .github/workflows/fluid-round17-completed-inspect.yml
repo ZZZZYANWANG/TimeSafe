@@ -1,0 +1,71 @@
+name: Inspect Completed Fluid Round17
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round17_completed_inspect_trigger.txt
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download completed round17 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-cascade-direction-round17-results
+          path: evidence
+          run-id: 44472439576
+          github-token: ${{ github.token }}
+      - name: Print decision evidence
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv
+          import json
+
+          root = Path('evidence')
+          def locate(name):
+              matches = list(root.rglob(name))
+              if not matches:
+                  raise FileNotFoundError(name)
+              return matches[0]
+
+          print('=== SUMMARY ===')
+          print(locate('SUMMARY.json').read_text())
+          print('=== DISCOVERY_PROMOTED ===')
+          print(locate('DISCOVERY_PROMOTED.json').read_text())
+          print('=== CONFIRMED ===')
+          print(locate('CONFIRMED.json').read_text())
+
+          for name in [
+              'FROZEN_SELECTION.csv',
+              'DISCOVERY_VALIDATION_RESULTS.csv',
+              'DISCOVERY_HOLDOUT_RESULTS.csv',
+              'REPLICATION_VALIDATION_RESULTS.csv',
+              'REPLICATION_HOLDOUT_RESULTS.csv',
+          ]:
+              path = locate(name)
+              if path.stat().st_size == 0:
+                  continue
+              with path.open(newline='') as handle:
+                  rows = list(csv.DictReader(handle))
+              print(f'=== {name} ===')
+              if 'FROZEN' in name:
+                  fields = ['family','factor','sign','horizon','development_cs','development_ts','development_min_year','development_score','development_years','oriented_factor']
+                  compact = [{key: row.get(key) for key in fields} for row in rows]
+              elif 'VALIDATION' in name:
+                  passed = [row for row in rows if row.get('validation_gate','').lower() == 'true']
+                  source = passed if passed else sorted(rows, key=lambda row: float(row.get('cs_rankic') or '-999'), reverse=True)[:8]
+                  fields = ['family','primitive_factor','sign','factor','horizon','cs_rankic','ts_ic','ts_positive_share','bootstrap_low','bootstrap_high','bootstrap_p_nonpositive','holm_p','ridge_mse_gain','ridge_base_rankic','ridge_full_rankic','residual_cs_rankic','residual_ts_ic','max_parent_corr','max_parent_feature','annual_log_return_2bp','annual_log_return_5bp','sharpe_5bp','avg_turnover','yearly_rankic','yearly_5bp','n_train','n_test','validation_gate']
+                  compact = [{key: row.get(key) for key in fields} for row in source]
+              else:
+                  fields = ['family','primitive_factor','sign','factor','horizon','cs_rankic','ts_ic','ts_positive_share','bootstrap_low','bootstrap_high','bootstrap_p_nonpositive','ridge_mse_gain','ridge_base_rankic','ridge_full_rankic','residual_cs_rankic','residual_ts_ic','max_parent_corr','max_parent_feature','annual_log_return_2bp','annual_log_return_5bp','sharpe_5bp','avg_turnover','yearly_rankic','yearly_5bp','n_train','n_test','validation_holm_p']
+                  compact = [{key: row.get(key) for key in fields} for row in rows]
+              print(json.dumps(compact, indent=2, sort_keys=True))
+          PY
