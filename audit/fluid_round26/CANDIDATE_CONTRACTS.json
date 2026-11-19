@@ -1,0 +1,16 @@
+{
+  "parent_orthogonal_impulse_constitutive_120h": {
+    "factor": "parent_orthogonal_impulse_constitutive_120h",
+    "family": "parent_orthogonal_impulse_constitutive",
+    "horizon": 120,
+    "mechanism": "hierarchical source-pressure constitutive law trained only on strictly out-of-fold strong-parent residual returns",
+    "parent": "impulse_balance_direction_ewm24"
+  },
+  "parent_orthogonal_slowmode_constitutive_72h": {
+    "factor": "parent_orthogonal_slowmode_constitutive_72h",
+    "family": "parent_orthogonal_slowmode_constitutive",
+    "horizon": 72,
+    "mechanism": "hierarchical slow-mode-damped non-normal law trained only on strictly out-of-fold strong-parent residual returns",
+    "parent": "slow_mode_damped_nonnormal_ewm72"
+  }
+}

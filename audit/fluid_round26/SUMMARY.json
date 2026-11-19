@@ -1,0 +1,9 @@
+{
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "replication_holdout_passed": 0,
+  "replication_validation_passed": 0,
+  "spec_count": 2
+}

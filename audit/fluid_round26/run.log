@@ -1,8 +1,8 @@
-kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=250/1656 perp=125 spot=125
 kline_downloads=500/1656 perp=250 spot=250
-kline_downloads=750/1656 perp=376 spot=374
+kline_downloads=750/1656 perp=374 spot=376
 kline_downloads=1000/1656 perp=501 spot=499
-kline_downloads=1250/1656 perp=627 spot=623
+kline_downloads=1250/1656 perp=626 spot=624
 kline_downloads=1500/1656 perp=750 spot=750
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 round20_mechanisms=ADAUSDT rows=50362
@@ -29,16 +29,42 @@ round22_candidates=LINKUSDT rows=50362
 round22_candidates=LTCUSDT rows=50242
 round22_candidates=TRXUSDT rows=50242
 round22_candidates=XRPUSDT rows=50242
+kline_downloads=250/1656 perp=125 spot=125
+kline_downloads=500/1656 perp=253 spot=247
+kline_downloads=750/1656 perp=375 spot=375
+kline_downloads=1000/1656 perp=502 spot=498
+kline_downloads=1250/1656 perp=624 spot=626
+kline_downloads=1500/1656 perp=749 spot=751
+round20_mechanisms=AAVEUSDT rows=50362
+round20_mechanisms=ALGOUSDT rows=50362
+round20_mechanisms=ATOMUSDT rows=50362
+round20_mechanisms=AVAXUSDT rows=50362
+round20_mechanisms=FILUSDT rows=50242
+round20_mechanisms=GRTUSDT rows=50242
+round20_mechanisms=NEARUSDT rows=50242
+round20_mechanisms=RUNEUSDT rows=50362
+round20_mechanisms=SNXUSDT rows=50362
+round20_mechanisms=THETAUSDT rows=50362
+round20_mechanisms=UNIUSDT rows=50362
+round20_mechanisms=XTZUSDT rows=50362
+round22_candidates=AAVEUSDT rows=50362
+round22_candidates=ALGOUSDT rows=50362
+round22_candidates=ATOMUSDT rows=50362
+round22_candidates=AVAXUSDT rows=50362
+round22_candidates=FILUSDT rows=50242
+round22_candidates=GRTUSDT rows=50242
+round22_candidates=NEARUSDT rows=50242
+round22_candidates=RUNEUSDT rows=50362
+round22_candidates=SNXUSDT rows=50362
+round22_candidates=THETAUSDT rows=50362
+round22_candidates=UNIUSDT rows=50362
+round22_candidates=XTZUSDT rows=50362
 {
-  "error": "RuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 427, in <module>\n    main()\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 316, in main\n    residual_model = fit_residual_model(discovery, spec, scaled_residual)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py\", line 155, in fit_residual_model\n    raise RuntimeError(f\"insufficient OOF residual observations for {parent}: {int(valid.sum())}\")\nRuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0\n"
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "replication_holdout_passed": 0,
+  "replication_validation_passed": 0,
+  "spec_count": 2
 }
-Traceback (most recent call last):
-  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 427, in <module>
-    main()
-  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 316, in main
-    residual_model = fit_residual_model(discovery, spec, scaled_residual)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/TimeSafe/TimeSafe/tradingview/research/fluid_round26/run_parent_orthogonal_residual_round26.py", line 155, in fit_residual_model
-    raise RuntimeError(f"insufficient OOF residual observations for {parent}: {int(valid.sum())}")
-RuntimeError: insufficient OOF residual observations for impulse_balance_direction_ewm24: 0

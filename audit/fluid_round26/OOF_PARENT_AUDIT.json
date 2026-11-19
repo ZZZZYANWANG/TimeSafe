@@ -1,0 +1,30 @@
+{
+  "parent_orthogonal_impulse_constitutive_120h": {
+    "2021": {
+      "assets": 12,
+      "parent_mse": 2.838882944957874,
+      "rows": 12186,
+      "train_year": 2022
+    },
+    "2022": {
+      "assets": 1,
+      "parent_mse": 0.008686905912225783,
+      "rows": 8760,
+      "train_year": 2021
+    }
+  },
+  "parent_orthogonal_slowmode_constitutive_72h": {
+    "2021": {
+      "assets": 12,
+      "parent_mse": 1.0318985460988574,
+      "rows": 12138,
+      "train_year": 2022
+    },
+    "2022": {
+      "assets": 1,
+      "parent_mse": 0.015735149227177617,
+      "rows": 8760,
+      "train_year": 2021
+    }
+  }
+}
