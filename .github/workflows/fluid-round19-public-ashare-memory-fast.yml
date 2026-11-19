@@ -1,0 +1,55 @@
+name: Fluid Round19 Public A-share Memory Fast
+
+on:
+  push:
+    branches:
+      - research-fluid-public-memory-fast-round19-20261119
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install baostock pandas numpy scipy scikit-learn pyarrow
+      - name: Freeze smaller independent discovery pool
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('research/fluid_round19/run_public_ashare_memory.py')
+          s=p.read_text()
+          s=s.replace('N_CODES = 120', 'N_CODES = 60')
+          s=s.replace('MIN_GOOD_CODES = 60', 'MIN_GOOD_CODES = 35')
+          s=s.replace('TOP_LIQUID = 80', 'TOP_LIQUID = 40')
+          s=s.replace("OUT = Path(\"research/fluid_round19/results\")", "OUT = Path(\"research/fluid_round19/results_fast\")")
+          p.write_text(s)
+          PY
+      - name: Run frozen fast experiment
+        run: |
+          python - <<'PY'
+          import socket, runpy
+          socket.setdefaulttimeout(45)
+          runpy.run_path('research/fluid_round19/run_public_ashare_memory.py', run_name='__main__')
+          PY
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-round19-public-ashare-memory-fast-results
+          path: research/fluid_round19/results_fast
+          if-no-files-found: warn
+          retention-days: 14
