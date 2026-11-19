@@ -32,7 +32,7 @@ jobs:
           set -o pipefail
           rm -rf research_outputs/fluid_cascade_direction_round17
           mkdir -p research_outputs/fluid_cascade_direction_round17
-          python research/fluid_round17/run_cascade_direction_round17.py 2>&1 | tee research_outputs/fluid_cascade_direction_round17/run.log
+          python research/fluid_round17/run_cascade_direction_round17_targets_fixed.py 2>&1 | tee research_outputs/fluid_cascade_direction_round17/run.log
       - name: Upload round17 evidence
         if: always()
         uses: actions/upload-artifact@v4
