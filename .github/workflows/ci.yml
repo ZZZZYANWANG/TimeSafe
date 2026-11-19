@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   test:
-    if: ${{ !contains(github.event.head_commit.message, '[fluid-round15]') && !contains(github.event.head_commit.message, '[fluid-round15-fast]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[fluid-round15]') && !contains(github.event.head_commit.message, '[fluid-round15-fast]') && !contains(github.event.head_commit.message, '[fluid-round15-reduced]') }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -30,7 +30,7 @@ jobs:
       - run: pytest --cov=timesafe_quant --cov-report=term-missing --cov-fail-under=85
 
   package-smoke:
-    if: ${{ !contains(github.event.head_commit.message, '[fluid-round15]') && !contains(github.event.head_commit.message, '[fluid-round15-fast]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[fluid-round15]') && !contains(github.event.head_commit.message, '[fluid-round15-fast]') && !contains(github.event.head_commit.message, '[fluid-round15-reduced]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
       - run: /tmp/timesafe-wheel/bin/timesafe demo --output /tmp/timesafe_demo.json
 
   fluid-round15:
-    if: ${{ contains(github.event.head_commit.message, '[fluid-round15]') }}
+    if: ${{ contains(github.event.head_commit.message, '[fluid-round15]') && !contains(github.event.head_commit.message, '[fluid-round15-fast]') && !contains(github.event.head_commit.message, '[fluid-round15-reduced]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
@@ -107,5 +107,37 @@ jobs:
         with:
           name: ashare-fluid-round15-fast-results
           path: research-repo/research_outputs/ashare_fluid_round15_fast
+          if-no-files-found: warn
+          retention-days: 14
+
+  fluid-round15-reduced:
+    if: ${{ contains(github.event.head_commit.message, '[fluid-round15-reduced]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-fluid-characteristic-network-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn baostock tabulate
+      - name: Run reduced point-in-time replication
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/ashare_fluid_round15_reduced
+          mkdir -p research_outputs/ashare_fluid_round15_reduced
+          python research/ashare_fluid_round15/run_characteristic_network_reduced.py 2>&1 | tee research_outputs/ashare_fluid_round15_reduced/run.log
+      - name: Upload reduced evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-fluid-round15-reduced-results
+          path: research-repo/research_outputs/ashare_fluid_round15_reduced
           if-no-files-found: warn
           retention-days: 14
