@@ -1,0 +1,43 @@
+name: Fluid Round15 Characteristic Cross-Universe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round15_crossuniverse_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replicate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone frozen research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-characteristic-wave-crossuniverse-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn requests pyarrow huggingface-hub tabulate
+      - name: Run frozen cross-universe replication
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/fluid_characteristic_wave_crossuniverse_round15
+          mkdir -p research_outputs/fluid_characteristic_wave_crossuniverse_round15
+          python research/fluid_round15/run_characteristic_wave_crossuniverse.py 2>&1 | tee research_outputs/fluid_characteristic_wave_crossuniverse_round15/run.log
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-characteristic-wave-crossuniverse-round15-results
+          path: research-repo/research_outputs/fluid_characteristic_wave_crossuniverse_round15
+          if-no-files-found: warn
+          retention-days: 14
