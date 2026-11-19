@@ -1,0 +1,52 @@
+name: Fluid Round16 Corrected Evidence Inspect
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round16_corrected_inspect_trigger.txt
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download corrected round16 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-multiscale-constitutive-round16-inference-fix-results
+          path: evidence
+          run-id: 44469903114
+          github-token: ${{ github.token }}
+      - name: Print corrected gate and holdout records
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv
+          import json
+
+          root = Path('evidence')
+          def locate(name):
+              matches = list(root.rglob(name))
+              if not matches:
+                  raise FileNotFoundError(name)
+              return matches[0]
+
+          print('=== SUMMARY ===')
+          print(locate('SUMMARY.json').read_text())
+          with locate('VALIDATION_RESULTS.csv').open(newline='') as handle:
+              validation = list(csv.DictReader(handle))
+          passed = [row for row in validation if row.get('validation_gate','').lower() == 'true']
+          print('=== VALIDATION PASSED ===')
+          print(json.dumps(passed, indent=2, sort_keys=True))
+          with locate('HOLDOUT_RESULTS.csv').open(newline='') as handle:
+              holdout = list(csv.DictReader(handle))
+          print('=== HOLDOUT ===')
+          print(json.dumps(holdout, indent=2, sort_keys=True))
+          print('=== PROMOTED ===')
+          print(locate('PROMOTED.json').read_text())
+          PY
