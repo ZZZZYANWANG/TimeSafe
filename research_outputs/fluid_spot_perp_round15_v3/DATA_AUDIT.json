@@ -1,0 +1,399 @@
+{
+  "availability_policy": {
+    "funding": "publication time shifted one completed hour",
+    "metrics": "resampled and shifted one completed hour",
+    "sound_speed": "strict-prior rolling pressure-density response",
+    "spot_and_perp_klines": "completed hour only; target begins at next-hour open"
+  },
+  "base_features": [
+    "perp_u",
+    "spot_u",
+    "shear",
+    "basis_z",
+    "basis_change_z",
+    "mom4",
+    "mom12",
+    "mom24",
+    "mom72",
+    "mom168",
+    "mom480",
+    "rv24_z",
+    "rv72_z",
+    "rv168_z",
+    "range_perp_z",
+    "range_spot_z",
+    "perp_quote_z",
+    "spot_quote_z",
+    "quote_share_z",
+    "trades_z",
+    "imb6_z",
+    "imb24_z",
+    "skew24_z",
+    "kurt24_z",
+    "oi_level_z",
+    "oi_source_z",
+    "oi_value_source_z",
+    "funding_z",
+    "funding_change_z",
+    "crowding_z",
+    "account_ratio_z",
+    "metric_taker_z",
+    "density_gap",
+    "pressure_gap",
+    "simple_reflection",
+    "simple_transmission_gap"
+  ],
+  "candidate_columns": 96,
+  "candidate_families": 8,
+  "characteristic": {
+    "ADAUSDT": {
+      "168": {
+        "median_c_perp": 1.1725374294814905,
+        "median_c_spot": 0.967570073806993,
+        "negative_c2_perp_share": 0.019399547277709383,
+        "negative_c2_spot_share": 0.0190222787021961
+      },
+      "336": {
+        "median_c_perp": 1.1852241746774166,
+        "median_c_spot": 0.9787045908935597,
+        "negative_c2_perp_share": 0.0015090743020531353,
+        "negative_c2_spot_share": 0.006373853302092848
+      },
+      "72": {
+        "median_c_perp": 1.178345568993305,
+        "median_c_spot": 0.9682909128403802,
+        "negative_c2_perp_share": 0.07205829792303721,
+        "negative_c2_spot_share": 0.08069576267820976
+      }
+    },
+    "BCHUSDT": {
+      "168": {
+        "median_c_perp": 1.1355350391174526,
+        "median_c_spot": 0.9703041767380501,
+        "negative_c2_perp_share": 0.05432667487391287,
+        "negative_c2_spot_share": 0.032067828918629124
+      },
+      "336": {
+        "median_c_perp": 1.1377319858420534,
+        "median_c_spot": 0.9775366808169363,
+        "negative_c2_perp_share": 0.023966482665501766,
+        "negative_c2_spot_share": 0.016758667249116396
+      },
+      "72": {
+        "median_c_perp": 1.1406203014785028,
+        "median_c_spot": 0.950003119924923,
+        "negative_c2_perp_share": 0.09521067471506295,
+        "negative_c2_spot_share": 0.08055676899249434
+      }
+    },
+    "BNBUSDT": {
+      "168": {
+        "median_c_perp": 1.1664095735288675,
+        "median_c_spot": 0.9449883886222191,
+        "negative_c2_perp_share": 0.010980501171518208,
+        "negative_c2_spot_share": 0.010424526428656527
+      },
+      "336": {
+        "median_c_perp": 1.1827383347577825,
+        "median_c_spot": 0.9464617599226796,
+        "negative_c2_perp_share": 0.0021643302489972598,
+        "negative_c2_spot_share": 3.971248163297724e-05
+      },
+      "72": {
+        "median_c_perp": 1.1692269464530471,
+        "median_c_spot": 0.9180292439511318,
+        "negative_c2_perp_share": 0.03304078471863707,
+        "negative_c2_spot_share": 0.053413287796354396
+      }
+    },
+    "BTCUSDT": {
+      "168": {
+        "median_c_perp": 1.2091438858100743,
+        "median_c_spot": 0.9555861278566121,
+        "negative_c2_perp_share": 0.013760374885826616,
+        "negative_c2_spot_share": 0.026706643898177198
+      },
+      "336": {
+        "median_c_perp": 1.2264804375709957,
+        "median_c_spot": 0.9608361091727229,
+        "negative_c2_perp_share": 0.0011913744489893173,
+        "negative_c2_spot_share": 0.006949684285771018
+      },
+      "72": {
+        "median_c_perp": 1.2126228929260203,
+        "median_c_spot": 0.9575415706341978,
+        "negative_c2_perp_share": 0.05166593860450339,
+        "negative_c2_spot_share": 0.08417060482109527
+      }
+    },
+    "DOGEUSDT": {
+      "168": {
+        "median_c_perp": 1.158648523048686,
+        "median_c_spot": 1.0302583494319741,
+        "negative_c2_perp_share": 0.018506016440967395,
+        "negative_c2_spot_share": 0.02136531511854176
+      },
+      "336": {
+        "median_c_perp": 1.160930945412419,
+        "median_c_spot": 1.0409682236212165,
+        "negative_c2_perp_share": 0.006671696914340177,
+        "negative_c2_spot_share": 0.00677097811842262
+      },
+      "72": {
+        "median_c_perp": 1.1405920429173904,
+        "median_c_spot": 1.0127970545981286,
+        "negative_c2_perp_share": 0.06129621540050038,
+        "negative_c2_spot_share": 0.06711409395973154
+      }
+    },
+    "DOTUSDT": {
+      "168": {
+        "median_c_perp": 1.124135395007278,
+        "median_c_spot": 0.9488290685366007,
+        "negative_c2_perp_share": 0.030955879432905762,
+        "negative_c2_spot_share": 0.03149199793495096
+      },
+      "336": {
+        "median_c_perp": 1.1259967062577743,
+        "median_c_spot": 0.954279878306058,
+        "negative_c2_perp_share": 0.009292720702116675,
+        "negative_c2_spot_share": 0.007743933918430563
+      },
+      "72": {
+        "median_c_perp": 1.1216481037507102,
+        "median_c_spot": 0.9346781289225063,
+        "negative_c2_perp_share": 0.0764465271434812,
+        "negative_c2_spot_share": 0.08444859219252611
+      }
+    },
+    "ETCUSDT": {
+      "168": {
+        "median_c_perp": 1.1313948085944487,
+        "median_c_spot": 0.9463576136074824,
+        "negative_c2_perp_share": 0.03844168222072197,
+        "negative_c2_spot_share": 0.03667447678805449
+      },
+      "336": {
+        "median_c_perp": 1.1197463482061243,
+        "median_c_spot": 0.9469470216606968,
+        "negative_c2_perp_share": 0.013919224812358525,
+        "negative_c2_spot_share": 0.010245820261308129
+      },
+      "72": {
+        "median_c_perp": 1.137955227949158,
+        "median_c_spot": 0.947899239603094,
+        "negative_c2_perp_share": 0.09918192287836067,
+        "negative_c2_spot_share": 0.09417815019260553
+      }
+    },
+    "ETHUSDT": {
+      "168": {
+        "median_c_perp": 1.2173239284652495,
+        "median_c_spot": 0.9547377499804491,
+        "negative_c2_perp_share": 0.009491283110281561,
+        "negative_c2_spot_share": 0.03010206107779675
+      },
+      "336": {
+        "median_c_perp": 1.2285445545144436,
+        "median_c_spot": 0.9648593191335092,
+        "negative_c2_perp_share": 0.0009530995591914539,
+        "negative_c2_spot_share": 0.015646717763393034
+      },
+      "72": {
+        "median_c_perp": 1.2024227848470033,
+        "median_c_spot": 0.9435460272992207,
+        "negative_c2_perp_share": 0.02908939279615583,
+        "negative_c2_spot_share": 0.06538660100869703
+      }
+    },
+    "LINKUSDT": {
+      "168": {
+        "median_c_perp": 1.1829861884521449,
+        "median_c_spot": 0.9551518520172125,
+        "negative_c2_perp_share": 0.024879869743060244,
+        "negative_c2_spot_share": 0.03373575314721417
+      },
+      "336": {
+        "median_c_perp": 1.1839024395248514,
+        "median_c_spot": 0.9632435372417327,
+        "negative_c2_perp_share": 0.004666216591874826,
+        "negative_c2_spot_share": 0.01282713156745165
+      },
+      "72": {
+        "median_c_perp": 1.1791767960918258,
+        "median_c_spot": 0.9460653708931073,
+        "negative_c2_perp_share": 0.07037051745363568,
+        "negative_c2_spot_share": 0.09451570628648584
+      }
+    },
+    "LTCUSDT": {
+      "168": {
+        "median_c_perp": 1.2022394245553798,
+        "median_c_spot": 0.9030402646624293,
+        "negative_c2_perp_share": 0.017057441980812865,
+        "negative_c2_spot_share": 0.04924167031567215
+      },
+      "336": {
+        "median_c_perp": 1.2133196771532415,
+        "median_c_spot": 0.9087119775821348,
+        "negative_c2_perp_share": 0.004936109231320409,
+        "negative_c2_spot_share": 0.013614107718641773
+      },
+      "72": {
+        "median_c_perp": 1.1894776107019198,
+        "median_c_spot": 0.9029223255513474,
+        "negative_c2_perp_share": 0.053560765893077504,
+        "negative_c2_spot_share": 0.11502328728951873
+      }
+    },
+    "SOLUSDT": {
+      "168": {
+        "median_c_perp": 1.1973317234586007,
+        "median_c_spot": 0.9584682700865926,
+        "negative_c2_perp_share": 0.015644281676684847,
+        "negative_c2_spot_share": 0.018669638947494127
+      },
+      "336": {
+        "median_c_perp": 1.2015207172324514,
+        "median_c_spot": 0.9726783427714725,
+        "negative_c2_perp_share": 0.0018709446280004776,
+        "negative_c2_spot_share": 0.0026272839457027984
+      },
+      "72": {
+        "median_c_perp": 1.192962820098935,
+        "median_c_spot": 0.9507431926767025,
+        "negative_c2_perp_share": 0.05061502328728952,
+        "negative_c2_spot_share": 0.06424903467218662
+      }
+    },
+    "XLMUSDT": {
+      "168": {
+        "median_c_perp": 1.0862530850190917,
+        "median_c_spot": 0.946494574937539,
+        "negative_c2_perp_share": 0.05863620078818518,
+        "negative_c2_spot_share": 0.03608534692090283
+      },
+      "336": {
+        "median_c_perp": 1.066197952194596,
+        "median_c_spot": 0.9428315127702467,
+        "negative_c2_perp_share": 0.026272839457027984,
+        "negative_c2_spot_share": 0.009155686477449146
+      },
+      "72": {
+        "median_c_perp": 1.1253607383824586,
+        "median_c_spot": 0.9410052129626219,
+        "negative_c2_perp_share": 0.12513434974722343,
+        "negative_c2_spot_share": 0.1073603757812189
+      }
+    },
+    "XRPUSDT": {
+      "168": {
+        "median_c_perp": 1.136278858404932,
+        "median_c_spot": 0.9924717802264532,
+        "negative_c2_perp_share": 0.022789697862346244,
+        "negative_c2_spot_share": 0.027268022769794197
+      },
+      "336": {
+        "median_c_perp": 1.1465096332343523,
+        "median_c_spot": 1.0050698679738144,
+        "negative_c2_perp_share": 0.00555312288523546,
+        "negative_c2_spot_share": 0.010170773456470682
+      },
+      "72": {
+        "median_c_perp": 1.1126773198362714,
+        "median_c_spot": 0.9748244238469033,
+        "negative_c2_perp_share": 0.07077743720393297,
+        "negative_c2_spot_share": 0.07529556944389157
+      }
+    }
+  },
+  "data": {
+    "errors": [],
+    "external": {
+      "embargo_hours": 1,
+      "funding_rate_alias": "rate",
+      "repo": "ismatsamadov/binance-usdt-archive",
+      "resolved": {
+        "ADAUSDT": {
+          "funding": "um_funding/ADAUSDT.parquet",
+          "metrics": "um_metrics/ADAUSDT.parquet"
+        },
+        "BCHUSDT": {
+          "funding": "um_funding/BCHUSDT.parquet",
+          "metrics": "um_metrics/BCHUSDT.parquet"
+        },
+        "BNBUSDT": {
+          "funding": "um_funding/BNBUSDT.parquet",
+          "metrics": "um_metrics/BNBUSDT.parquet"
+        },
+        "BTCUSDT": {
+          "funding": "um_funding/BTCUSDT.parquet",
+          "metrics": "um_metrics/BTCUSDT.parquet"
+        },
+        "DOGEUSDT": {
+          "funding": "um_funding/DOGEUSDT.parquet",
+          "metrics": "um_metrics/DOGEUSDT.parquet"
+        },
+        "DOTUSDT": {
+          "funding": "um_funding/DOTUSDT.parquet",
+          "metrics": "um_metrics/DOTUSDT.parquet"
+        },
+        "ETCUSDT": {
+          "funding": "um_funding/ETCUSDT.parquet",
+          "metrics": "um_metrics/ETCUSDT.parquet"
+        },
+        "ETHUSDT": {
+          "funding": "um_funding/ETHUSDT.parquet",
+          "metrics": "um_metrics/ETHUSDT.parquet"
+        },
+        "LINKUSDT": {
+          "funding": "um_funding/LINKUSDT.parquet",
+          "metrics": "um_metrics/LINKUSDT.parquet"
+        },
+        "LTCUSDT": {
+          "funding": "um_funding/LTCUSDT.parquet",
+          "metrics": "um_metrics/LTCUSDT.parquet"
+        },
+        "SOLUSDT": {
+          "funding": "um_funding/SOLUSDT.parquet",
+          "metrics": "um_metrics/SOLUSDT.parquet"
+        },
+        "XLMUSDT": {
+          "funding": "um_funding/XLMUSDT.parquet",
+          "metrics": "um_metrics/XLMUSDT.parquet"
+        },
+        "XRPUSDT": {
+          "funding": "um_funding/XRPUSDT.parquet",
+          "metrics": "um_metrics/XRPUSDT.parquet"
+        }
+      },
+      "revision": "37b376564d35311fbb5f9a01c8f62e2a8592ba08"
+    },
+    "funding_coverage": 654226,
+    "max_time": "2026-09-30 23:00:00+00:00",
+    "metric_coverage": 558049,
+    "min_time": "2021-01-01 00:00:00+00:00",
+    "requested_kline_downloads": 1794,
+    "rows": 654226,
+    "symbols": [
+      "ADAUSDT",
+      "BCHUSDT",
+      "BNBUSDT",
+      "BTCUSDT",
+      "DOGEUSDT",
+      "DOTUSDT",
+      "ETCUSDT",
+      "ETHUSDT",
+      "LINKUSDT",
+      "LTCUSDT",
+      "SOLUSDT",
+      "XLMUSDT",
+      "XRPUSDT"
+    ],
+    "usable_parts": {
+      "perp": 897,
+      "spot": 897
+    }
+  },
+  "panel_rows": 654226
+}
