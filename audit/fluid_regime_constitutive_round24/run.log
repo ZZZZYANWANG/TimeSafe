@@ -1,0 +1,44 @@
+kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=500/1656 perp=248 spot=252
+kline_downloads=750/1656 perp=375 spot=375
+kline_downloads=1000/1656 perp=502 spot=498
+kline_downloads=1250/1656 perp=624 spot=626
+kline_downloads=1500/1656 perp=750 spot=750
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+{
+  "error": "RuntimeError: insufficient development observations for impulse_balance_direction_ewm24: 979",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 418, in <module>\n    main()\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 286, in main\n    model = fit_model(discovery, str(spec[\"parent\"]), int(spec[\"horizon\"]), 2021, 2022)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 138, in fit_model\n    raise RuntimeError(f\"insufficient development observations for {parent}: {int(valid.sum())}\")\nRuntimeError: insufficient development observations for impulse_balance_direction_ewm24: 979\n"
+}
+Traceback (most recent call last):
+  File "/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py", line 418, in <module>
+    main()
+  File "/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py", line 286, in main
+    model = fit_model(discovery, str(spec["parent"]), int(spec["horizon"]), 2021, 2022)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py", line 138, in fit_model
+    raise RuntimeError(f"insufficient development observations for {parent}: {int(valid.sum())}")
+RuntimeError: insufficient development observations for impulse_balance_direction_ewm24: 979

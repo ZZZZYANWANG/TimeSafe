@@ -1,0 +1,4 @@
+{
+  "error": "RuntimeError: insufficient development observations for impulse_balance_direction_ewm24: 979",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 418, in <module>\n    main()\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 286, in main\n    model = fit_model(discovery, str(spec[\"parent\"]), int(spec[\"horizon\"]), 2021, 2022)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round24/run_regime_constitutive_round24.py\", line 138, in fit_model\n    raise RuntimeError(f\"insufficient development observations for {parent}: {int(valid.sum())}\")\nRuntimeError: insufficient development observations for impulse_balance_direction_ewm24: 979\n"
+}
