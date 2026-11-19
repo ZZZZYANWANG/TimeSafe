@@ -26,12 +26,12 @@ jobs:
       - name: Checkout frozen research code
         run: |
           git clone --depth 1 --branch research-fluid-dimensionless-operator-round23-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research_repo
-      - name: Run Round23
+      - name: Run corrected Round23
         env:
           PYTHONUNBUFFERED: '1'
         run: |
           cd research_repo
-          python research/fluid_round23/run_dimensionless_operator_round23.py 2>&1 | tee ../fluid-round23.log
+          python research/fluid_round23/run_dimensionless_operator_round23_fixed.py 2>&1 | tee ../fluid-round23.log
       - name: Preserve evidence and log
         if: always()
         run: |
@@ -56,5 +56,5 @@ jobs:
           mkdir -p audit/fluid_dimensionless_operator_round23
           cp -r round23-artifact/. audit/fluid_dimensionless_operator_round23/
           git add audit/fluid_dimensionless_operator_round23
-          git commit -m 'audit: freeze dimensionless operator round23 evidence' || exit 0
+          git commit -m 'audit: freeze corrected dimensionless operator round23 evidence' || exit 0
           git push origin HEAD:audit-fluid-dimensionless-operator-round23-20261119
