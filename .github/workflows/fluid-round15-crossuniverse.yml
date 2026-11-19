@@ -32,7 +32,7 @@ jobs:
           set -o pipefail
           rm -rf research_outputs/fluid_characteristic_wave_crossuniverse_round15
           mkdir -p research_outputs/fluid_characteristic_wave_crossuniverse_round15
-          python research/fluid_round15/run_characteristic_wave_crossuniverse.py 2>&1 | tee research_outputs/fluid_characteristic_wave_crossuniverse_round15/run.log
+          python research/fluid_round15/run_characteristic_wave_crossuniverse_compat.py 2>&1 | tee research_outputs/fluid_characteristic_wave_crossuniverse_round15/run.log
       - name: Upload frozen evidence
         if: always()
         uses: actions/upload-artifact@v4
