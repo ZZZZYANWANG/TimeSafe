@@ -1,0 +1,12 @@
+yahoo downloads=20/77 usable=0
+yahoo downloads=40/77 usable=0
+yahoo downloads=60/77 usable=0
+Traceback (most recent call last):
+  File "/home/runner/work/TimeSafe/TimeSafe/research-repo/research/ashare_fluid_round15/run_characteristic_network_yahoo.py", line 41, in <module>
+    research.main()
+  File "/home/runner/work/TimeSafe/TimeSafe/research-repo/research/ashare_fluid_round15/run_characteristic_network.py", line 644, in main
+    raw, source_audit = source.load_baostock()
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TimeSafe/TimeSafe/research-repo/research/ashare_fluid_round10/run_yahoo.py", line 133, in load_yahoo
+    raise RuntimeError(f"insufficient Yahoo A-share histories: {len(frames)}; errors={errors[:10]}")
+RuntimeError: insufficient Yahoo A-share histories: 0; errors=[{'code': 'sh.600028', 'error': 'http_429'}, {'code': 'sh.600015', 'error': 'http_429'}, {'code': 'sh.600036', 'error': 'http_429'}, {'code': 'sh.600061', 'error': 'http_429'}, {'code': 'sh.600010', 'error': 'http_429'}, {'code': 'sh.600018', 'error': 'http_429'}, {'code': 'sh.600031', 'error': 'http_429'}, {'code': 'sh.600019', 'error': 'http_429'}, {'code': 'sh.600030', 'error': 'http_429'}, {'code': 'sh.600016', 'error': 'http_429'}]

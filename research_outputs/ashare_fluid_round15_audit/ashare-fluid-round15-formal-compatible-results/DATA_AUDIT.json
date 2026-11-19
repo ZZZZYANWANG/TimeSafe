@@ -1,0 +1,444 @@
+{
+  "availability": {
+    "factor_time": "after completed daily close",
+    "graph": "frozen from development period only",
+    "rolling_states": "strict prior t-1 and earlier",
+    "target_entry": "next completed session open",
+    "universe": "Baostock quarterly historical CSI300 snapshots, forward-filled until next snapshot"
+  },
+  "base_feature_count": 29,
+  "base_features": [
+    "cs_mom1",
+    "cs_mom5",
+    "cs_mom10",
+    "cs_mom20",
+    "cs_mom60",
+    "cs_vol5",
+    "cs_vol20",
+    "cs_vol60",
+    "cs_range5",
+    "cs_range20",
+    "cs_amount_z",
+    "cs_volume_z",
+    "cs_turnover_z",
+    "cs_amihud_z",
+    "cs_gap",
+    "cs_close_loc",
+    "cs_skew20",
+    "cs_kurt20",
+    "cs_density_z",
+    "cs_pressure",
+    "cs_source",
+    "cs_sound_c2",
+    "cs_sound_speed",
+    "cs_impedance",
+    "cs_peer_u",
+    "cs_peer_pressure",
+    "cs_peer_density",
+    "cs_graph_circulation",
+    "cs_continuity_residual_parent"
+  ],
+  "candidate_identities": 384,
+  "codes": 102,
+  "dates": 2141,
+  "families": {
+    "baroclinic_crocco": 12,
+    "characteristic_reattachment": 12,
+    "helicity_transport": 12,
+    "impedance_release": 12,
+    "riemann_transmission": 12,
+    "shock_rarefaction": 12,
+    "source_characteristics": 12,
+    "wave_action": 12
+  },
+  "graph": {
+    "codes": 102,
+    "directed_nonzero": 10284,
+    "graph_period": "2019-01-01 to 2021-12-31",
+    "mean_nonzero_neighbors": 10.0,
+    "mean_weighted_similarity": 0.055571059948565454,
+    "neighbors": 10
+  },
+  "max_date": "2026-11-13",
+  "min_date": "2018-01-15",
+  "panel_rows": 208153,
+  "source": {
+    "errors": [
+      {
+        "code": "sh.601881",
+        "error": "\u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601898",
+        "error": "download:sh.601898 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601899",
+        "error": "download:sh.601899 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601888",
+        "error": "download:sh.601888 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601901",
+        "error": "download:sh.601901 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601919",
+        "error": "download:sh.601919 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601939",
+        "error": "download:sh.601939 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601985",
+        "error": "download:sh.601985 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601988",
+        "error": "download:sh.601988 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601989",
+        "error": "download:sh.601989 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.601998",
+        "error": "download:sh.601998 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603019",
+        "error": "download:sh.603019 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603259",
+        "error": "download:sh.603259 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603288",
+        "error": "download:sh.603288 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603260",
+        "error": "download:sh.603260 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603501",
+        "error": "download:sh.603501 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603799",
+        "error": "download:sh.603799 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603833",
+        "error": "download:sh.603833 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603986",
+        "error": "download:sh.603986 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sh.603993",
+        "error": "download:sh.603993 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000001",
+        "error": "download:sz.000001 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000002",
+        "error": "download:sz.000002 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000063",
+        "error": "download:sz.000063 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000100",
+        "error": "download:sz.000100 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000157",
+        "error": "download:sz.000157 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000166",
+        "error": "download:sz.000166 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000338",
+        "error": "download:sz.000338 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000333",
+        "error": "download:sz.000333 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000425",
+        "error": "download:sz.000425 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000538",
+        "error": "download:sz.000538 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000568",
+        "error": "download:sz.000568 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000596",
+        "error": "download:sz.000596 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000651",
+        "error": "download:sz.000651 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000625",
+        "error": "download:sz.000625 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000661",
+        "error": "download:sz.000661 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000725",
+        "error": "download:sz.000725 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000768",
+        "error": "download:sz.000768 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000786",
+        "error": "download:sz.000786 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000776",
+        "error": "download:sz.000776 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000858",
+        "error": "download:sz.000858 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000895",
+        "error": "download:sz.000895 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000876",
+        "error": "download:sz.000876 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000938",
+        "error": "download:sz.000938 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.001979",
+        "error": "download:sz.001979 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.000963",
+        "error": "download:sz.000963 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002001",
+        "error": "download:sz.002001 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002007",
+        "error": "download:sz.002007 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002027",
+        "error": "download:sz.002027 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002050",
+        "error": "download:sz.002050 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002179",
+        "error": "download:sz.002179 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002142",
+        "error": "download:sz.002142 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002230",
+        "error": "download:sz.002230 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002241",
+        "error": "download:sz.002241 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002236",
+        "error": "download:sz.002236 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002252",
+        "error": "download:sz.002252 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002304",
+        "error": "download:sz.002304 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002311",
+        "error": "download:sz.002311 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002352",
+        "error": "download:sz.002352 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002460",
+        "error": "download:sz.002460 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002415",
+        "error": "download:sz.002415 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002466",
+        "error": "download:sz.002466 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002475",
+        "error": "download:sz.002475 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002493",
+        "error": "download:sz.002493 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002555",
+        "error": "download:sz.002555 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002594",
+        "error": "download:sz.002594 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002601",
+        "error": "download:sz.002601 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002714",
+        "error": "download:sz.002714 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002736",
+        "error": "download:sz.002736 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.002938",
+        "error": "download:sz.002938 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300015",
+        "error": "download:sz.300015 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300059",
+        "error": "download:sz.300059 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300033",
+        "error": "download:sz.300033 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300122",
+        "error": "download:sz.300122 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300124",
+        "error": "download:sz.300124 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300408",
+        "error": "download:sz.300408 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300413",
+        "error": "download:sz.300413 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300433",
+        "error": "download:sz.300433 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      },
+      {
+        "code": "sz.300498",
+        "error": "download:sz.300498 login failed after 8 attempts: \u9ed1\u540d\u5355\u7528\u6237\uff0c\u8bf7\u4e0e\u7ba1\u7406\u5458\u8054\u7cfb"
+      }
+    ],
+    "limitations": [
+      "quarterly rather than daily constituent snapshots",
+      "selected code set uses historical membership frequency over the full sample",
+      "daily replication does not replace the local one-minute path calculation"
+    ],
+    "max_date": "2026-11-13",
+    "membership": {
+      "selected_codes": 180,
+      "selection_rule": "top historical CSI300 quarterly membership frequency; code tiebreak",
+      "snapshot_count": 37,
+      "snapshot_max": "2026-11-15",
+      "snapshot_min": "2018-01-15",
+      "snapshot_sizes_after_selection": {
+        "2018-01-15": 145,
+        "2018-04-15": 145,
+        "2018-07-15": 161,
+        "2018-10-15": 161,
+        "2019-01-15": 170,
+        "2019-04-15": 170,
+        "2019-07-15": 176,
+        "2019-10-15": 176,
+        "2020-01-15": 180,
+        "2020-04-15": 180,
+        "2020-07-15": 180,
+        "2020-10-15": 180,
+        "2021-01-15": 174,
+        "2021-04-15": 174,
+        "2021-07-15": 174,
+        "2021-10-15": 173,
+        "2022-01-15": 173,
+        "2022-04-15": 175,
+        "2022-07-15": 178,
+        "2022-10-15": 178,
+        "2023-01-15": 178,
+        "2023-04-15": 178,
+        "2023-07-15": 179,
+        "2023-10-15": 179,
+        "2024-01-15": 180,
+        "2024-04-15": 180,
+        "2024-07-15": 180,
+        "2024-10-15": 180,
+        "2025-01-15": 180,
+        "2025-04-15": 179,
+        "2025-07-15": 177,
+        "2025-10-15": 176,
+        "2026-01-15": 174,
+        "2026-04-15": 174,
+        "2026-07-15": 168,
+        "2026-10-15": 168,
+        "2026-11-15": 168
+      },
+      "union_members": 564
+    },
+    "min_date": "2018-01-15",
+    "point_in_time_membership": "quarterly snapshots forward-filled until the next snapshot",
+    "requested": 180,
+    "rows": 208153,
+    "selection": "top historical CSI300 quarterly membership frequency; code tiebreak",
+    "source": "Baostock adjusted daily OHLCV and historical CSI300 constituent snapshots",
+    "usable": 102,
+    "usable_by_market": {
+      "SH": 102
+    }
+  }
+}
