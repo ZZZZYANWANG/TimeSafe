@@ -1,0 +1,211 @@
+{
+  "confirmation": "development crossfit plus discovery validation/holdout and disjoint replication validation/holdout must all pass",
+  "discovery_data": {
+    "errors": [],
+    "external": {
+      "embargo_hours": 1,
+      "funding_rate_alias": "rate",
+      "repo": "ismatsamadov/binance-usdt-archive",
+      "resolved": {
+        "ADAUSDT": {
+          "funding": "um_funding/ADAUSDT.parquet",
+          "metrics": "um_metrics/ADAUSDT.parquet"
+        },
+        "BCHUSDT": {
+          "funding": "um_funding/BCHUSDT.parquet",
+          "metrics": "um_metrics/BCHUSDT.parquet"
+        },
+        "BNBUSDT": {
+          "funding": "um_funding/BNBUSDT.parquet",
+          "metrics": "um_metrics/BNBUSDT.parquet"
+        },
+        "BTCUSDT": {
+          "funding": "um_funding/BTCUSDT.parquet",
+          "metrics": "um_metrics/BTCUSDT.parquet"
+        },
+        "DOGEUSDT": {
+          "funding": "um_funding/DOGEUSDT.parquet",
+          "metrics": "um_metrics/DOGEUSDT.parquet"
+        },
+        "EOSUSDT": {
+          "funding": "um_funding/EOSUSDT.parquet",
+          "metrics": "um_metrics/EOSUSDT.parquet"
+        },
+        "ETCUSDT": {
+          "funding": "um_funding/ETCUSDT.parquet",
+          "metrics": "um_metrics/ETCUSDT.parquet"
+        },
+        "ETHUSDT": {
+          "funding": "um_funding/ETHUSDT.parquet",
+          "metrics": "um_metrics/ETHUSDT.parquet"
+        },
+        "LINKUSDT": {
+          "funding": "um_funding/LINKUSDT.parquet",
+          "metrics": "um_metrics/LINKUSDT.parquet"
+        },
+        "LTCUSDT": {
+          "funding": "um_funding/LTCUSDT.parquet",
+          "metrics": "um_metrics/LTCUSDT.parquet"
+        },
+        "TRXUSDT": {
+          "funding": "um_funding/TRXUSDT.parquet",
+          "metrics": "um_metrics/TRXUSDT.parquet"
+        },
+        "XRPUSDT": {
+          "funding": "um_funding/XRPUSDT.parquet",
+          "metrics": "um_metrics/XRPUSDT.parquet"
+        }
+      },
+      "revision": "37b376564d35311fbb5f9a01c8f62e2a8592ba08"
+    },
+    "funding_coverage": 592042,
+    "max_time": "2026-09-30 23:00:00+00:00",
+    "metric_coverage": 503877,
+    "min_time": "2021-01-01 00:00:00+00:00",
+    "requested_kline_downloads": 1656,
+    "rows": 592042,
+    "symbols": [
+      "ADAUSDT",
+      "BCHUSDT",
+      "BNBUSDT",
+      "BTCUSDT",
+      "DOGEUSDT",
+      "EOSUSDT",
+      "ETCUSDT",
+      "ETHUSDT",
+      "LINKUSDT",
+      "LTCUSDT",
+      "TRXUSDT",
+      "XRPUSDT"
+    ],
+    "usable_parts": {
+      "perp": 812,
+      "spot": 812
+    }
+  },
+  "discovery_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "XRPUSDT",
+    "ADAUSDT",
+    "DOGEUSDT",
+    "LTCUSDT",
+    "BCHUSDT",
+    "LINKUSDT",
+    "ETCUSDT",
+    "TRXUSDT",
+    "EOSUSDT"
+  ],
+  "execution": {
+    "cost_bp_one_way": 5.0,
+    "deadzone": 0.2
+  },
+  "partial_pooling": {
+    "amplitude_target": "log1p(abs(net_return)/asset_volatility)",
+    "asset_alpha": 500.0,
+    "direction_target": "sign(max(abs(return)-10bp,0))",
+    "global_alpha": 50.0,
+    "regime_persistence_span_hours": 72,
+    "unseen_replication_assets": "global_coefficients_only"
+  },
+  "replication_data": {
+    "errors": [],
+    "external": {
+      "embargo_hours": 1,
+      "funding_rate_alias": "rate",
+      "repo": "ismatsamadov/binance-usdt-archive",
+      "resolved": {
+        "AAVEUSDT": {
+          "funding": "um_funding/AAVEUSDT.parquet",
+          "metrics": "um_metrics/AAVEUSDT.parquet"
+        },
+        "ALGOUSDT": {
+          "funding": "um_funding/ALGOUSDT.parquet",
+          "metrics": "um_metrics/ALGOUSDT.parquet"
+        },
+        "ATOMUSDT": {
+          "funding": "um_funding/ATOMUSDT.parquet",
+          "metrics": "um_metrics/ATOMUSDT.parquet"
+        },
+        "AVAXUSDT": {
+          "funding": "um_funding/AVAXUSDT.parquet",
+          "metrics": "um_metrics/AVAXUSDT.parquet"
+        },
+        "FILUSDT": {
+          "funding": "um_funding/FILUSDT.parquet",
+          "metrics": "um_metrics/FILUSDT.parquet"
+        },
+        "GRTUSDT": {
+          "funding": "um_funding/GRTUSDT.parquet",
+          "metrics": "um_metrics/GRTUSDT.parquet"
+        },
+        "NEARUSDT": {
+          "funding": "um_funding/NEARUSDT.parquet",
+          "metrics": "um_metrics/NEARUSDT.parquet"
+        },
+        "RUNEUSDT": {
+          "funding": "um_funding/RUNEUSDT.parquet",
+          "metrics": "um_metrics/RUNEUSDT.parquet"
+        },
+        "SNXUSDT": {
+          "funding": "um_funding/SNXUSDT.parquet",
+          "metrics": "um_metrics/SNXUSDT.parquet"
+        },
+        "THETAUSDT": {
+          "funding": "um_funding/THETAUSDT.parquet",
+          "metrics": "um_metrics/THETAUSDT.parquet"
+        },
+        "UNIUSDT": {
+          "funding": "um_funding/UNIUSDT.parquet",
+          "metrics": "um_metrics/UNIUSDT.parquet"
+        },
+        "XTZUSDT": {
+          "funding": "um_funding/XTZUSDT.parquet",
+          "metrics": "um_metrics/XTZUSDT.parquet"
+        }
+      },
+      "revision": "37b376564d35311fbb5f9a01c8f62e2a8592ba08"
+    },
+    "funding_coverage": 603984,
+    "max_time": "2026-09-30 23:00:00+00:00",
+    "metric_coverage": 507708,
+    "min_time": "2021-01-01 00:00:00+00:00",
+    "requested_kline_downloads": 1656,
+    "rows": 603984,
+    "symbols": [
+      "AAVEUSDT",
+      "ALGOUSDT",
+      "ATOMUSDT",
+      "AVAXUSDT",
+      "FILUSDT",
+      "GRTUSDT",
+      "NEARUSDT",
+      "RUNEUSDT",
+      "SNXUSDT",
+      "THETAUSDT",
+      "UNIUSDT",
+      "XTZUSDT"
+    ],
+    "usable_parts": {
+      "perp": 828,
+      "spot": 828
+    }
+  },
+  "replication_symbols": [
+    "AVAXUSDT",
+    "ATOMUSDT",
+    "NEARUSDT",
+    "AAVEUSDT",
+    "UNIUSDT",
+    "FILUSDT",
+    "ALGOUSDT",
+    "XTZUSDT",
+    "THETAUSDT",
+    "RUNEUSDT",
+    "GRTUSDT",
+    "SNXUSDT"
+  ],
+  "research_boundary": "historical; no parameter selected on validation, holdout or replication stages",
+  "seed": 20261119
+}

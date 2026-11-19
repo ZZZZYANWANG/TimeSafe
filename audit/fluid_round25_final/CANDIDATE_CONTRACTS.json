@@ -1,0 +1,14 @@
+{
+  "hierarchical_impulse_constitutive_120h": {
+    "family": "hierarchical_impulse_constitutive",
+    "horizon_hours": 120,
+    "mechanism": "asset-specific source-pressure impulse response partially pooled toward a global constitutive law; current and persistent propagation regimes jointly control direction and amplitude",
+    "parent": "impulse_balance_direction_ewm24"
+  },
+  "hierarchical_slowmode_constitutive_72h": {
+    "family": "hierarchical_slowmode_constitutive",
+    "horizon_hours": 72,
+    "mechanism": "asset-specific slow-mode-damped transient response partially pooled toward a global law with regime-persistence-conditioned direction and magnitude",
+    "parent": "slow_mode_damped_nonnormal_ewm72"
+  }
+}
