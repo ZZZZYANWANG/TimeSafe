@@ -1,0 +1,107 @@
+name: Fluid Round15 Compatibility Runs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round15_compat_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reduced:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-fluid-characteristic-network-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install frozen-compatible dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn baostock tabulate
+      - name: Run 120-code point-in-time replication
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/ashare_fluid_round15_reduced
+          mkdir -p research_outputs/ashare_fluid_round15_reduced
+          python research/ashare_fluid_round15/run_characteristic_network_reduced.py 2>&1 | tee research_outputs/ashare_fluid_round15_reduced/run.log
+      - name: Upload reduced evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-fluid-round15-reduced-compatible-results
+          path: research-repo/research_outputs/ashare_fluid_round15_reduced
+          if-no-files-found: warn
+          retention-days: 14
+
+  yahoo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-fluid-characteristic-network-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install frozen-compatible dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn requests baostock tabulate
+      - name: Run independent-provider replication
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/ashare_fluid_round15_yahoo
+          mkdir -p research_outputs/ashare_fluid_round15_yahoo
+          python research/ashare_fluid_round15/run_characteristic_network_yahoo.py 2>&1 | tee research_outputs/ashare_fluid_round15_yahoo/run.log
+      - name: Upload Yahoo evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-fluid-round15-yahoo-compatible-results
+          path: research-repo/research_outputs/ashare_fluid_round15_yahoo
+          if-no-files-found: warn
+          retention-days: 14
+
+  formal:
+    needs: [reduced, yahoo]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-fluid-characteristic-network-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install frozen-compatible dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn baostock tabulate
+      - name: Run formal 180-code point-in-time study
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/ashare_fluid_round15
+          mkdir -p research_outputs/ashare_fluid_round15
+          python research/ashare_fluid_round15/run_characteristic_network.py 2>&1 | tee research_outputs/ashare_fluid_round15/run.log
+      - name: Upload formal evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-fluid-round15-formal-compatible-results
+          path: research-repo/research_outputs/ashare_fluid_round15
+          if-no-files-found: warn
+          retention-days: 14
