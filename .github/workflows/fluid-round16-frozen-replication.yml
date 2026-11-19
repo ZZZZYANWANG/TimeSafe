@@ -2,7 +2,7 @@ name: Fluid Round16 Frozen Replication
 
 on:
   workflow_run:
-    workflows: ["Fluid Round16 Multiscale Constitutive"]
+    workflows: ["Fluid Round16 Inference Fix"]
     types: [completed]
 
 permissions:
@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
-      - name: Download upstream evidence
+      - name: Download corrected upstream evidence
         uses: actions/download-artifact@v4
         with:
-          name: fluid-multiscale-constitutive-round16-results
+          name: fluid-multiscale-constitutive-round16-inference-fix-results
           path: upstream
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ github.token }}
@@ -41,16 +41,16 @@ jobs:
           PROMOTED=$(find ../upstream -name PROMOTED.json -print -quit)
           test -n "$SELECTION"
           test -n "$PROMOTED"
-          rm -rf research_outputs/fluid_multiscale_constitutive_round16_replication
-          mkdir -p research_outputs/fluid_multiscale_constitutive_round16_replication
-          python research/fluid_round16/run_multiscale_constitutive_replication.py \
+          rm -rf research_outputs/fluid_multiscale_constitutive_round16_replication_inference_fix
+          mkdir -p research_outputs/fluid_multiscale_constitutive_round16_replication_inference_fix
+          python research/fluid_round16/run_multiscale_constitutive_replication_inference_fix.py \
             --selection "$SELECTION" \
-            --promoted "$PROMOTED" 2>&1 | tee research_outputs/fluid_multiscale_constitutive_round16_replication/run.log
+            --promoted "$PROMOTED" 2>&1 | tee research_outputs/fluid_multiscale_constitutive_round16_replication_inference_fix/run.log
       - name: Upload frozen replication evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fluid-multiscale-constitutive-round16-replication-results
-          path: research-repo/research_outputs/fluid_multiscale_constitutive_round16_replication
+          name: fluid-multiscale-constitutive-round16-replication-inference-fix-results
+          path: research-repo/research_outputs/fluid_multiscale_constitutive_round16_replication_inference_fix
           if-no-files-found: warn
           retention-days: 14
