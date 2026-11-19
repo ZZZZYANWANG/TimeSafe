@@ -1,0 +1,35 @@
+name: Inspect fluid round20 evidence
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  issues: read
+
+jobs:
+  inspect:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.title, '[inspect-fluid-round20]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download final Round20 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-state-dependent-memory-round20-results
+          path: evidence
+          run-id: 44516352808
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print frozen evidence
+        run: |
+          set -euo pipefail
+          find evidence -maxdepth 2 -type f -printf '%P\n' | sort
+          for f in SUMMARY.json FROZEN_SELECTION.csv DISCOVERY_VALIDATION_RESULTS.csv DISCOVERY_HOLDOUT_RESULTS.csv REPLICATION_VALIDATION_RESULTS.csv REPLICATION_HOLDOUT_RESULTS.csv DISCOVERY_PROMOTED.json CONFIRMED.json REPORT.md DATA_AUDIT.json; do
+            if [ -f "evidence/$f" ]; then
+              echo "===== $f ====="
+              cat "evidence/$f"
+              echo
+            fi
+          done
