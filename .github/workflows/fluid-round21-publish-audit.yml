@@ -1,0 +1,40 @@
+name: Publish Round21 audit evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fluid-round21-publish-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download the already frozen successful artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-nonnormal-operator-round21-results
+          path: round21-artifact
+          run-id: 44525352864
+          github-token: ${{ github.token }}
+      - name: Publish with lease protection
+        run: |
+          branch=audit-fluid-nonnormal-operator-round21-20261119
+          git fetch origin "$branch"
+          git checkout -B "$branch" "origin/$branch"
+          rm -rf audit/fluid_nonnormal_operator_round21
+          mkdir -p audit/fluid_nonnormal_operator_round21
+          cp -r round21-artifact/. audit/fluid_nonnormal_operator_round21/
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/fluid_nonnormal_operator_round21
+          git commit -m 'audit: freeze non-normal operator round21 evidence'
+          git push origin HEAD:"$branch"
