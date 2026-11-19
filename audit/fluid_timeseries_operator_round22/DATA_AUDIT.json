@@ -1,0 +1,131 @@
+{
+  "development": "2021-2022",
+  "discovery_data": {
+    "errors": [],
+    "external": {
+      "embargo_hours": 1,
+      "funding_rate_alias": "rate",
+      "repo": "ismatsamadov/binance-usdt-archive",
+      "resolved": {
+        "ADAUSDT": {
+          "funding": "um_funding/ADAUSDT.parquet",
+          "metrics": "um_metrics/ADAUSDT.parquet"
+        },
+        "BCHUSDT": {
+          "funding": "um_funding/BCHUSDT.parquet",
+          "metrics": "um_metrics/BCHUSDT.parquet"
+        },
+        "BNBUSDT": {
+          "funding": "um_funding/BNBUSDT.parquet",
+          "metrics": "um_metrics/BNBUSDT.parquet"
+        },
+        "BTCUSDT": {
+          "funding": "um_funding/BTCUSDT.parquet",
+          "metrics": "um_metrics/BTCUSDT.parquet"
+        },
+        "DOGEUSDT": {
+          "funding": "um_funding/DOGEUSDT.parquet",
+          "metrics": "um_metrics/DOGEUSDT.parquet"
+        },
+        "EOSUSDT": {
+          "funding": "um_funding/EOSUSDT.parquet",
+          "metrics": "um_metrics/EOSUSDT.parquet"
+        },
+        "ETCUSDT": {
+          "funding": "um_funding/ETCUSDT.parquet",
+          "metrics": "um_metrics/ETCUSDT.parquet"
+        },
+        "ETHUSDT": {
+          "funding": "um_funding/ETHUSDT.parquet",
+          "metrics": "um_metrics/ETHUSDT.parquet"
+        },
+        "LINKUSDT": {
+          "funding": "um_funding/LINKUSDT.parquet",
+          "metrics": "um_metrics/LINKUSDT.parquet"
+        },
+        "LTCUSDT": {
+          "funding": "um_funding/LTCUSDT.parquet",
+          "metrics": "um_metrics/LTCUSDT.parquet"
+        },
+        "TRXUSDT": {
+          "funding": "um_funding/TRXUSDT.parquet",
+          "metrics": "um_metrics/TRXUSDT.parquet"
+        },
+        "XRPUSDT": {
+          "funding": "um_funding/XRPUSDT.parquet",
+          "metrics": "um_metrics/XRPUSDT.parquet"
+        }
+      },
+      "revision": "37b376564d35311fbb5f9a01c8f62e2a8592ba08"
+    },
+    "funding_coverage": 592042,
+    "max_time": "2026-09-30 23:00:00+00:00",
+    "metric_coverage": 503877,
+    "min_time": "2021-01-01 00:00:00+00:00",
+    "requested_kline_downloads": 1656,
+    "rows": 592042,
+    "symbols": [
+      "ADAUSDT",
+      "BCHUSDT",
+      "BNBUSDT",
+      "BTCUSDT",
+      "DOGEUSDT",
+      "EOSUSDT",
+      "ETCUSDT",
+      "ETHUSDT",
+      "LINKUSDT",
+      "LTCUSDT",
+      "TRXUSDT",
+      "XRPUSDT"
+    ],
+    "usable_parts": {
+      "perp": 812,
+      "spot": 812
+    }
+  },
+  "discovery_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "XRPUSDT",
+    "ADAUSDT",
+    "DOGEUSDT",
+    "LTCUSDT",
+    "BCHUSDT",
+    "LINKUSDT",
+    "ETCUSDT",
+    "TRXUSDT",
+    "EOSUSDT"
+  ],
+  "execution": {
+    "cost_bp_one_way": 5.0,
+    "no_trade_threshold": 0.35,
+    "position": "tanh(factor/1.25)"
+  },
+  "gate": "mean asset TSIC>0.02, positive asset share>=0.60, asset bootstrap and Holm<=0.10, residual TSIC>0.01, Ridge MSE gain>0, max parent corr<0.80, 5bp net return>0, every stage year positive",
+  "historical_holdout": "2025-2026-09",
+  "horizons_hours": [
+    24,
+    72,
+    120
+  ],
+  "replication_data": null,
+  "replication_symbols": [
+    "AVAXUSDT",
+    "ATOMUSDT",
+    "NEARUSDT",
+    "AAVEUSDT",
+    "UNIUSDT",
+    "FILUSDT",
+    "ALGOUSDT",
+    "XTZUSDT",
+    "THETAUSDT",
+    "RUNEUSDT",
+    "GRTUSDT",
+    "SNXUSDT"
+  ],
+  "research_boundary": "historical research; replication universe remains closed unless discovery validation and holdout both pass",
+  "seed": 20261119,
+  "selection_rule": "one time-series identity per mechanism family, frozen using 2021-2022 TSIC, yearly sign, positive-asset share and 5bp non-overlapping account",
+  "validation": "2023-2024"
+}

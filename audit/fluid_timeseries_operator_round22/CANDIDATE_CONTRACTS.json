@@ -1,0 +1,50 @@
+{
+  "endogenous_operator_transport": {
+    "equation": "OP_24-source_impulse_24-pressure_impulse_24",
+    "mechanism": "operator-implied shear attributable to endogenous state rotation rather than observable source or pressure impulses"
+  },
+  "impulse_balance_direction": {
+    "equation": "NN_24*tanh(source_impulse_24-pressure_impulse_24)",
+    "mechanism": "directional shear response to source-pressure impulse imbalance"
+  },
+  "intrinsic_nonnormal_residual_h24": {
+    "equation": "NN_24 - beta_prior(OP_24, NN_24)*OP_24",
+    "mechanism": "non-normal transient direction orthogonal to the ordinary locally linear operator forecast"
+  },
+  "nonnormal_term_slope": {
+    "equation": "NN_24-NN_72",
+    "mechanism": "short-minus-long non-normal transport term structure"
+  },
+  "pressure_supported_nonnormal": {
+    "equation": "NN_24*tanh(pressure_impulse_24)",
+    "mechanism": "non-normal transport supported by pressure and basis propagation"
+  },
+  "pressure_supported_transient": {
+    "equation": "TG_24*tanh(pressure_impulse_24)",
+    "mechanism": "transient growth conditional on pressure-to-shear transmission"
+  },
+  "rotation_supported_transient": {
+    "equation": "TG_24*tanh(rotation_24)",
+    "mechanism": "transient growth retained only when the antisymmetric operator rotation supports the same direction"
+  },
+  "slow_mode_damped_nonnormal": {
+    "equation": "NN_24/(1+abs(slow_mode_24))",
+    "mechanism": "transient non-normal direction attenuated when a slow stable mode dominates amplitude"
+  },
+  "source_pressure_consensus": {
+    "equation": "NN_24*tanh(source_impulse_24+pressure_impulse_24)",
+    "mechanism": "transient shear supported jointly by source and boundary-pressure impulses"
+  },
+  "source_supported_nonnormal": {
+    "equation": "NN_24*tanh(source_impulse_24)",
+    "mechanism": "non-normal shear amplification supported by observable position and participation sources"
+  },
+  "source_supported_transient": {
+    "equation": "TG_24*tanh(source_impulse_24)",
+    "mechanism": "signed transient growth conditional on source-to-shear transmission"
+  },
+  "transient_minus_slow_mode": {
+    "equation": "TG_24-slow_mode_24",
+    "mechanism": "directional transient response separated from the slow modal contribution"
+  }
+}

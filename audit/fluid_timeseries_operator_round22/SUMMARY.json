@@ -1,0 +1,14 @@
+{
+  "candidate_columns": 36,
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "development_tests": 216,
+  "discovery_holdout_opened": 0,
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "frozen_identities": 4,
+  "raw_primitives": 12,
+  "replication_holdout_opened": 0,
+  "replication_validation_opened": 0,
+  "replication_validation_passed": 0
+}

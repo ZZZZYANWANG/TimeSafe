@@ -1,0 +1,705 @@
+kline_downloads=250/1656 perp=124 spot=126
+kline_downloads=500/1656 perp=250 spot=250
+kline_downloads=750/1656 perp=374 spot=376
+kline_downloads=1000/1656 perp=500 spot=500
+kline_downloads=1250/1656 perp=625 spot=625
+kline_downloads=1500/1656 perp=749 spot=751
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+round20_mechanisms=ADAUSDT rows=50362
+round20_mechanisms=BCHUSDT rows=50362
+round20_mechanisms=BNBUSDT rows=50362
+round20_mechanisms=BTCUSDT rows=50362
+round20_mechanisms=DOGEUSDT rows=50362
+round20_mechanisms=EOSUSDT rows=38420
+round20_mechanisms=ETCUSDT rows=50362
+round20_mechanisms=ETHUSDT rows=50362
+round20_mechanisms=LINKUSDT rows=50362
+round20_mechanisms=LTCUSDT rows=50242
+round20_mechanisms=TRXUSDT rows=50242
+round20_mechanisms=XRPUSDT rows=50242
+round22_candidates=ADAUSDT rows=50362
+round22_candidates=BCHUSDT rows=50362
+round22_candidates=BNBUSDT rows=50362
+round22_candidates=BTCUSDT rows=50362
+round22_candidates=DOGEUSDT rows=50362
+round22_candidates=EOSUSDT rows=38420
+round22_candidates=ETCUSDT rows=50362
+round22_candidates=ETHUSDT rows=50362
+round22_candidates=LINKUSDT rows=50362
+round22_candidates=LTCUSDT rows=50242
+round22_candidates=TRXUSDT rows=50242
+round22_candidates=XRPUSDT rows=50242
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:342: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[oriented], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:409: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[residual_column], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:409: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[residual_column], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:409: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[residual_column], inplace=True)
+/home/runner/work/TimeSafe/TimeSafe/research_repo/research/fluid_round22/run_timeseries_operator_round22.py:409: Pandas4Warning: The inplace keyword in DataFrame.drop is deprecated and will be removed in a future version (PDEP-8).
+See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+  panel.drop(columns=[residual_column], inplace=True)
+{
+  "candidate_columns": 36,
+  "confirmed": [],
+  "decision": "eligible_for_trade_only_if_confirmed_nonempty",
+  "development_tests": 216,
+  "discovery_holdout_opened": 0,
+  "discovery_holdout_passed": 0,
+  "discovery_validation_passed": 0,
+  "frozen_identities": 4,
+  "raw_primitives": 12,
+  "replication_holdout_opened": 0,
+  "replication_validation_opened": 0,
+  "replication_validation_passed": 0
+}
