@@ -1,0 +1,41 @@
+name: Fluid Spot-Perpetual Round 15 V2
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    if: ${{ contains(github.event.head_commit.message, '[fluid-round15-spot-perp-v2]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated spot-perpetual research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-spot-perp-characteristic-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests tabulate huggingface-hub pyarrow
+      - name: Run spot-perpetual characteristic transport
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/fluid_spot_perp_round15
+          mkdir -p research_outputs/fluid_spot_perp_round15
+          python research/fluid_round15/run_spot_perp_characteristics_v2.py 2>&1 | tee research_outputs/fluid_spot_perp_round15/run.log
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-spot-perp-round15-v2-results
+          path: research-repo/research_outputs/fluid_spot_perp_round15
+          if-no-files-found: warn
+          retention-days: 14
