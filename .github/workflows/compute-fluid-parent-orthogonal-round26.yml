@@ -6,11 +6,10 @@ on:
       - compute-fluid-parent-orthogonal-round26-20261119
     paths:
       - '.github/workflows/compute-fluid-parent-orthogonal-round26.yml'
-      - 'audit/fluid_round26/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   research:
@@ -38,9 +37,18 @@ jobs:
       - name: Preserve log and evidence
         if: always()
         run: |
+          rm -rf audit/fluid_round26
           mkdir -p audit/fluid_round26
           cp tradingview/fluid-round26.log audit/fluid_round26/run.log || true
           cp -r tradingview/research_outputs/fluid_parent_orthogonal_round26/. audit/fluid_round26/ || true
+      - name: Commit frozen evidence
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add audit/fluid_round26
+          git diff --cached --quiet || git commit -m 'audit(fluid): preserve round26 evidence [skip ci]'
+          git push
       - name: Upload frozen evidence
         if: always()
         uses: actions/upload-artifact@v4
