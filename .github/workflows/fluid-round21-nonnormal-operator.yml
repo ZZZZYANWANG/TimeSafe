@@ -1,0 +1,48 @@
+name: Fluid non-normal operator round21
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fluid-round21-nonnormal-operator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests pyarrow tabulate
+      - name: Checkout frozen research code
+        run: |
+          git clone --depth 1 --branch research-fluid-operator-round21-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research_repo
+      - name: Run Round21
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          cd research_repo
+          python research/fluid_round21/run_nonnormal_operator_round21.py 2>&1 | tee ../fluid-round21.log
+      - name: Preserve evidence and log
+        if: always()
+        run: |
+          mkdir -p round21-artifact
+          cp -r research_repo/research_outputs/fluid_nonnormal_operator_round21/* round21-artifact/ 2>/dev/null || true
+          cp fluid-round21.log round21-artifact/run.log 2>/dev/null || true
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-nonnormal-operator-round21-results
+          path: round21-artifact
+          if-no-files-found: error
+          retention-days: 14
