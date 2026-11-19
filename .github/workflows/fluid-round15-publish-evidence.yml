@@ -1,0 +1,38 @@
+name: Publish Fluid Round15 Evidence
+
+on:
+  workflow_run:
+    workflows: ["Fluid Round15 Compatibility Runs"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download completed-run artifacts
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: /tmp/round15-artifacts
+          merge-multiple: false
+      - name: Publish evidence on isolated branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="research-evidence-fluid-round15-${{ github.event.workflow_run.id }}"
+          git checkout -b "$branch"
+          mkdir -p research_outputs/ashare_fluid_round15_audit
+          cp -R /tmp/round15-artifacts/. research_outputs/ashare_fluid_round15_audit/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_outputs/ashare_fluid_round15_audit
+          git commit -m "research(temp): publish round15 frozen evidence"
+          git push origin "HEAD:$branch"
