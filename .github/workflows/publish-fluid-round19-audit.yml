@@ -1,0 +1,58 @@
+name: Publish Fluid Round19 Audit Evidence
+
+on:
+  push:
+    branches:
+      - audit-fluid-public-memory-round19-20261119
+    paths:
+      - research/fluid_round19_audit/TRIGGER.txt
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-fluid-public-memory-round19-20261119
+      - name: Download exact full and fast artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf research/fluid_round19_audit/results
+          mkdir -p research/fluid_round19_audit/results/full
+          mkdir -p research/fluid_round19_audit/results/fast
+          gh run download 44499087577 \
+            --repo ZZZZYANWANG/TimeSafe \
+            --name fluid-round19-public-ashare-memory-results \
+            --dir research/fluid_round19_audit/results/full
+          gh run download 44500136189 \
+            --repo ZZZZYANWANG/TimeSafe \
+            --name fluid-round19-public-ashare-memory-fast-results \
+            --dir research/fluid_round19_audit/results/fast
+      - name: Bind and commit evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          root=Path('research/fluid_round19_audit/results')
+          rows={}
+          for p in sorted(root.rglob('*')):
+              if p.is_file():
+                  rows[str(p.relative_to(root))]=hashlib.sha256(p.read_bytes()).hexdigest()
+          (root/'ARTIFACT_BINDING.json').write_text(json.dumps({
+              'full_run_id': 44499087577,
+              'full_head_sha': '5b1af358df653efe97a388d6ee4b2303409c4825',
+              'fast_run_id': 44500136189,
+              'fast_head_sha': '05bcdfc199a741536b5d39c3420aed7515efc06d',
+              'files_sha256': rows,
+          }, indent=2), encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/fluid_round19_audit/results research/fluid_round19_audit/TRIGGER.txt
+          git commit -m 'research: freeze public A-share memory round19 evidence'
+          git push origin HEAD:audit-fluid-public-memory-round19-20261119
