@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   test:
-    if: !contains(github.event.head_commit.message, '[fluid-round14]')
+    if: ${{ !contains(github.event.head_commit.message, '[fluid-round14]') }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -30,7 +30,7 @@ jobs:
       - run: pytest --cov=timesafe_quant --cov-report=term-missing --cov-fail-under=85
 
   package-smoke:
-    if: !contains(github.event.head_commit.message, '[fluid-round14]')
+    if: ${{ !contains(github.event.head_commit.message, '[fluid-round14]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
       - run: /tmp/timesafe-wheel/bin/timesafe demo --output /tmp/timesafe_demo.json
 
   fluid-round14:
-    if: contains(github.event.head_commit.message, '[fluid-round14]')
+    if: ${{ contains(github.event.head_commit.message, '[fluid-round14]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
