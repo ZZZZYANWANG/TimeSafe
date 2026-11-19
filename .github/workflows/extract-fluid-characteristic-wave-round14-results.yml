@@ -1,0 +1,38 @@
+name: Extract Fluid Characteristic Wave Round14 Results
+
+on:
+  push:
+    branches:
+      - extract-fluid-characteristic-wave-round14-results-20261119
+    paths:
+      - '.github/workflows/extract-fluid-characteristic-wave-round14-results.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download frozen artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf research_outputs/fluid_characteristic_wave_round14
+          mkdir -p research_outputs/fluid_characteristic_wave_round14
+          gh run download 44437796947 \
+            --repo ZZZZYANWANG/TimeSafe \
+            --name fluid-characteristic-wave-round14-results \
+            --dir research_outputs/fluid_characteristic_wave_round14
+      - name: Commit extracted evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A research_outputs/fluid_characteristic_wave_round14
+          git commit -m 'research(temp): expose characteristic-wave round14 evidence'
+          git push origin HEAD:${GITHUB_REF_NAME}
