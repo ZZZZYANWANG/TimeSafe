@@ -1,0 +1,75 @@
+name: Fluid Round16 Evidence Inspect
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round16_inspect_trigger.txt
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download round16 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-multiscale-constitutive-round16-results
+          path: evidence
+          run-id: 44468464546
+          github-token: ${{ github.token }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Print compact evidence matrix
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import pandas as pd
+
+          root = Path('evidence')
+          def locate(name):
+              matches = list(root.rglob(name))
+              if not matches:
+                  raise FileNotFoundError(name)
+              return matches[0]
+
+          print('=== SUMMARY ===')
+          print(locate('SUMMARY.json').read_text())
+          print('=== DATA AUDIT ===')
+          audit = json.loads(locate('DATA_AUDIT.json').read_text())
+          print(json.dumps({
+              'panel_rows': audit.get('panel_rows'),
+              'families': audit.get('families'),
+              'development': audit.get('development'),
+              'validation': audit.get('validation'),
+              'historical_holdout': audit.get('historical_holdout'),
+              'data_rows': audit.get('data', {}).get('rows'),
+              'symbols': audit.get('data', {}).get('symbols'),
+              'min_time': audit.get('data', {}).get('min_time'),
+              'max_time': audit.get('data', {}).get('max_time'),
+              'metric_coverage': audit.get('data', {}).get('metric_coverage'),
+              'funding_coverage': audit.get('data', {}).get('funding_coverage'),
+          }, indent=2, sort_keys=True))
+          print('=== FROZEN SELECTION ===')
+          selection = pd.read_csv(locate('FROZEN_SELECTION.csv'))
+          cols = [c for c in ['family','factor','sign','horizon','development_cs','development_ts','development_min_year','development_score','development_years','signed_factor'] if c in selection]
+          print(selection[cols].to_csv(index=False))
+          print('=== VALIDATION SORTED BY CS ===')
+          validation = pd.read_csv(locate('VALIDATION_RESULTS.csv'))
+          cols = [
+              'family','primitive_factor','sign','horizon','cs_rankic','ts_ic','ts_positive_share',
+              'bootstrap_low','bootstrap_high','bootstrap_p_nonpositive','holm_p','ridge_mse_gain',
+              'ridge_base_rankic','ridge_full_rankic','residual_cs_rankic','residual_ts_ic',
+              'max_parent_corr','max_parent_feature','annual_log_return_2bp','annual_log_return_5bp',
+              'sharpe_5bp','avg_turnover','yearly_rankic','yearly_5bp','n_train','n_test','validation_gate'
+          ]
+          print(validation[[c for c in cols if c in validation]].sort_values('cs_rankic', ascending=False).to_csv(index=False))
+          print('=== PROMOTED ===')
+          print(locate('PROMOTED.json').read_text())
+          PY
