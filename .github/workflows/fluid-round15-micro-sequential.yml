@@ -1,0 +1,43 @@
+name: Fluid Round15 Micro Sequential
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round15_micro_sequential_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  micro-sequential:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-fluid-characteristic-network-round15-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install frozen-compatible dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn baostock tabulate
+      - name: Run single-session 40-code screen
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf research_outputs/ashare_fluid_round15_micro_sequential
+          mkdir -p research_outputs/ashare_fluid_round15_micro_sequential
+          python research/ashare_fluid_round15/run_characteristic_network_micro_sequential.py 2>&1 | tee research_outputs/ashare_fluid_round15_micro_sequential/run.log
+      - name: Upload micro evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-fluid-round15-micro-sequential-results
+          path: research-repo/research_outputs/ashare_fluid_round15_micro_sequential
+          if-no-files-found: warn
+          retention-days: 14
