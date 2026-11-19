@@ -1,0 +1,42 @@
+kline_downloads=250/1794 perp=124 spot=126
+kline_downloads=500/1794 perp=248 spot=252
+kline_downloads=750/1794 perp=374 spot=376
+kline_downloads=1000/1794 perp=500 spot=500
+kline_downloads=1250/1794 perp=626 spot=624
+kline_downloads=1500/1794 perp=749 spot=751
+kline_downloads=1750/1794 perp=875 spot=875
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+features=ADAUSDT rows=50362
+features=BCHUSDT rows=50362
+features=BNBUSDT rows=50362
+features=BTCUSDT rows=50362
+features=DOGEUSDT rows=50362
+features=DOTUSDT rows=50362
+features=ETCUSDT rows=50362
+features=ETHUSDT rows=50362
+features=LINKUSDT rows=50362
+features=LTCUSDT rows=50242
+features=SOLUSDT rows=50242
+features=XLMUSDT rows=50242
+features=XRPUSDT rows=50242
+validation=characteristic_reattachment factor=interlayer_characteristic_reattachment_ewm72
+validation=crocco_enthalpy factor=source_supported_enthalpy_gap_z
+validation=impedance_release factor=impedance_pressure_release_ewm6
+validation=interlayer_reynolds factor=interlayer_stress_release_ewm72
+validation=riemann_transfer factor=perp_to_spot_transmission_defect_ewm6
+validation=shock_rarefaction factor=basis_characteristic_shock_ewm72
+validation=source_conservation factor=source_absorption_release_z
+validation=wave_action factor=wave_action_residual_release_z
+validation=spot_perp_top4_consensus factor=spot_perp_top4_consensus
+validation=source_riemann_impedance_consensus factor=source_riemann_impedance_consensus
+validation=wave_shock_reattachment_consensus factor=wave_shock_reattachment_consensus
+{
+  "candidate_columns": 96,
+  "candidate_families": 8,
+  "decision": "promote_only_if_PROMOTED_nonempty",
+  "development_tests": 576,
+  "frozen_identities": 11,
+  "holdout_opened": 1,
+  "promoted": [],
+  "validation_gate_passed": 1
+}
