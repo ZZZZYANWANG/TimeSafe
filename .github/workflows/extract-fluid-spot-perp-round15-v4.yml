@@ -1,0 +1,38 @@
+name: Extract Fluid Spot-Perpetual Round 15 V4
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  extract:
+    if: ${{ contains(github.event.head_commit.message, '[extract-fluid-spot-perp-round15-v4]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit-fluid-spot-perp-round15-v4-20261119
+          fetch-depth: 0
+      - name: Download frozen evidence artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-spot-perp-round15-v4-results
+          path: research_outputs/fluid_spot_perp_round15_v4
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ZZZZYANWANG/TimeSafe
+          run-id: 44464056645
+      - name: Commit extracted evidence to audit branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A research_outputs/fluid_spot_perp_round15_v4
+          if ! git diff --cached --quiet; then
+            git commit -m 'research(audit): publish spot-perpetual round15 v4 evidence'
+            git push origin HEAD:audit-fluid-spot-perp-round15-v4-20261119
+          fi
