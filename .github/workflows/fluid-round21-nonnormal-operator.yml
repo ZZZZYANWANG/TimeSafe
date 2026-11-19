@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   research:
@@ -46,3 +46,15 @@ jobs:
           path: round21-artifact
           if-no-files-found: error
           retention-days: 14
+      - name: Publish audit evidence branch
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git checkout -B audit-fluid-nonnormal-operator-round21-20261119
+          rm -rf audit/fluid_nonnormal_operator_round21
+          mkdir -p audit/fluid_nonnormal_operator_round21
+          cp -r round21-artifact/. audit/fluid_nonnormal_operator_round21/
+          git add audit/fluid_nonnormal_operator_round21
+          git commit -m 'audit: freeze non-normal operator round21 evidence' || exit 0
+          git push origin HEAD:audit-fluid-nonnormal-operator-round21-20261119
