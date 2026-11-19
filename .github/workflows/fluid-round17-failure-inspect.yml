@@ -1,0 +1,35 @@
+name: Fluid Round17 Failure Inspect
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/round17_failure_inspect_trigger.txt
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download failed round17 evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-cascade-direction-round17-results
+          path: evidence
+          run-id: 44471270965
+          github-token: ${{ github.token }}
+      - name: Print failure and log tail
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== FILES ==='
+          find evidence -type f -maxdepth 6 -print
+          echo '=== FAILURE ==='
+          find evidence -name FAILURE.json -print -exec cat {} \;
+          echo '=== LOG TAIL ==='
+          LOG=$(find evidence -name run.log -print -quit)
+          test -n "$LOG"
+          tail -n 200 "$LOG"
