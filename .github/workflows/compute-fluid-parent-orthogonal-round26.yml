@@ -1,0 +1,51 @@
+name: Compute fluid parent-orthogonal round26
+
+on:
+  push:
+    branches:
+      - compute-fluid-parent-orthogonal-round26-20261119
+    paths:
+      - '.github/workflows/compute-fluid-parent-orthogonal-round26.yml'
+      - 'audit/fluid_round26/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Clone frozen research branch
+        run: |
+          git clone --depth 1 --branch research-fluid-parent-orthogonal-round26-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git tradingview
+      - name: Install research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn requests pyarrow tabulate huggingface_hub
+      - name: Run frozen Round26 experiment
+        working-directory: tradingview
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python research/fluid_round26/run_parent_orthogonal_residual_round26.py 2>&1 | tee fluid-round26.log
+      - name: Preserve log and evidence
+        if: always()
+        run: |
+          mkdir -p audit/fluid_round26
+          cp tradingview/fluid-round26.log audit/fluid_round26/run.log || true
+          cp -r tradingview/research_outputs/fluid_parent_orthogonal_round26/. audit/fluid_round26/ || true
+      - name: Upload frozen evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-parent-orthogonal-round26-results
+          path: audit/fluid_round26
+          if-no-files-found: error
+          retention-days: 14
