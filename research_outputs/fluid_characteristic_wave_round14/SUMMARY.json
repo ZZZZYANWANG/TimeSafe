@@ -1,0 +1,10 @@
+{
+  "candidate_columns": 132,
+  "candidate_families": 8,
+  "decision": "promote_only_if_PROMOTED_nonempty",
+  "development_tests": 792,
+  "frozen_identities": 11,
+  "holdout_opened": 0,
+  "promoted": [],
+  "validation_gate_passed": 0
+}

@@ -1,0 +1,973 @@
+kline_parts=150/897 usable=150
+kline_parts=300/897 usable=300
+kline_parts=450/897 usable=450
+kline_parts=600/897 usable=600
+kline_parts=750/897 usable=750
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+external_loaded=BTCUSDT metrics=53954 funding=7395
+external_loaded=ETHUSDT metrics=43022 funding=7395
+external_loaded=BNBUSDT metrics=43022 funding=7274
+external_loaded=XRPUSDT metrics=43022 funding=7379
+external_loaded=ADAUSDT metrics=43022 funding=7339
+external_loaded=DOGEUSDT metrics=43022 funding=6821
+external_loaded=LTCUSDT metrics=43022 funding=7370
+external_loaded=BCHUSDT metrics=43022 funding=7395
+external_loaded=LINKUSDT metrics=43022 funding=7346
+external_loaded=ETCUSDT metrics=43022 funding=7349
+external_loaded=XLMUSDT metrics=42998 funding=7339
+external_loaded=DOTUSDT metrics=43022 funding=6698
+external_loaded=SOLUSDT metrics=43022 funding=6700
+local_features=ADAUSDT rows=50376
+local_features=BCHUSDT rows=50376
+local_features=BNBUSDT rows=50376
+local_features=BTCUSDT rows=50376
+local_features=DOGEUSDT rows=50376
+local_features=DOTUSDT rows=50376
+local_features=ETCUSDT rows=50376
+local_features=ETHUSDT rows=50376
+local_features=LINKUSDT rows=50376
+local_features=LTCUSDT rows=50256
+local_features=SOLUSDT rows=50256
+local_features=XLMUSDT rows=50256
+local_features=XRPUSDT rows=50256
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round13/run_baroclinic_torque.py:544: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[f"{name}_ewm{span}"] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:332: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[state_name] = state
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:337: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  g[name] = state.ewm(
+development_complete=riemann_characteristics candidates=20
+development_complete=shock_rarefaction candidates=16
+development_complete=wave_action candidates=16
+development_complete=crocco_balance candidates=16
+development_complete=helicity_transport candidates=16
+development_complete=acoustic_impedance candidates=16
+development_complete=spinodal_stability candidates=16
+development_complete=characteristic_reattachment candidates=16
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:383: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[name] = int(row.sign) * pd.to_numeric(panel[row.factor], errors="coerce")
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:413: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[raw_name] = signed_median(panel, members)
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:417: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[selected] = int(best["sign"]) * panel[raw_name]
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:413: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[raw_name] = signed_median(panel, members)
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:417: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[selected] = int(best["sign"]) * panel[raw_name]
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:413: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[raw_name] = signed_median(panel, members)
+/home/runner/work/TimeSafe/TimeSafe/research-repo/research/fluid_round14/run_characteristic_wave_action.py:417: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  panel[selected] = int(best["sign"]) * panel[raw_name]
+validation_complete=acoustic_impedance factor=selected_acoustic_impedance
+validation_complete=characteristic_reattachment factor=selected_characteristic_reattachment
+validation_complete=crocco_balance factor=selected_crocco_balance
+validation_complete=helicity_transport factor=selected_helicity_transport
+validation_complete=riemann_characteristics factor=selected_riemann_characteristics
+validation_complete=shock_rarefaction factor=selected_shock_rarefaction
+validation_complete=spinodal_stability factor=selected_spinodal_stability
+validation_complete=wave_action factor=selected_wave_action
+validation_complete=consensus_characteristic_wave factor=selected_consensus_characteristic_wave
+validation_complete=consensus_crocco_rotation factor=selected_consensus_crocco_rotation
+validation_complete=consensus_cross_family_top4 factor=selected_consensus_cross_family_top4
+{
+  "candidate_columns": 132,
+  "candidate_families": 8,
+  "decision": "promote_only_if_PROMOTED_nonempty",
+  "development_tests": 792,
+  "frozen_identities": 11,
+  "holdout_opened": 0,
+  "promoted": [],
+  "validation_gate_passed": 0
+}
