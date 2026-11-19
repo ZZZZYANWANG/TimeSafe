@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   research:
@@ -48,7 +48,19 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fluid-hierarchical-constitutive-round25-results
+          name: fluid-hierarchical-constitutive-round25-results-rerun
           path: tradingview-api/research_outputs/fluid_hierarchical_constitutive_round25
           if-no-files-found: error
           retention-days: 14
+      - name: Publish audit evidence branch
+        if: always()
+        run: |
+          rm -rf audit/fluid_round25
+          mkdir -p audit/fluid_round25
+          cp -R tradingview-api/research_outputs/fluid_hierarchical_constitutive_round25/. audit/fluid_round25/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c audit-fluid-hierarchical-round25-rerun-20261119
+          git add audit/fluid_round25
+          git commit -m "audit(fluid): preserve round25 hierarchical constitutive evidence" || true
+          git push origin audit-fluid-hierarchical-round25-rerun-20261119
