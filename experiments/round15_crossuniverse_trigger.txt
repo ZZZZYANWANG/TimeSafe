@@ -1,1 +1,1 @@
-Run the two frozen Round14 characteristic-wave hypotheses on the independent Round15 futures universe.
+Rerun the two frozen Round14 characteristic-wave hypotheses with all external timestamps normalized to UTC nanoseconds.
