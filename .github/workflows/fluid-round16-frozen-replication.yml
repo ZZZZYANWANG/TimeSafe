@@ -1,0 +1,56 @@
+name: Fluid Round16 Frozen Replication
+
+on:
+  workflow_run:
+    workflows: ["Fluid Round16 Multiscale Constitutive"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  replicate:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Download upstream evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: fluid-multiscale-constitutive-round16-results
+          path: upstream
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone frozen research implementation
+        run: |
+          git clone --depth 1 --branch research-fluid-multiscale-constitutive-round16-20261119 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy 'pandas<3' scipy scikit-learn requests pyarrow huggingface-hub tabulate
+      - name: Run independent-universe frozen replication
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          SELECTION=$(find ../upstream -name FROZEN_SELECTION.csv -print -quit)
+          PROMOTED=$(find ../upstream -name PROMOTED.json -print -quit)
+          test -n "$SELECTION"
+          test -n "$PROMOTED"
+          rm -rf research_outputs/fluid_multiscale_constitutive_round16_replication
+          mkdir -p research_outputs/fluid_multiscale_constitutive_round16_replication
+          python research/fluid_round16/run_multiscale_constitutive_replication.py \
+            --selection "$SELECTION" \
+            --promoted "$PROMOTED" 2>&1 | tee research_outputs/fluid_multiscale_constitutive_round16_replication/run.log
+      - name: Upload frozen replication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-multiscale-constitutive-round16-replication-results
+          path: research-repo/research_outputs/fluid_multiscale_constitutive_round16_replication
+          if-no-files-found: warn
+          retention-days: 14
