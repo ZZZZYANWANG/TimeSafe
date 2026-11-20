@@ -36,16 +36,16 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p research_outputs/ashare_event_absorption research_outputs/ashare_event_absorption_probe
-          if [ -f research/ashare_event_absorption/run_research_v7_timing_congestion.py ]; then
+          if [ -f research/ashare_event_absorption/run_research_v9_strict.py ]; then
+            python research/ashare_event_absorption/run_research_v9_strict.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
+          elif [ -f research/ashare_event_absorption/run_research_v8_information_blocks.py ]; then
+            python research/ashare_event_absorption/run_research_v8_information_blocks.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
+          elif [ -f research/ashare_event_absorption/run_research_v7_timing_congestion.py ]; then
             python research/ashare_event_absorption/run_research_v7_timing_congestion.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
           elif [ -f research/ashare_event_absorption/run_research_v6_resilient.py ]; then
             python research/ashare_event_absorption/run_research_v6_resilient.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
           elif [ -f research/ashare_event_absorption/run_research_v5_daily.py ]; then
             python research/ashare_event_absorption/run_research_v5_daily.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
-          elif [ -f research/ashare_event_absorption/run_research_v4.py ]; then
-            python research/ashare_event_absorption/run_research_v4.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
-          elif [ -f research/ashare_event_absorption/run_research_v3.py ]; then
-            python research/ashare_event_absorption/run_research_v3.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
           else
             python research/ashare_event_absorption/probe_data.py 2>&1 | tee research_outputs/ashare_event_absorption_probe/run.log
           fi
