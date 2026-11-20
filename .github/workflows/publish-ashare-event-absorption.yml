@@ -1,0 +1,45 @@
+name: Publish A-share Event Absorption Evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/publish_ashare_event_absorption_trigger.txt
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: ashare-event-absorption-results
+          path: downloaded
+          repository: ZZZZYANWANG/TimeSafe
+          run-id: 44686981494
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish compact evidence branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH=audit-ashare-event-absorption-20261120
+          git config user.name ZZZZYAN
+          git config user.email zzzzyanwang@gmail.com
+          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$BRANCH"
+            git checkout -B "$BRANCH" "origin/$BRANCH"
+          else
+            git checkout -b "$BRANCH"
+          fi
+          rm -rf audit/ashare_event_absorption
+          mkdir -p audit/ashare_event_absorption
+          cp -R downloaded/. audit/ashare_event_absorption/
+          git add audit/ashare_event_absorption
+          git commit -m "audit(ashare): publish point-in-time event absorption evidence"
+          git push origin HEAD:"$BRANCH"
