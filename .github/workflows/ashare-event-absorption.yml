@@ -21,6 +21,11 @@ jobs:
       - name: Clone isolated research branch
         run: |
           git clone --depth 1 --branch research-ashare-event-absorption-20261120 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Restore A-share research cache
+        uses: actions/cache@v4
+        with:
+          path: research-repo/research_outputs/ashare_event_absorption/cache
+          key: ashare-event-absorption-v1-${{ runner.os }}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -31,7 +36,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p research_outputs/ashare_event_absorption research_outputs/ashare_event_absorption_probe
-          if [ -f research/ashare_event_absorption/run_research_v6_resilient.py ]; then
+          if [ -f research/ashare_event_absorption/run_research_v7_timing_congestion.py ]; then
+            python research/ashare_event_absorption/run_research_v7_timing_congestion.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
+          elif [ -f research/ashare_event_absorption/run_research_v6_resilient.py ]; then
             python research/ashare_event_absorption/run_research_v6_resilient.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
           elif [ -f research/ashare_event_absorption/run_research_v5_daily.py ]; then
             python research/ashare_event_absorption/run_research_v5_daily.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
