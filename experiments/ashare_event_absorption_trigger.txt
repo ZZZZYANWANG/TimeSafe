@@ -1,1 +1,1 @@
-point-in-time-v6-resilient-2026-11-20T15:10:00+09:00
+point-in-time-v7-timing-congestion-2026-11-20T17:20:00+09:00
