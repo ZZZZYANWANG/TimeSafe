@@ -36,7 +36,11 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p research_outputs/ashare_financial_revision
-          python research/ashare_financial_revision/run_research.py 2>&1 | tee research_outputs/ashare_financial_revision_run.log
+          if [ -f research/ashare_financial_revision/run_research_v2_blocks.py ]; then
+            python research/ashare_financial_revision/run_research_v2_blocks.py 2>&1 | tee research_outputs/ashare_financial_revision_run.log
+          else
+            python research/ashare_financial_revision/run_research.py 2>&1 | tee research_outputs/ashare_financial_revision_run.log
+          fi
       - name: Upload compact evidence
         if: always()
         uses: actions/upload-artifact@v4
