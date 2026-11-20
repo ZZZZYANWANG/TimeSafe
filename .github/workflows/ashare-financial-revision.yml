@@ -1,0 +1,50 @@
+name: A-share Financial Revision Research
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/ashare_financial_revision_trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Clone isolated research branch
+        run: |
+          git clone --depth 1 --branch research-ashare-financial-revision-20261120 https://github.com/ZZZZYANWANG/TradingView-API.git research-repo
+      - name: Restore event research cache
+        uses: actions/cache@v4
+        with:
+          path: research-repo/research_outputs/ashare_event_absorption/cache
+          key: ashare-event-absorption-v1-${{ runner.os }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas scipy scikit-learn pyarrow requests baostock
+      - name: Run financial-revision study
+        working-directory: research-repo
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p research_outputs/ashare_financial_revision
+          python research/ashare_financial_revision/run_research.py 2>&1 | tee research_outputs/ashare_financial_revision_run.log
+      - name: Upload compact evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ashare-financial-revision-results
+          path: |
+            research-repo/research_outputs/ashare_financial_revision/*.csv
+            research-repo/research_outputs/ashare_financial_revision/*.json
+            research-repo/research_outputs/ashare_financial_revision_run.log
+          if-no-files-found: warn
+          retention-days: 14
