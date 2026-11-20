@@ -36,7 +36,9 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p research_outputs/ashare_event_absorption research_outputs/ashare_event_absorption_probe
-          if [ -f research/ashare_event_absorption/run_research_v10_strict_coverage.py ]; then
+          if [ -f research/ashare_event_absorption/run_research_v11_hard_timeout.py ]; then
+            python research/ashare_event_absorption/run_research_v11_hard_timeout.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
+          elif [ -f research/ashare_event_absorption/run_research_v10_strict_coverage.py ]; then
             python research/ashare_event_absorption/run_research_v10_strict_coverage.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
           elif [ -f research/ashare_event_absorption/run_research_v9_strict.py ]; then
             python research/ashare_event_absorption/run_research_v9_strict.py 2>&1 | tee research_outputs/ashare_event_absorption_run.log
