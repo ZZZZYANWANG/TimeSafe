@@ -1,0 +1,1862 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-11-21T07:18:34.649483+00:00",
+  "study": "quantum_open_system_measurement_pointer_search_strict_fast",
+  "repository_target": "ZZZZYANWANG/Trade",
+  "data": {
+    "futures_provider": "Yahoo Finance via yfinance",
+    "continuous_futures_proxy": true,
+    "futures_assets": 35,
+    "futures_rows": 171525,
+    "futures_start": "2007-01-01",
+    "futures_end": "2026-11-20",
+    "stock_provider": "Yahoo Finance via yfinance",
+    "stock_assets": 30,
+    "stock_rows": 147234,
+    "fresh_cutoff": "2026-09-11"
+  },
+  "candidate_family_size": 144,
+  "parent_feature_count": 49,
+  "selection_protocol": {
+    "orientation": "DEV_A only",
+    "replication": [
+      "DEV_B1",
+      "DEV_B2"
+    ],
+    "outer": [
+      "VAL",
+      "HIST",
+      "LATE",
+      "FRESH"
+    ],
+    "screen": "direct IC plus strong-parent residual IC plus second-half scalar residual gain",
+    "diversity": "one span per horizon-mechanism; max two per horizon",
+    "raw_quantum_coordinates_in_parent_set": true,
+    "outer_models": [
+      "Ridge",
+      "HistGradientBoosting"
+    ],
+    "heldout_assets": "three deterministic product folds",
+    "stock_domain_transfer": "formula and orientation frozen on futures development",
+    "multiplicity": "moving-block family max-T"
+  },
+  "finalists": [
+    {
+      "candidate": "purity_backaction_trend_s40",
+      "mechanism": "purity_backaction",
+      "formula_role": "purity_backaction_trend",
+      "span": 40,
+      "horizon": 20,
+      "orientation": 1.0,
+      "selection_note": "diagnostic_only_no_full_development_pass",
+      "development": {
+        "dev_a_tsic": 0.0111717838232928,
+        "dev_b1_tsic": 0.06623809974738946,
+        "dev_b2_tsic": 0.055532226403029086,
+        "dev_fold1_ridge_gain_pct": -0.3259358295329588,
+        "dev_fold2_ridge_gain_pct": 0.03560545763246854
+      },
+      "direct": [
+        {
+          "phase": "DEV_A",
+          "n_rows": 50819,
+          "products": 34,
+          "dates": 1511,
+          "mean_product_tsic": 0.0111717838232928,
+          "median_product_tsic": 0.00889991958931441,
+          "positive_product_share": 0.5588235294117647,
+          "mean_daily_csic": 0.01874336888088153,
+          "positive_date_share": 0.5181998676373263
+        },
+        {
+          "phase": "DEV_B1",
+          "n_rows": 17130,
+          "products": 34,
+          "dates": 504,
+          "mean_product_tsic": 0.06623809974738946,
+          "median_product_tsic": 0.048888985746061125,
+          "positive_product_share": 0.6176470588235294,
+          "mean_daily_csic": 0.04340106643830552,
+          "positive_date_share": 0.5555555555555556
+        },
+        {
+          "phase": "DEV_B2",
+          "n_rows": 25899,
+          "products": 35,
+          "dates": 752,
+          "mean_product_tsic": 0.055532226403029086,
+          "median_product_tsic": 0.0483194851836104,
+          "positive_product_share": 0.6571428571428571,
+          "mean_daily_csic": 0.02645555704978217,
+          "positive_date_share": 0.5452127659574468
+        },
+        {
+          "phase": "VAL",
+          "n_rows": 26493,
+          "products": 35,
+          "dates": 757,
+          "mean_product_tsic": 0.002585478325636305,
+          "median_product_tsic": 0.006388946653959351,
+          "positive_product_share": 0.5428571428571428,
+          "mean_daily_csic": 0.0025919003132425333,
+          "positive_date_share": 0.5046235138705416
+        },
+        {
+          "phase": "HIST",
+          "n_rows": 26374,
+          "products": 35,
+          "dates": 754,
+          "mean_product_tsic": 0.01745128835096088,
+          "median_product_tsic": 0.013195329420631454,
+          "positive_product_share": 0.5714285714285714,
+          "mean_daily_csic": -0.037699295828899755,
+          "positive_date_share": 0.4469496021220159
+        },
+        {
+          "phase": "LATE",
+          "n_rows": 14902,
+          "products": 35,
+          "dates": 426,
+          "mean_product_tsic": 0.06455667759449625,
+          "median_product_tsic": 0.06651791171328841,
+          "positive_product_share": 0.7428571428571429,
+          "mean_daily_csic": 0.011380882582464084,
+          "positive_date_share": 0.5046948356807511
+        },
+        {
+          "phase": "FRESH",
+          "n_rows": 1050,
+          "products": 0,
+          "dates": 30,
+          "mean_product_tsic": NaN,
+          "median_product_tsic": NaN,
+          "positive_product_share": NaN,
+          "mean_daily_csic": 0.052194267909215775,
+          "positive_date_share": 0.6666666666666666
+        }
+      ],
+      "model_increment": [
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.001124836177241141,
+          "lo": -0.006996933899825355,
+          "hi": 0.008001646240879942,
+          "p_nonpositive": 0.37916666666666665,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.01586849170892268,
+          "lo": -0.01032047285875868,
+          "hi": 0.04438965221530196,
+          "p_nonpositive": 0.135,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.005576181081473804,
+          "lo": -0.012244417441560405,
+          "hi": 0.021497306010018737,
+          "p_nonpositive": 0.25583333333333336,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": 0.009576550336487586,
+          "lo": 0.002110208838213472,
+          "hi": 0.01697693616382006,
+          "p_nonpositive": 0.0008333333333333334,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.027821818811251255,
+          "lo": -0.08703388517555045,
+          "hi": 0.0260490874423136,
+          "p_nonpositive": 0.8183333333333334,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.004161744547805499,
+          "lo": -0.05547498631867772,
+          "hi": 0.061529540399766366,
+          "p_nonpositive": 0.4558333333333333,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.12246517396527819,
+          "lo": 0.04817360021000772,
+          "hi": 0.1877704213704209,
+          "p_nonpositive": 0.0,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": -0.01568447191596857,
+          "lo": -0.15021503831913607,
+          "hi": 0.12849046697374703,
+          "p_nonpositive": 0.575,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.0007152386412842954,
+          "lo": -0.015366767872886336,
+          "hi": 0.01639729958091729,
+          "p_nonpositive": 0.5791666666666667,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.0097892666713025,
+          "lo": -0.0024606975114977625,
+          "hi": 0.021684643702788643,
+          "p_nonpositive": 0.0575,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": -0.022572534163924008,
+          "lo": -0.056100150643386575,
+          "hi": 0.009955691942676424,
+          "p_nonpositive": 0.905,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": -0.029509859192520697,
+          "lo": -0.07230969973342811,
+          "hi": 0.015544225859943842,
+          "p_nonpositive": 0.8858333333333334,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.04264936016934366,
+          "lo": -0.04117225090655009,
+          "hi": 0.1385676719473059,
+          "p_nonpositive": 0.155,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": -0.21286794161499392,
+          "lo": -0.3189609803866431,
+          "hi": -0.10565591394549742,
+          "p_nonpositive": 1.0,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.004466639218971061,
+          "lo": -0.06782292200340391,
+          "hi": 0.058815719735599466,
+          "p_nonpositive": 0.5433333333333333,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": 0.008076875174252575,
+          "lo": -0.11143875315510182,
+          "hi": 0.12239648170262526,
+          "p_nonpositive": 0.44333333333333336,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        }
+      ],
+      "reconstruction": [
+        {
+          "phase": "VAL",
+          "ridge_r2": 0.5765834542633413,
+          "hgb_r2": 0.9802158269191579,
+          "n": 26493
+        },
+        {
+          "phase": "HIST",
+          "ridge_r2": 0.5790278353519194,
+          "hgb_r2": 0.9840596555376334,
+          "n": 26374
+        },
+        {
+          "phase": "LATE",
+          "ridge_r2": 0.5686209933171957,
+          "hgb_r2": 0.9835580660349339,
+          "n": 14902
+        },
+        {
+          "phase": "FRESH",
+          "ridge_r2": 0.5323713585090364,
+          "hgb_r2": 0.9818332027807533,
+          "n": 1750
+        }
+      ],
+      "heldout_asset": [
+        {
+          "phase": "VAL",
+          "gain_pct": -0.009629961632619418,
+          "n": 26493,
+          "folds": 3
+        },
+        {
+          "phase": "HIST",
+          "gain_pct": 0.011038666133125674,
+          "n": 26374,
+          "folds": 3
+        },
+        {
+          "phase": "LATE",
+          "gain_pct": 0.012646150893070881,
+          "n": 14902,
+          "folds": 3
+        },
+        {
+          "phase": "FRESH",
+          "gain_pct": -0.05411495139504153,
+          "n": 1050,
+          "folds": 3
+        }
+      ],
+      "accounts": [
+        {
+          "phase": "VAL",
+          "cost_bp": 0.0,
+          "periods": 677,
+          "annual_return_linear": -0.0038077177954300967,
+          "sharpe": -0.08242344440756134,
+          "max_drawdown": -0.75327406067285,
+          "mean_turnover": 1.2659624538146161,
+          "block_mean_lo": -0.0021022630837437277,
+          "block_mean_hi": 0.001468005109712658,
+          "block_p_nonpositive": 0.6008333333333333
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 1.0,
+          "periods": 677,
+          "annual_return_linear": -0.00540283048723651,
+          "sharpe": -0.11697334845928467,
+          "max_drawdown": -0.7610483239181633,
+          "mean_turnover": 1.2659624538146161,
+          "block_mean_lo": -0.0023332965390895992,
+          "block_mean_hi": 0.0013371280996492495,
+          "block_p_nonpositive": 0.685
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 2.0,
+          "periods": 677,
+          "annual_return_linear": -0.006997943179042926,
+          "sharpe": -0.15153420114400093,
+          "max_drawdown": -0.7685786465439444,
+          "mean_turnover": 1.2659624538146161,
+          "block_mean_lo": -0.002446306711779016,
+          "block_mean_hi": 0.0011658720945810477,
+          "block_p_nonpositive": 0.7058333333333333
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 5.0,
+          "periods": 677,
+          "annual_return_linear": -0.011783281254462177,
+          "sharpe": -0.2552707442916923,
+          "max_drawdown": -0.7986382482289085,
+          "mean_turnover": 1.2659624538146161,
+          "block_mean_lo": -0.002697460059340254,
+          "block_mean_hi": 0.0007825150834635581,
+          "block_p_nonpositive": 0.8383333333333334
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 0.0,
+          "periods": 674,
+          "annual_return_linear": 0.005285421531897253,
+          "sharpe": 0.09582717877147671,
+          "max_drawdown": -0.5166793758690418,
+          "mean_turnover": 1.3810814318459113,
+          "block_mean_lo": -0.0014224170669496843,
+          "block_mean_hi": 0.0022978629377813473,
+          "block_p_nonpositive": 0.32666666666666666
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 1.0,
+          "periods": 674,
+          "annual_return_linear": 0.0035452589277714017,
+          "sharpe": 0.0642648103470408,
+          "max_drawdown": -0.5259601484014982,
+          "mean_turnover": 1.3810814318459113,
+          "block_mean_lo": -0.0016147884776080128,
+          "block_mean_hi": 0.0022729960224559123,
+          "block_p_nonpositive": 0.4083333333333333
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 2.0,
+          "periods": 674,
+          "annual_return_linear": 0.0018050963236455558,
+          "sharpe": 0.032714487168795506,
+          "max_drawdown": -0.5350640940575053,
+          "mean_turnover": 1.3810814318459113,
+          "block_mean_lo": -0.001751261322705255,
+          "block_mean_hi": 0.0021114284804482947,
+          "block_p_nonpositive": 0.455
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 5.0,
+          "periods": 674,
+          "annual_return_linear": -0.0034153914887319866,
+          "sharpe": -0.06186047293071974,
+          "max_drawdown": -0.5902673288144086,
+          "mean_turnover": 1.3810814318459113,
+          "block_mean_lo": -0.0023029448492956593,
+          "block_mean_hi": 0.0018253947236803927,
+          "block_p_nonpositive": 0.595
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 0.0,
+          "periods": 346,
+          "annual_return_linear": 0.019132909364618398,
+          "sharpe": 0.39494811924290607,
+          "max_drawdown": -0.27951497606538145,
+          "mean_turnover": 1.3981571660336924,
+          "block_mean_lo": -0.000893205481141213,
+          "block_mean_hi": 0.0038065126069167046,
+          "block_p_nonpositive": 0.11916666666666667
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 1.0,
+          "periods": 346,
+          "annual_return_linear": 0.017371231335415946,
+          "sharpe": 0.3585778908377765,
+          "max_drawdown": -0.2823307263357555,
+          "mean_turnover": 1.3981571660336924,
+          "block_mean_lo": -0.0009901915247591295,
+          "block_mean_hi": 0.0036965212439932465,
+          "block_p_nonpositive": 0.1275
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 2.0,
+          "periods": 346,
+          "annual_return_linear": 0.015609553306213494,
+          "sharpe": 0.3222071137738031,
+          "max_drawdown": -0.2851359025689084,
+          "mean_turnover": 1.3981571660336924,
+          "block_mean_lo": -0.0011133952111928294,
+          "block_mean_hi": 0.003585568264170897,
+          "block_p_nonpositive": 0.14916666666666667
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 5.0,
+          "periods": 346,
+          "annual_return_linear": 0.010324519218606136,
+          "sharpe": 0.21309682678326577,
+          "max_drawdown": -0.31174017548893074,
+          "mean_turnover": 1.3981571660336924,
+          "block_mean_lo": -0.0015508192916251784,
+          "block_mean_hi": 0.0032953538331273176,
+          "block_p_nonpositive": 0.24416666666666667
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 0.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 1.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 2.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 5.0,
+          "periods": 0
+        }
+      ],
+      "multiplicity": {
+        "observed": -0.017513699879461164,
+        "family_maxT_p": 1.0,
+        "dates": 1511,
+        "family": 36
+      },
+      "gates": {
+        "all_val_hist_model_points_positive": false,
+        "val_hist_ridge_norm_block_low_positive": false,
+        "val_hist_direct_direction_positive": true,
+        "val_hist_heldout_positive": false,
+        "val_hist_1bp_account_positive": false,
+        "val_hist_not_reconstructable_hgb": false,
+        "fresh_direction_positive_with_25_dates": false,
+        "stock_val_hist_direct_and_ridge_positive": false,
+        "canonical_roll_safe_execution_replay": false
+      },
+      "historical_default_off_factor": false,
+      "production_independent_alpha": false,
+      "prediction_files": [
+        "predictions__purity_backaction_trend_s40__h20__raw__ridge.csv.gz",
+        "predictions__purity_backaction_trend_s40__h20__raw__hgb.csv.gz",
+        "predictions__purity_backaction_trend_s40__h20__norm__ridge.csv.gz",
+        "predictions__purity_backaction_trend_s40__h20__norm__hgb.csv.gz"
+      ],
+      "stock_domain_transfer": {
+        "universe": "30 current liquid US stocks; survivorship-limited domain transfer",
+        "direct": [
+          {
+            "phase": "VAL",
+            "n_rows": 22710,
+            "products": 30,
+            "dates": 757,
+            "mean_product_tsic": 0.0718576071953683,
+            "median_product_tsic": 0.06787449704393758,
+            "positive_product_share": 0.8,
+            "mean_daily_csic": -0.004943405486501221,
+            "positive_date_share": 0.4676354029062087
+          },
+          {
+            "phase": "HIST",
+            "n_rows": 22590,
+            "products": 30,
+            "dates": 753,
+            "mean_product_tsic": 0.0390489983547108,
+            "median_product_tsic": 0.04717431701041648,
+            "positive_product_share": 0.7,
+            "mean_daily_csic": 0.00839859901615379,
+            "positive_date_share": 0.48871181938911024
+          },
+          {
+            "phase": "LATE",
+            "n_rows": 12720,
+            "products": 30,
+            "dates": 424,
+            "mean_product_tsic": 0.05016199791591722,
+            "median_product_tsic": 0.07386843617414848,
+            "positive_product_share": 0.6666666666666666,
+            "mean_daily_csic": 0.032255965748105866,
+            "positive_date_share": 0.5566037735849056
+          },
+          {
+            "phase": "FRESH",
+            "n_rows": 900,
+            "products": 0,
+            "dates": 30,
+            "mean_product_tsic": NaN,
+            "median_product_tsic": NaN,
+            "positive_product_share": NaN,
+            "mean_daily_csic": 0.015320726733407487,
+            "positive_date_share": 0.5666666666666667
+          }
+        ],
+        "ridge_normalized_increment": [
+          {
+            "phase": "VAL",
+            "n": 22710,
+            "dates": 757,
+            "gain_pct": -0.0017113455449103455,
+            "lo": -0.0061567206524290015,
+            "hi": 0.002602071013996171,
+            "p_nonpositive": 0.7875
+          },
+          {
+            "phase": "HIST",
+            "n": 22590,
+            "dates": 753,
+            "gain_pct": 0.00436108402041289,
+            "lo": -0.009787607424571501,
+            "hi": 0.019386855020183533,
+            "p_nonpositive": 0.2733333333333333
+          },
+          {
+            "phase": "LATE",
+            "n": 12720,
+            "dates": 424,
+            "gain_pct": -0.016804435391987078,
+            "lo": -0.030642296655515183,
+            "hi": -0.0028672760183220515,
+            "p_nonpositive": 0.99
+          },
+          {
+            "phase": "FRESH",
+            "n": 900,
+            "dates": 30,
+            "gain_pct": -0.03652279882939201,
+            "lo": -0.07231600037005315,
+            "hi": 0.00027058699029209677,
+            "p_nonpositive": 0.9741666666666666
+          }
+        ],
+        "val_hist_positive": false
+      }
+    },
+    {
+      "candidate": "zeno_pointer_persistence_s40",
+      "mechanism": "zeno_persistence",
+      "formula_role": "zeno_pointer_persistence",
+      "span": 40,
+      "horizon": 20,
+      "orientation": -1.0,
+      "selection_note": "diagnostic_only_no_full_development_pass",
+      "development": {
+        "dev_a_tsic": 0.017314818264383667,
+        "dev_b1_tsic": 0.07895184564980255,
+        "dev_b2_tsic": 0.07387377233903976,
+        "dev_fold1_ridge_gain_pct": -2.888097201939184,
+        "dev_fold2_ridge_gain_pct": -0.29502260865584234
+      },
+      "direct": [
+        {
+          "phase": "DEV_A",
+          "n_rows": 50819,
+          "products": 34,
+          "dates": 1511,
+          "mean_product_tsic": 0.017314818264383667,
+          "median_product_tsic": 0.013212979920286343,
+          "positive_product_share": 0.5588235294117647,
+          "mean_daily_csic": 0.019032141851547432,
+          "positive_date_share": 0.5089344804765056
+        },
+        {
+          "phase": "DEV_B1",
+          "n_rows": 17130,
+          "products": 34,
+          "dates": 504,
+          "mean_product_tsic": 0.07895184564980255,
+          "median_product_tsic": 0.060582499293888196,
+          "positive_product_share": 0.6764705882352942,
+          "mean_daily_csic": 0.05041811568224551,
+          "positive_date_share": 0.5634920634920635
+        },
+        {
+          "phase": "DEV_B2",
+          "n_rows": 25899,
+          "products": 35,
+          "dates": 752,
+          "mean_product_tsic": 0.07387377233903976,
+          "median_product_tsic": 0.07408181107238389,
+          "positive_product_share": 0.6571428571428571,
+          "mean_daily_csic": 0.02698228698030226,
+          "positive_date_share": 0.5345744680851063
+        },
+        {
+          "phase": "VAL",
+          "n_rows": 26493,
+          "products": 35,
+          "dates": 757,
+          "mean_product_tsic": 0.002039142984224147,
+          "median_product_tsic": -0.003213048777229005,
+          "positive_product_share": 0.4857142857142857,
+          "mean_daily_csic": -0.009919064546773533,
+          "positive_date_share": 0.47820343461030385
+        },
+        {
+          "phase": "HIST",
+          "n_rows": 26374,
+          "products": 35,
+          "dates": 754,
+          "mean_product_tsic": 0.021573323134726503,
+          "median_product_tsic": -0.002159908253435831,
+          "positive_product_share": 0.4857142857142857,
+          "mean_daily_csic": -0.04962769695341491,
+          "positive_date_share": 0.44297082228116713
+        },
+        {
+          "phase": "LATE",
+          "n_rows": 14902,
+          "products": 35,
+          "dates": 426,
+          "mean_product_tsic": 0.07119304372891212,
+          "median_product_tsic": 0.0879493353564007,
+          "positive_product_share": 0.7142857142857143,
+          "mean_daily_csic": 0.0037501390244646543,
+          "positive_date_share": 0.4788732394366197
+        },
+        {
+          "phase": "FRESH",
+          "n_rows": 1050,
+          "products": 0,
+          "dates": 30,
+          "mean_product_tsic": NaN,
+          "median_product_tsic": NaN,
+          "positive_product_share": NaN,
+          "mean_daily_csic": 0.00781055854775302,
+          "positive_date_share": 0.4666666666666667
+        }
+      ],
+      "model_increment": [
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.010731342892880021,
+          "lo": -0.01627066314904792,
+          "hi": 0.039815187552102685,
+          "p_nonpositive": 0.23583333333333334,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.021710417431270005,
+          "lo": -0.008709275746282517,
+          "hi": 0.05139802458458512,
+          "p_nonpositive": 0.08333333333333333,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.03753733081684952,
+          "lo": -0.0064289190466186134,
+          "hi": 0.0844607105099334,
+          "p_nonpositive": 0.051666666666666666,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": 0.08165744301507513,
+          "lo": 0.02492201460721784,
+          "hi": 0.13601010403836017,
+          "p_nonpositive": 0.004166666666666667,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.012365314991028208,
+          "lo": -0.05969019118746949,
+          "hi": 0.09125391149734306,
+          "p_nonpositive": 0.335,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.0362932271042982,
+          "lo": -0.027153235844150084,
+          "hi": 0.09570120561730318,
+          "p_nonpositive": 0.1225,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.009830332782321588,
+          "lo": -0.06289294477824521,
+          "hi": 0.08440719889452425,
+          "p_nonpositive": 0.4033333333333333,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": 0.08020139103845411,
+          "lo": -0.07523587669221325,
+          "hi": 0.2275238091718407,
+          "p_nonpositive": 0.1725,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.00402089070970107,
+          "lo": -0.019739363361919015,
+          "hi": 0.011739713628106694,
+          "p_nonpositive": 0.7058333333333333,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.024687868229899688,
+          "lo": -5.7031414721492645e-05,
+          "hi": 0.04925685019564029,
+          "p_nonpositive": 0.02666666666666667,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": -0.007795048172703782,
+          "lo": -0.03723170790708518,
+          "hi": 0.020502741886852128,
+          "p_nonpositive": 0.6858333333333333,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": 0.103687864594136,
+          "lo": 0.05807842562311109,
+          "hi": 0.15051474862546294,
+          "p_nonpositive": 0.0,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.02128836308439083,
+          "lo": -0.0725700079123611,
+          "hi": 0.11447410453573809,
+          "p_nonpositive": 0.3225,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": -0.14700743195592067,
+          "lo": -0.2456953549856545,
+          "hi": -0.06023981385198961,
+          "p_nonpositive": 0.9991666666666666,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": -0.028489942781776148,
+          "lo": -0.1324872992158563,
+          "hi": 0.07527684709838962,
+          "p_nonpositive": 0.7333333333333333,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1050,
+          "dates": 30,
+          "gain_pct": -0.03587735480340029,
+          "lo": -0.19745069688085304,
+          "hi": 0.12759598547159162,
+          "p_nonpositive": 0.6508333333333334,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        }
+      ],
+      "reconstruction": [
+        {
+          "phase": "VAL",
+          "ridge_r2": 0.860417665435194,
+          "hgb_r2": 0.9923522810432789,
+          "n": 26493
+        },
+        {
+          "phase": "HIST",
+          "ridge_r2": 0.8570648953937872,
+          "hgb_r2": 0.9930003109225447,
+          "n": 26374
+        },
+        {
+          "phase": "LATE",
+          "ridge_r2": 0.862076165748414,
+          "hgb_r2": 0.9928628213443548,
+          "n": 14902
+        },
+        {
+          "phase": "FRESH",
+          "ridge_r2": 0.8342355592839944,
+          "hgb_r2": 0.9905842254437077,
+          "n": 1750
+        }
+      ],
+      "heldout_asset": [
+        {
+          "phase": "VAL",
+          "gain_pct": 0.007293397798003339,
+          "n": 26493,
+          "folds": 3
+        },
+        {
+          "phase": "HIST",
+          "gain_pct": 0.003076201356879105,
+          "n": 26374,
+          "folds": 3
+        },
+        {
+          "phase": "LATE",
+          "gain_pct": 0.013125158756086521,
+          "n": 14902,
+          "folds": 3
+        },
+        {
+          "phase": "FRESH",
+          "gain_pct": 0.1048819619720157,
+          "n": 1050,
+          "folds": 3
+        }
+      ],
+      "accounts": [
+        {
+          "phase": "VAL",
+          "cost_bp": 0.0,
+          "periods": 677,
+          "annual_return_linear": -0.00937029601402888,
+          "sharpe": -0.18263976284051703,
+          "max_drawdown": -0.8537672245165154,
+          "mean_turnover": 1.3907018147858352,
+          "block_mean_lo": -0.003184764450896849,
+          "block_mean_hi": 0.0013461646977750267,
+          "block_p_nonpositive": 0.7433333333333333
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 1.0,
+          "periods": 677,
+          "annual_return_linear": -0.011122580300659036,
+          "sharpe": -0.21678642219682867,
+          "max_drawdown": -0.8595457372241165,
+          "mean_turnover": 1.3907018147858352,
+          "block_mean_lo": -0.0032119371274960166,
+          "block_mean_hi": 0.001246567157005847,
+          "block_p_nonpositive": 0.7591666666666667
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 2.0,
+          "periods": 677,
+          "annual_return_linear": -0.012874864587289184,
+          "sharpe": -0.2509286423226941,
+          "max_drawdown": -0.8650967339812393,
+          "mean_turnover": 1.3907018147858352,
+          "block_mean_lo": -0.003410927056412834,
+          "block_mean_hi": 0.0010884307431431631,
+          "block_p_nonpositive": 0.8275
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 5.0,
+          "periods": 677,
+          "annual_return_linear": -0.01813171744717964,
+          "sharpe": -0.35332050517441327,
+          "max_drawdown": -0.8851131805037834,
+          "mean_turnover": 1.3907018147858352,
+          "block_mean_lo": -0.003777862863818286,
+          "block_mean_hi": 0.0007793227496766581,
+          "block_p_nonpositive": 0.9008333333333334
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 0.0,
+          "periods": 674,
+          "annual_return_linear": 0.008839264309882168,
+          "sharpe": 0.17482100678686177,
+          "max_drawdown": -0.5736515276623126,
+          "mean_turnover": 1.3698088004426563,
+          "block_mean_lo": -0.0012655138806131616,
+          "block_mean_hi": 0.002791239444299955,
+          "block_p_nonpositive": 0.235
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 1.0,
+          "periods": 674,
+          "annual_return_linear": 0.007113305221324426,
+          "sharpe": 0.14062655756674342,
+          "max_drawdown": -0.586399023802241,
+          "mean_turnover": 1.3698088004426563,
+          "block_mean_lo": -0.001683661015427337,
+          "block_mean_hi": 0.002695289026794747,
+          "block_p_nonpositive": 0.31916666666666665
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 2.0,
+          "periods": 674,
+          "annual_return_linear": 0.005387346132766682,
+          "sharpe": 0.10646005709237714,
+          "max_drawdown": -0.6000524193666541,
+          "mean_turnover": 1.3698088004426563,
+          "block_mean_lo": -0.0016752211518425428,
+          "block_mean_hi": 0.002558353183299271,
+          "block_p_nonpositive": 0.33916666666666667
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 5.0,
+          "periods": 674,
+          "annual_return_linear": 0.00020946886709343593,
+          "sharpe": 0.004133939879751918,
+          "max_drawdown": -0.6383781702829225,
+          "mean_turnover": 1.3698088004426563,
+          "block_mean_lo": -0.0022700738672503076,
+          "block_mean_hi": 0.002059675022674121,
+          "block_p_nonpositive": 0.4775
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 0.0,
+          "periods": 346,
+          "annual_return_linear": 0.008159097722163425,
+          "sharpe": 0.19447301901479827,
+          "max_drawdown": -0.36046689452884706,
+          "mean_turnover": 1.4463658317351091,
+          "block_mean_lo": -0.0017471094170701427,
+          "block_mean_hi": 0.002953199585185399,
+          "block_p_nonpositive": 0.2966666666666667
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 1.0,
+          "periods": 346,
+          "annual_return_linear": 0.0063366767741771845,
+          "sharpe": 0.15103121851202256,
+          "max_drawdown": -0.36366379655297254,
+          "mean_turnover": 1.4463658317351091,
+          "block_mean_lo": -0.0020042314091084762,
+          "block_mean_hi": 0.002922082129516552,
+          "block_p_nonpositive": 0.3416666666666667
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 2.0,
+          "periods": 346,
+          "annual_return_linear": 0.004514255826190952,
+          "sharpe": 0.10759113695771579,
+          "max_drawdown": -0.3669269542659632,
+          "mean_turnover": 1.4463658317351091,
+          "block_mean_lo": -0.0021697513733316158,
+          "block_mean_hi": 0.002541355698317353,
+          "block_p_nonpositive": 0.4125
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 5.0,
+          "periods": 346,
+          "annual_return_linear": -0.0009530070177677631,
+          "sharpe": -0.0227104196857631,
+          "max_drawdown": -0.3887210275418682,
+          "mean_turnover": 1.4463658317351091,
+          "block_mean_lo": -0.0026808295302892648,
+          "block_mean_hi": 0.0023774548344754685,
+          "block_p_nonpositive": 0.5208333333333334
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 0.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 1.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 2.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 5.0,
+          "periods": 0
+        }
+      ],
+      "multiplicity": {
+        "observed": -0.029733961194429122,
+        "family_maxT_p": 1.0,
+        "dates": 1511,
+        "family": 36
+      },
+      "gates": {
+        "all_val_hist_model_points_positive": false,
+        "val_hist_ridge_norm_block_low_positive": false,
+        "val_hist_direct_direction_positive": true,
+        "val_hist_heldout_positive": true,
+        "val_hist_1bp_account_positive": false,
+        "val_hist_not_reconstructable_hgb": false,
+        "fresh_direction_positive_with_25_dates": false,
+        "stock_val_hist_direct_and_ridge_positive": true,
+        "canonical_roll_safe_execution_replay": false
+      },
+      "historical_default_off_factor": false,
+      "production_independent_alpha": false,
+      "prediction_files": [
+        "predictions__zeno_pointer_persistence_s40__h20__raw__ridge.csv.gz",
+        "predictions__zeno_pointer_persistence_s40__h20__raw__hgb.csv.gz",
+        "predictions__zeno_pointer_persistence_s40__h20__norm__ridge.csv.gz",
+        "predictions__zeno_pointer_persistence_s40__h20__norm__hgb.csv.gz"
+      ],
+      "stock_domain_transfer": {
+        "universe": "30 current liquid US stocks; survivorship-limited domain transfer",
+        "direct": [
+          {
+            "phase": "VAL",
+            "n_rows": 22710,
+            "products": 30,
+            "dates": 757,
+            "mean_product_tsic": 0.08055265331035262,
+            "median_product_tsic": 0.0997171683875901,
+            "positive_product_share": 0.8,
+            "mean_daily_csic": -0.015979298883391644,
+            "positive_date_share": 0.4583883751651255
+          },
+          {
+            "phase": "HIST",
+            "n_rows": 22590,
+            "products": 30,
+            "dates": 753,
+            "mean_product_tsic": 0.044491750467540774,
+            "median_product_tsic": 0.04393127866658542,
+            "positive_product_share": 0.7,
+            "mean_daily_csic": 0.00026797753176170354,
+            "positive_date_share": 0.4634794156706507
+          },
+          {
+            "phase": "LATE",
+            "n_rows": 12720,
+            "products": 30,
+            "dates": 424,
+            "mean_product_tsic": 0.03486637412941772,
+            "median_product_tsic": 0.07353366236097009,
+            "positive_product_share": 0.5666666666666667,
+            "mean_daily_csic": 0.011425693118139655,
+            "positive_date_share": 0.5259433962264151
+          },
+          {
+            "phase": "FRESH",
+            "n_rows": 900,
+            "products": 0,
+            "dates": 30,
+            "mean_product_tsic": NaN,
+            "median_product_tsic": NaN,
+            "positive_product_share": NaN,
+            "mean_daily_csic": 0.008765294771968858,
+            "positive_date_share": 0.5666666666666667
+          }
+        ],
+        "ridge_normalized_increment": [
+          {
+            "phase": "VAL",
+            "n": 22710,
+            "dates": 757,
+            "gain_pct": 0.019270778367423354,
+            "lo": -0.006305192946774255,
+            "hi": 0.04750261757639529,
+            "p_nonpositive": 0.07
+          },
+          {
+            "phase": "HIST",
+            "n": 22590,
+            "dates": 753,
+            "gain_pct": 0.005999674717776501,
+            "lo": -0.022704720992221247,
+            "hi": 0.03495494229806151,
+            "p_nonpositive": 0.32416666666666666
+          },
+          {
+            "phase": "LATE",
+            "n": 12720,
+            "dates": 424,
+            "gain_pct": 0.0009399098108348677,
+            "lo": -0.022920705212389765,
+            "hi": 0.030892365305859634,
+            "p_nonpositive": 0.49583333333333335
+          },
+          {
+            "phase": "FRESH",
+            "n": 900,
+            "dates": 30,
+            "gain_pct": 0.06302215103961828,
+            "lo": 0.03992982099767795,
+            "hi": 0.08484526046330862,
+            "p_nonpositive": 0.0
+          }
+        ],
+        "val_hist_positive": true
+      }
+    },
+    {
+      "candidate": "pointer_leakage_trend_reversal_s10",
+      "mechanism": "pointer_state_leakage",
+      "formula_role": "pointer_leakage_trend_reversal",
+      "span": 10,
+      "horizon": 10,
+      "orientation": 1.0,
+      "selection_note": "diagnostic_only_no_full_development_pass",
+      "development": {
+        "dev_a_tsic": 0.013654064583823183,
+        "dev_b1_tsic": 0.05164674146704386,
+        "dev_b2_tsic": 0.04289148253688557,
+        "dev_fold1_ridge_gain_pct": -0.22325607700552544,
+        "dev_fold2_ridge_gain_pct": 0.033553001792022065
+      },
+      "direct": [
+        {
+          "phase": "DEV_A",
+          "n_rows": 50819,
+          "products": 34,
+          "dates": 1511,
+          "mean_product_tsic": 0.013654064583823183,
+          "median_product_tsic": 0.01379766973624132,
+          "positive_product_share": 0.5588235294117647,
+          "mean_daily_csic": 0.011933921079247225,
+          "positive_date_share": 0.5181998676373263
+        },
+        {
+          "phase": "DEV_B1",
+          "n_rows": 17130,
+          "products": 34,
+          "dates": 504,
+          "mean_product_tsic": 0.05164674146704386,
+          "median_product_tsic": 0.055332526948141766,
+          "positive_product_share": 0.6470588235294118,
+          "mean_daily_csic": 0.03458416687014789,
+          "positive_date_share": 0.5277777777777778
+        },
+        {
+          "phase": "DEV_B2",
+          "n_rows": 25911,
+          "products": 35,
+          "dates": 752,
+          "mean_product_tsic": 0.04289148253688557,
+          "median_product_tsic": 0.030088304740637416,
+          "positive_product_share": 0.6571428571428571,
+          "mean_daily_csic": 0.022444182940042162,
+          "positive_date_share": 0.5571808510638298
+        },
+        {
+          "phase": "VAL",
+          "n_rows": 26493,
+          "products": 35,
+          "dates": 757,
+          "mean_product_tsic": -0.0035179989991995465,
+          "median_product_tsic": 0.011082198070483308,
+          "positive_product_share": 0.5428571428571428,
+          "mean_daily_csic": -0.000492176533100932,
+          "positive_date_share": 0.5046235138705416
+        },
+        {
+          "phase": "HIST",
+          "n_rows": 26374,
+          "products": 35,
+          "dates": 754,
+          "mean_product_tsic": 0.017003152079402076,
+          "median_product_tsic": 0.017254375615041194,
+          "positive_product_share": 0.6285714285714286,
+          "mean_daily_csic": -0.022394885638186587,
+          "positive_date_share": 0.4562334217506631
+        },
+        {
+          "phase": "LATE",
+          "n_rows": 14902,
+          "products": 35,
+          "dates": 426,
+          "mean_product_tsic": 0.03421281341226824,
+          "median_product_tsic": 0.026242934948165365,
+          "positive_product_share": 0.6285714285714286,
+          "mean_daily_csic": -0.005312789520502077,
+          "positive_date_share": 0.47417840375586856
+        },
+        {
+          "phase": "FRESH",
+          "n_rows": 1400,
+          "products": 35,
+          "dates": 40,
+          "mean_product_tsic": 0.20397288078518844,
+          "median_product_tsic": 0.2228893058161351,
+          "positive_product_share": 0.7714285714285715,
+          "mean_daily_csic": 0.01844547525912362,
+          "positive_date_share": 0.55
+        }
+      ],
+      "model_increment": [
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": 0.004172189981573162,
+          "lo": -0.018154669570256236,
+          "hi": 0.029137907332349396,
+          "p_nonpositive": 0.38916666666666666,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.0025925477183401766,
+          "lo": -0.016733844001522915,
+          "hi": 0.0211315713346691,
+          "p_nonpositive": 0.4025,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": -0.012217774469578658,
+          "lo": -0.057736767681171294,
+          "hi": 0.02242582568327742,
+          "p_nonpositive": 0.7275,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1400,
+          "dates": 40,
+          "gain_pct": -0.008753374521969129,
+          "lo": -0.03615165963499378,
+          "hi": 0.018648926413552234,
+          "p_nonpositive": 0.7266666666666667,
+          "target_kind": "raw",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.017250939512239077,
+          "lo": -0.08900197724020806,
+          "hi": 0.042035049269586885,
+          "p_nonpositive": 0.6983333333333334,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": -0.0120744527262365,
+          "lo": -0.08059786831805969,
+          "hi": 0.04719782020427111,
+          "p_nonpositive": 0.6458333333333334,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.0013680340792304533,
+          "lo": -0.06836270114867055,
+          "hi": 0.0633042668845549,
+          "p_nonpositive": 0.47583333333333333,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1400,
+          "dates": 40,
+          "gain_pct": 0.16980343121108352,
+          "lo": 0.031324672804685406,
+          "hi": 0.3171554442458725,
+          "p_nonpositive": 0.005833333333333334,
+          "target_kind": "raw",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.00039171118375230926,
+          "lo": -0.00614190243102396,
+          "hi": 0.005223616248398113,
+          "p_nonpositive": 0.555,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": 0.0030985682456974974,
+          "lo": -0.004899264019935774,
+          "hi": 0.01032913797655733,
+          "p_nonpositive": 0.20333333333333334,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": 0.0019967222798987763,
+          "lo": -0.0020346336022160263,
+          "hi": 0.006447752330625809,
+          "p_nonpositive": 0.18166666666666667,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1400,
+          "dates": 40,
+          "gain_pct": -0.013644944593569377,
+          "lo": -0.02642171599819591,
+          "hi": -0.000781052007265982,
+          "p_nonpositive": 0.9883333333333333,
+          "target_kind": "norm",
+          "model_type": "ridge"
+        },
+        {
+          "phase": "VAL",
+          "n": 26493,
+          "dates": 757,
+          "gain_pct": -0.061616624952021685,
+          "lo": -0.14042395331569765,
+          "hi": 0.01659551735098729,
+          "p_nonpositive": 0.935,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "HIST",
+          "n": 26374,
+          "dates": 754,
+          "gain_pct": -0.004589323227380111,
+          "lo": -0.06772846950388875,
+          "hi": 0.05726956395051785,
+          "p_nonpositive": 0.5758333333333333,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "LATE",
+          "n": 14902,
+          "dates": 427,
+          "gain_pct": -0.07731607278533988,
+          "lo": -0.18518778553724025,
+          "hi": 0.02590069433166185,
+          "p_nonpositive": 0.9425,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        },
+        {
+          "phase": "FRESH",
+          "n": 1400,
+          "dates": 40,
+          "gain_pct": -0.2886678421782117,
+          "lo": -0.6075835571791606,
+          "hi": 0.02118753860037361,
+          "p_nonpositive": 0.9475,
+          "target_kind": "norm",
+          "model_type": "hgb"
+        }
+      ],
+      "reconstruction": [
+        {
+          "phase": "VAL",
+          "ridge_r2": 0.589879095830079,
+          "hgb_r2": 0.9767761446187373,
+          "n": 26493
+        },
+        {
+          "phase": "HIST",
+          "ridge_r2": 0.6006347017102271,
+          "hgb_r2": 0.9805907435626503,
+          "n": 26374
+        },
+        {
+          "phase": "LATE",
+          "ridge_r2": 0.5968761380403496,
+          "hgb_r2": 0.9793031318456878,
+          "n": 14902
+        },
+        {
+          "phase": "FRESH",
+          "ridge_r2": 0.551303988075754,
+          "hgb_r2": 0.9783003336039812,
+          "n": 1750
+        }
+      ],
+      "heldout_asset": [
+        {
+          "phase": "VAL",
+          "gain_pct": 0.0033091394947429758,
+          "n": 26493,
+          "folds": 3
+        },
+        {
+          "phase": "HIST",
+          "gain_pct": 0.0043979100971689635,
+          "n": 26374,
+          "folds": 3
+        },
+        {
+          "phase": "LATE",
+          "gain_pct": 0.005582705091244435,
+          "n": 14902,
+          "folds": 3
+        },
+        {
+          "phase": "FRESH",
+          "gain_pct": -0.003444650414028187,
+          "n": 1400,
+          "folds": 3
+        }
+      ],
+      "accounts": [
+        {
+          "phase": "VAL",
+          "cost_bp": 0.0,
+          "periods": 677,
+          "annual_return_linear": -0.022774733520219602,
+          "sharpe": -0.43364368335397774,
+          "max_drawdown": -0.6386056894278129,
+          "mean_turnover": 1.131227052998368,
+          "block_mean_lo": -0.0024961705370239776,
+          "block_mean_hi": 0.0003562434924284531,
+          "block_p_nonpositive": 0.9241666666666667
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 1.0,
+          "periods": 677,
+          "annual_return_linear": -0.02562542569377549,
+          "sharpe": -0.4878303796176085,
+          "max_drawdown": -0.65665941179199,
+          "mean_turnover": 1.131227052998368,
+          "block_mean_lo": -0.0025568380263664018,
+          "block_mean_hi": 0.00024825476604583603,
+          "block_p_nonpositive": 0.9283333333333333
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 2.0,
+          "periods": 677,
+          "annual_return_linear": -0.028476117867331386,
+          "sharpe": -0.5419871137663718,
+          "max_drawdown": -0.6738134215717522,
+          "mean_turnover": 1.131227052998368,
+          "block_mean_lo": -0.002719069529825331,
+          "block_mean_hi": 8.674790429280462e-05,
+          "block_p_nonpositive": 0.9666666666666667
+        },
+        {
+          "phase": "VAL",
+          "cost_bp": 5.0,
+          "periods": 677,
+          "annual_return_linear": -0.03702819438799904,
+          "sharpe": -0.7042493253488546,
+          "max_drawdown": -0.7203134846052196,
+          "mean_turnover": 1.131227052998368,
+          "block_mean_lo": -0.003016215160194176,
+          "block_mean_hi": -0.00016781505618038254,
+          "block_p_nonpositive": 0.9908333333333333
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 0.0,
+          "periods": 674,
+          "annual_return_linear": 0.004896157915799641,
+          "sharpe": 0.09030029186259515,
+          "max_drawdown": -0.40169337872501487,
+          "mean_turnover": 1.2033321772040304,
+          "block_mean_lo": -0.0012130345720591609,
+          "block_mean_hi": 0.001524495069601075,
+          "block_p_nonpositive": 0.3933333333333333
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 1.0,
+          "periods": 674,
+          "annual_return_linear": 0.001863760829245484,
+          "sharpe": 0.03436271469557702,
+          "max_drawdown": -0.4097589918839768,
+          "mean_turnover": 1.2033321772040304,
+          "block_mean_lo": -0.0012574220746176645,
+          "block_mean_hi": 0.001401448966580361,
+          "block_p_nonpositive": 0.4633333333333333
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 2.0,
+          "periods": 674,
+          "annual_return_linear": -0.0011686362573086744,
+          "sharpe": -0.02153954400568367,
+          "max_drawdown": -0.4177168469056206,
+          "mean_turnover": 1.2033321772040304,
+          "block_mean_lo": -0.0013294573220506843,
+          "block_mean_hi": 0.0013508383234103112,
+          "block_p_nonpositive": 0.5066666666666667
+        },
+        {
+          "phase": "HIST",
+          "cost_bp": 5.0,
+          "periods": 674,
+          "annual_return_linear": -0.010265827516971141,
+          "sharpe": -0.18902038831486936,
+          "max_drawdown": -0.44095803672360356,
+          "mean_turnover": 1.2033321772040304,
+          "block_mean_lo": -0.0017934488580893947,
+          "block_mean_hi": 0.0009723148469486339,
+          "block_p_nonpositive": 0.7208333333333333
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 0.0,
+          "periods": 346,
+          "annual_return_linear": 0.0023989037730665964,
+          "sharpe": 0.0488911789467407,
+          "max_drawdown": -0.3094920349116801,
+          "mean_turnover": 1.2608958582297225,
+          "block_mean_lo": -0.0017324772175050956,
+          "block_mean_hi": 0.0019175815720848671,
+          "block_p_nonpositive": 0.4533333333333333
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 1.0,
+          "periods": 346,
+          "annual_return_linear": -0.0007785537896723013,
+          "sharpe": -0.015861668462722883,
+          "max_drawdown": -0.3182384190287546,
+          "mean_turnover": 1.2608958582297225,
+          "block_mean_lo": -0.001855473235161037,
+          "block_mean_hi": 0.0018126319034696087,
+          "block_p_nonpositive": 0.515
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 2.0,
+          "periods": 346,
+          "annual_return_linear": -0.003956011352411205,
+          "sharpe": -0.08056683749034686,
+          "max_drawdown": -0.34116246789994986,
+          "mean_turnover": 1.2608958582297225,
+          "block_mean_lo": -0.0018891053135906115,
+          "block_mean_hi": 0.0015389896358066358,
+          "block_p_nonpositive": 0.5575
+        },
+        {
+          "phase": "LATE",
+          "cost_bp": 5.0,
+          "periods": 346,
+          "annual_return_linear": -0.013488384040627912,
+          "sharpe": -0.2743786435202685,
+          "max_drawdown": -0.4057381634197257,
+          "mean_turnover": 1.2608958582297225,
+          "block_mean_lo": -0.0023647507779344583,
+          "block_mean_hi": 0.0012803186870014723,
+          "block_p_nonpositive": 0.7366666666666667
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 0.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 1.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 2.0,
+          "periods": 0
+        },
+        {
+          "phase": "FRESH",
+          "cost_bp": 5.0,
+          "periods": 0
+        }
+      ],
+      "multiplicity": {
+        "observed": -0.011421787827101319,
+        "family_maxT_p": 1.0,
+        "dates": 1511,
+        "family": 36
+      },
+      "gates": {
+        "all_val_hist_model_points_positive": false,
+        "val_hist_ridge_norm_block_low_positive": false,
+        "val_hist_direct_direction_positive": false,
+        "val_hist_heldout_positive": true,
+        "val_hist_1bp_account_positive": false,
+        "val_hist_not_reconstructable_hgb": false,
+        "fresh_direction_positive_with_25_dates": true,
+        "stock_val_hist_direct_and_ridge_positive": false,
+        "canonical_roll_safe_execution_replay": false
+      },
+      "historical_default_off_factor": false,
+      "production_independent_alpha": false,
+      "prediction_files": [
+        "predictions__pointer_leakage_trend_reversal_s10__h10__raw__ridge.csv.gz",
+        "predictions__pointer_leakage_trend_reversal_s10__h10__raw__hgb.csv.gz",
+        "predictions__pointer_leakage_trend_reversal_s10__h10__norm__ridge.csv.gz",
+        "predictions__pointer_leakage_trend_reversal_s10__h10__norm__hgb.csv.gz"
+      ],
+      "stock_domain_transfer": {
+        "universe": "30 current liquid US stocks; survivorship-limited domain transfer",
+        "direct": [
+          {
+            "phase": "VAL",
+            "n_rows": 22710,
+            "products": 30,
+            "dates": 757,
+            "mean_product_tsic": 0.0419390799238808,
+            "median_product_tsic": 0.06291204609887231,
+            "positive_product_share": 0.7666666666666667,
+            "mean_daily_csic": -0.01301108085749174,
+            "positive_date_share": 0.45970937912813736
+          },
+          {
+            "phase": "HIST",
+            "n_rows": 22590,
+            "products": 30,
+            "dates": 753,
+            "mean_product_tsic": 0.019877210128778758,
+            "median_product_tsic": 0.018847686178363472,
+            "positive_product_share": 0.6,
+            "mean_daily_csic": 0.012659200677797095,
+            "positive_date_share": 0.5232403718459495
+          },
+          {
+            "phase": "LATE",
+            "n_rows": 12720,
+            "products": 30,
+            "dates": 424,
+            "mean_product_tsic": 0.040761171836372144,
+            "median_product_tsic": 0.05507780952605851,
+            "positive_product_share": 0.7,
+            "mean_daily_csic": 0.025355216487921585,
+            "positive_date_share": 0.5518867924528302
+          },
+          {
+            "phase": "FRESH",
+            "n_rows": 1200,
+            "products": 30,
+            "dates": 40,
+            "mean_product_tsic": 0.14908067542213882,
+            "median_product_tsic": 0.18686679174484055,
+            "positive_product_share": 0.7333333333333333,
+            "mean_daily_csic": -0.11947719688542824,
+            "positive_date_share": 0.275
+          }
+        ],
+        "ridge_normalized_increment": [
+          {
+            "phase": "VAL",
+            "n": 22710,
+            "dates": 757,
+            "gain_pct": -0.02076585559678534,
+            "lo": -0.06306938414017577,
+            "hi": 0.007918338525262487,
+            "p_nonpositive": 0.835
+          },
+          {
+            "phase": "HIST",
+            "n": 22590,
+            "dates": 753,
+            "gain_pct": -0.0018400378382417812,
+            "lo": -0.010304644429158892,
+            "hi": 0.0074053938604140114,
+            "p_nonpositive": 0.6575
+          },
+          {
+            "phase": "LATE",
+            "n": 12720,
+            "dates": 424,
+            "gain_pct": -0.00828352915970867,
+            "lo": -0.022045427967263647,
+            "hi": 0.005592132485601446,
+            "p_nonpositive": 0.8733333333333333
+          },
+          {
+            "phase": "FRESH",
+            "n": 1200,
+            "dates": 40,
+            "gain_pct": -0.037746897008991295,
+            "lo": -0.08320491931585017,
+            "hi": 0.007180870099397377,
+            "p_nonpositive": 0.9408333333333333
+          }
+        ],
+        "val_hist_positive": false
+      }
+    }
+  ],
+  "hourly_homologue": {
+    "status": "not_run_no_daily_admission"
+  },
+  "admitted_historical_default_off": [],
+  "admitted_production_independent_alpha": []
+}
